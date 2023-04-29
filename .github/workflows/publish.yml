@@ -24,11 +24,13 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
 
+    - name: Create .npmrc
+      run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
     - name: Publish package to npm
       run: yarn publish --non-interactive
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        YARN_NPM_REGISTRY_SERVER: https://registry.npmjs.org
 
     - name: Create GitHub Release
       uses: actions/create-release@v1
