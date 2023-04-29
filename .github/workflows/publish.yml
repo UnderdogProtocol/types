@@ -25,9 +25,10 @@ jobs:
       run: yarn install --frozen-lockfile
 
     - name: Publish package to npm
-      run: yarn publish
+      run: yarn publish --non-interactive
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        YARN_NPM_REGISTRY_SERVER: https://registry.npmjs.org
 
     - name: Create GitHub Release
       uses: actions/create-release@v1
