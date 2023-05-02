@@ -1,5 +1,13 @@
 import { z } from "zod";
 
+export enum NetworkEnum {
+  Devnet = 'DEVNET',
+  Localnet = 'LOCALNET',
+  Mainnet = 'MAINNET'
+}
+
+export const NetworkEnumSchema = z.nativeEnum(NetworkEnum);
+
 export const idSchema = z.coerce.number().int().openapi({ type: "integer" });
 
 export const publicKeyValueSchema = z
