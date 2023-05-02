@@ -1,14 +1,17 @@
-import { z } from "zod";
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
-
+import { z } from "zod";
 
 import { metadataSchema, publicKeyValueSchema } from "./metadata";
 
 extendZodWithOpenApi(z);
+
 export const projectSchema = metadataSchema.omit({ attributes: true }).merge(
   z.object({
     id: z.number().openapi({ description: "Unique ID for a Project" }),
     mintAddress: publicKeyValueSchema,
+    merkleTreeAddress: publicKeyValueSchema.optional().openapi({
+      description: "Merkle tree address for a compressed Project",
+    }),
     transferable: z
       .boolean()
       .optional()

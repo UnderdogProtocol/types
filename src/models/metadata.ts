@@ -1,12 +1,12 @@
-import { z } from "zod";
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+import { z } from "zod";
 
 extendZodWithOpenApi(z);
 
 export enum NetworkEnum {
-  Devnet = 'DEVNET',
-  Localnet = 'LOCALNET',
-  Mainnet = 'MAINNET'
+  Devnet = "DEVNET",
+  Localnet = "LOCALNET",
+  Mainnet = "MAINNET",
 }
 
 export const NetworkEnumSchema = z.nativeEnum(NetworkEnum);
