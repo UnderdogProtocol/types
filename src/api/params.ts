@@ -2,6 +2,10 @@ import { z } from "zod";
 
 import { idSchema } from "../models";
 
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+
+extendZodWithOpenApi(z);
+
 export const projectParamsSchema = z.object({
   type: z
     .string()

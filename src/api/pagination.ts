@@ -2,6 +2,10 @@ import { ZodTypeAny, z } from "zod";
 
 import { nftSchema, projectSchema } from "../models";
 
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+
+extendZodWithOpenApi(z);
+
 export const paginatedQuerySchema = z.object({
   page: z.coerce.number().optional().default(1),
   limit: z.coerce.number().lte(100).optional().default(10),

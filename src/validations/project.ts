@@ -1,4 +1,6 @@
 import { z } from "zod";
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+
 
 import {
   nftPaginatedResponseSchema,
@@ -9,6 +11,8 @@ import {
   sortQuerySchema,
 } from "../api";
 import { metadataSchema, projectSchema } from "../models";
+
+extendZodWithOpenApi(z);
 
 export const sizeEnumSchema = z.enum(["xs", "sm", "md", "lg", "xl", "2xl"]);
 

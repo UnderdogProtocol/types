@@ -2,6 +2,10 @@ import { AnyZodObject, z } from "zod";
 
 import { nftSchema, projectSchema } from "../models";
 
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+
+extendZodWithOpenApi(z);
+
 function createTransactionResponseSchema<T extends AnyZodObject>(schema: T) {
   return z
     .object({

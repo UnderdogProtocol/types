@@ -1,7 +1,10 @@
 import { z } from "zod";
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+
 
 import { metadataSchema, publicKeyValueSchema } from "./metadata";
 
+extendZodWithOpenApi(z);
 export const projectSchema = metadataSchema.omit({ attributes: true }).merge(
   z.object({
     id: z.number().openapi({ description: "Unique ID for a Project" }),
