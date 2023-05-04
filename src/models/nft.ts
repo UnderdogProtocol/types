@@ -26,4 +26,6 @@ export const nftSchema = metadataSchema.merge(
   })
 );
 
+export const publicNftSchema = nftSchema.omit({ id: true, projectId: true });
+
 export type Nft = z.infer<typeof nftSchema>;

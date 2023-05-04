@@ -12,7 +12,7 @@ export const paginatedQuerySchema = z.object({
 
 export type PaginatedQuery = z.infer<typeof paginatedQuerySchema>;
 
-function createPaginatedResponseSchema<T extends ZodTypeAny>(schema: T) {
+export function createPaginatedResponseSchema<T extends ZodTypeAny>(schema: T) {
   return z.object({
     results: z.array(schema),
     page: z.number().openapi({ description: "Page number", example: 1 }),
