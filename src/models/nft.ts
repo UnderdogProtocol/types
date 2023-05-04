@@ -22,9 +22,6 @@ export const nftSchema = metadataSchema.merge(
     claimerAddress: publicKeyValueSchema.optional().openapi({
       description: "Wallet address allowed to claim the NFT",
     }),
-    assetAddress: publicKeyValueSchema
-      .optional()
-      .openapi({ description: "Asset address for a Bubblegum NFT" }),
     status: z.string(),
   })
 );
