@@ -1,7 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { ZodTypeAny, z } from "zod";
 
-import { nftSchema, projectSchema } from "../models";
+import { nftSchema, projectSchema, requestSchema } from "../models";
 
 extendZodWithOpenApi(z);
 
@@ -25,3 +25,5 @@ export function createPaginatedResponseSchema<T extends ZodTypeAny>(schema: T) {
 export const projectPaginatedResponseSchema =
   createPaginatedResponseSchema<typeof projectSchema>(projectSchema);
 export const nftPaginatedResponseSchema = createPaginatedResponseSchema<typeof nftSchema>(nftSchema);
+export const requestPaginatedResponseSchema =
+  createPaginatedResponseSchema<typeof requestSchema>(requestSchema);
