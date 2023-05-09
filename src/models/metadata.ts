@@ -46,7 +46,7 @@ export const metadataSchema = z.object({
     .optional()
     .openapi({ description: "Animation URL for your NFT", example: "https://example.com/animation.mp4" }),
   attributes: z
-    .record(z.string())
+    .record(z.string(), z.union([z.string(), z.number()]))
     .optional()
     .openapi({
       description: "Key-value pairs of your NFT attributes",
