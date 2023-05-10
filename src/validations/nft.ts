@@ -38,6 +38,10 @@ export const createNftResponseSchema = z.union([
 ]);
 
 export type CreateNftRequest = z.infer<typeof createNftRequestSchema>;
+export type CreateTransferableNftResponse = z.infer<typeof createTransferableNftResponseSchema>;
+export type createNonTransferableNftResponse = z.infer<typeof createNonTransferableNftResponseSchema>;
+export type CreateCompressedNftResponse = z.infer<typeof createCompressedNftResponseSchema>;
+export type UpsertNftResponse = z.infer<typeof upsertNftResponseSchema>;
 export type CreateNftResponse = z.infer<typeof createNftResponseSchema>;
 
 export const getNftRequestSchema = z.object({
