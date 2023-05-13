@@ -12,13 +12,20 @@ import { nftSchema, metadataSchema, publicKeyValueSchema } from "../models";
 
 extendZodWithOpenApi(z);
 
+export const createNftInputSchema = metadataSchema.merge(
+  z.object({
+    receiverAddress: publicKeyValueSchema.optional().openapi({
+      description: "Wallet address that will receive the NFT",
+    }),
+  })
+);
+
+export type CreateNftInput = z.infer<typeof createNftInputSchema>;
+
 export const createNftRequestSchema = z.object({
   params: projectParamsSchema,
-  body: metadataSchema.merge(
+  body: createNftInputSchema.merge(
     z.object({
-      receiverAddress: publicKeyValueSchema.optional().openapi({
-        description: "Wallet address that will receive the NFT",
-      }),
       upsert: z.boolean().optional().default(false).openapi({
         description: "If true, will update the NFT if one with the same owner / claimer exists",
       }),
@@ -43,6 +50,11 @@ export type createNonTransferableNftResponse = z.infer<typeof createNonTransfera
 export type CreateCompressedNftResponse = z.infer<typeof createCompressedNftResponseSchema>;
 export type UpsertNftResponse = z.infer<typeof upsertNftResponseSchema>;
 export type CreateNftResponse = z.infer<typeof createNftResponseSchema>;
+
+export const createBatchNftRequestSchema = z.object({
+  params: projectParamsSchema,
+  body: z.array(createNftInputSchema),
+});
 
 export const getNftRequestSchema = z.object({
   params: nftParamsSchema,
