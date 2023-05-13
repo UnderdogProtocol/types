@@ -56,6 +56,8 @@ export const createBatchNftRequestSchema = z.object({
   body: z.array(createNftInputSchema),
 });
 
+export type CreateBatchNftRequest = z.infer<typeof createBatchNftRequestSchema>;
+
 export const getNftRequestSchema = z.object({
   params: nftParamsSchema,
 });
