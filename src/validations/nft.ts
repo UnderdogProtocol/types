@@ -34,7 +34,10 @@ export const createNftRequestSchema = z.object({
 });
 
 export const createTransferableNftResponseSchema = nftTransactionResponseSchema;
-export const createCompressedNftResponseSchema = nftTransactionResponseSchema;
+export const createCompressedNftResponseSchema = nftTransactionResponseSchema.omit({
+  nftId: true,
+  mintAddress: true,
+});
 export const createNonTransferableNftResponseSchema = nftSchema;
 export const upsertNftResponseSchema = z.array(nftSchema);
 export const createNftResponseSchema = z.union([
