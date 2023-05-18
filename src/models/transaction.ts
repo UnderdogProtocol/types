@@ -7,6 +7,7 @@ export const transactionSchema = z.object({
   id: z.string(),
   status: z.string(),
   type: z.string(),
+  data: z.string().optional(),
   createdAt: z.string(),
 });
 
