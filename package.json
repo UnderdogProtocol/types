@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^4.6.0",
+    "@solana/web3.js": "^1.73.2",
     "zod": "^3.21.4"
   },
   "devDependencies": {

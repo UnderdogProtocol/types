@@ -1,4 +1,5 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+import { PublicKey } from "@solana/web3.js";
 import { z } from "zod";
 
 extendZodWithOpenApi(z);
@@ -14,12 +15,14 @@ export const NetworkEnumSchema = z.nativeEnum(NetworkEnum);
 export const idSchema = z.coerce.number().int().openapi({ type: "integer" });
 
 export const publicKeyValueSchema = z
-  .string()
-  .regex(/^[A-HJ-NP-Za-km-z1-9]*$/)
+  .union([z.string().regex(/^[A-HJ-NP-Za-km-z1-9]*$/), z.instanceof(PublicKey)])
+  .transform((value) => value.toString())
   .openapi({
     description: "Base-58 encoded string representing an on-chain address",
     example: "EBeLw5jEdrEgDe17BdKGW2MizzGxtxigEuAGvYC7VzDp",
   });
+
+export const publicKeySchema = publicKeyValueSchema.transform((value) => new PublicKey(value));
 
 export const MAX_NAME_LENGTH = 32;
 export const MAX_SYMBOL_LENGTH = 10;

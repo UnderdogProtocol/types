@@ -54,12 +54,12 @@ export type CreateCompressedNftResponse = z.infer<typeof createCompressedNftResp
 export type UpsertNftResponse = z.infer<typeof upsertNftResponseSchema>;
 export type CreateNftResponse = z.infer<typeof createNftResponseSchema>;
 
-export const createBatchNftRequestSchema = z.object({
+export const batchNftRequestSchema = z.object({
   params: projectParamsSchema,
   body: z.array(createNftInputSchema),
 });
 
-export type CreateBatchNftRequest = z.infer<typeof createBatchNftRequestSchema>;
+export type BatchNftRequest = z.infer<typeof batchNftRequestSchema>;
 
 export const getNftRequestSchema = z.object({
   params: nftParamsSchema,
