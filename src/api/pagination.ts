@@ -1,7 +1,14 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { ZodTypeAny, z } from "zod";
 
-import { transactionSchema, nftSchema, projectSchema, requestSchema, publicKeyValueSchema } from "../models";
+import {
+  transactionSchema,
+  nftSchema,
+  projectSchema,
+  requestSchema,
+  publicKeyValueSchema,
+  memberSchema,
+} from "../models";
 
 extendZodWithOpenApi(z);
 
@@ -34,3 +41,5 @@ export const transactionResponseSchema = transactionSchema
 
 export const transactionPaginatedResponseSchema =
   createPaginatedResponseSchema<typeof transactionResponseSchema>(transactionResponseSchema);
+
+export const memberPaginatedResponseSchema = createPaginatedResponseSchema<typeof memberSchema>(memberSchema);
