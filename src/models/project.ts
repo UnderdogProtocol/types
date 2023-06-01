@@ -14,11 +14,9 @@ export const projectSchema = metadataSchema.omit({ attributes: true }).merge(
     }),
     transferable: z
       .boolean()
-      .optional()
       .openapi({ description: "Whether or not the NFTs in this project can be transferred" }),
     compressed: z
       .boolean()
-      .optional()
       .openapi({ description: "Whether or not the NFTs in this project are compressed" }),
     status: z.string(),
   })

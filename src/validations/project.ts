@@ -21,17 +21,15 @@ export type SizeEnum = z.infer<typeof sizeEnumSchema>;
 export const createProjectRequestSchema = registry.register(
   "CreateProjectRequest",
   z.object({
-    body: projectSchema
-      .pick({
-        name: true,
-        symbol: true,
-        description: true,
-        image: true,
-        transferable: true,
-        compressed: true,
-        animationUrl: true,
-      })
-      .merge(z.object({ size: sizeEnumSchema.optional().default("xs") })),
+    body: projectSchema.pick({
+      name: true,
+      symbol: true,
+      description: true,
+      image: true,
+      transferable: true,
+      compressed: true,
+      animationUrl: true,
+    }),
   })
 );
 
@@ -118,10 +116,7 @@ export const updateProjectRequestSchema = registry.register(
   })
 );
 
-export const updateProjectResponseSchema = registry.register(
-  "UpdateProjectResponse",
-  projectSchema
-);
+export const updateProjectResponseSchema = registry.register("UpdateProjectResponse", projectSchema);
 
 export type UpdateProjectRequest = z.infer<typeof updateProjectRequestSchema>;
 export type UpdateProjectResponse = z.infer<typeof updateProjectResponseSchema>;

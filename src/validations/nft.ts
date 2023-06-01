@@ -55,20 +55,14 @@ export const createNonTransferableNftResponseSchema = registry.register(
   nftSchema
 );
 
-export const upsertNftResponseSchema = registry.register(
-  "UpsertNftResponse",
-  z.array(nftSchema)
-);
+export const upsertNftResponseSchema = registry.register("UpsertNftResponse", z.array(nftSchema));
 
-export const createNftResponseSchema = registry.register(
-  "CreateNftResponse",
-  z.union([
-    createTransferableNftResponseSchema,
-    createCompressedNftResponseSchema,
-    createNonTransferableNftResponseSchema,
-    upsertNftResponseSchema,
-  ])
-);
+export const createNftResponseSchema = z.union([
+  createTransferableNftResponseSchema,
+  createCompressedNftResponseSchema,
+  createNonTransferableNftResponseSchema,
+  upsertNftResponseSchema,
+]);
 
 export type CreateNftRequest = z.infer<typeof createNftRequestSchema>;
 export type CreateTransferableNftResponse = z.infer<typeof createTransferableNftResponseSchema>;
@@ -94,10 +88,7 @@ export const getNftRequestSchema = registry.register(
   })
 );
 
-export const getNftResponseSchema = registry.register(
-  "GetNftResponse",
-  nftSchema
-);
+export const getNftResponseSchema = registry.register("GetNftResponse", nftSchema);
 
 export type GetNftRequest = z.infer<typeof getNftRequestSchema>;
 export type GetNftResponse = z.infer<typeof getNftResponseSchema>;
@@ -110,10 +101,7 @@ export const getNftsRequestSchema = registry.register(
   })
 );
 
-export const getNftsResponseSchema = registry.register(
-  "GetNftsResponse",
-  nftPaginatedResponseSchema
-);
+export const getNftsResponseSchema = registry.register("GetNftsResponse", nftPaginatedResponseSchema);
 
 export type GetNftsRequest = z.infer<typeof getNftsRequestSchema>;
 export type GetNftsResponse = z.infer<typeof getNftsResponseSchema>;
@@ -126,10 +114,7 @@ export const searchNftsRequestSchema = registry.register(
   })
 );
 
-export const searchNftsResponseSchema = registry.register(
-  "SearchNftsResponse",
-  nftPaginatedResponseSchema
-);
+export const searchNftsResponseSchema = registry.register("SearchNftsResponse", nftPaginatedResponseSchema);
 
 export type SearchNftsRequest = z.infer<typeof searchNftsRequestSchema>;
 export type SearchNftsResponse = z.infer<typeof searchNftsResponseSchema>;
@@ -142,10 +127,7 @@ export const updateNftRequestSchema = registry.register(
   })
 );
 
-export const updateNftResponseSchema = registry.register(
-  "UpdateNftResponse",
-  nftSchema
-);
+export const updateNftResponseSchema = registry.register("UpdateNftResponse", nftSchema);
 
 export type UpdateNftRequest = z.infer<typeof updateNftRequestSchema>;
 export type UpdateNftResponse = z.infer<typeof updateNftResponseSchema>;
@@ -165,10 +147,7 @@ export const partialUpdateNftRequestSchema = registry.register(
   })
 );
 
-export const partialUpdateNftResponseSchema = registry.register(
-  "PartialUpdateNftResponse",
-  nftSchema
-);
+export const partialUpdateNftResponseSchema = registry.register("PartialUpdateNftResponse", nftSchema);
 
 export type PartialUpdateNftRequest = z.infer<typeof partialUpdateNftRequestSchema>;
 export type PartialUpdateNftResponse = z.infer<typeof partialUpdateNftResponseSchema>;
@@ -184,49 +163,36 @@ export const getNftClaimLinkRequestSchema = registry.register(
 
 export const getNftClaimLinkResponseSchema = registry.register(
   "GetNftClaimLinkResponse",
-  z
-    .object({
-      link: z.string(),
-      mintAddress: z.string(),
-      claimerAddress: publicKeyValueSchema.optional(),
-      otp: z.string().uuid().optional(),
-    })
-    .refine(
-      (data) => {
-        return (data.claimerAddress && !data.otp) || (!data.claimerAddress && data.otp);
-      },
-      {
-        message: "The object must contain either 'claimerAddress' or 'otp', but not both.",
-      }
-    )
+  z.object({
+    link: z.string(),
+    mintAddress: z.string(),
+    claimerAddress: publicKeyValueSchema.optional(),
+    otp: z.string().uuid().optional(),
+  })
+  // .refine(
+  //   (data) => {
+  //     return (data.claimerAddress && !data.otp) || (!data.claimerAddress && data.otp);
+  //   },
+  //   {
+  //     message: "The object must contain either 'claimerAddress' or 'otp', but not both.",
+  //   }
+  // )
+  // .openapi({ type: "object" })
 );
-
 
 export type GetNftClaimLinkRequest = z.infer<typeof getNftClaimLinkRequestSchema>;
 export type GetNftClaimLinkResponse = z.infer<typeof getNftClaimLinkResponseSchema>;
 
-export const revokeNftRequestSchema = registry.register(
-  "RevokeNftRequest",
-  nonTransferableNftSchema
-);
+export const revokeNftRequestSchema = registry.register("RevokeNftRequest", nonTransferableNftSchema);
 
-export const revokeNftResponseSchema = registry.register(
-  "RevokeNftResponse",
-  nftTransactionResponseSchema
-);
+export const revokeNftResponseSchema = registry.register("RevokeNftResponse", nftTransactionResponseSchema);
 
 export type RevokeNftRequest = z.infer<typeof revokeNftRequestSchema>;
 export type RevokeNftResponse = z.infer<typeof revokeNftResponseSchema>;
 
-export const burnNftRequestSchema = registry.register(
-  "BurnNftRequest",
-  nonTransferableNftSchema
-);
+export const burnNftRequestSchema = registry.register("BurnNftRequest", nonTransferableNftSchema);
 
-export const burnNftResponseSchema = registry.register(
-  "BurnNftResponse",
-  nftTransactionResponseSchema
-);
+export const burnNftResponseSchema = registry.register("BurnNftResponse", nftTransactionResponseSchema);
 
 export type BurnNftRequest = z.infer<typeof burnNftRequestSchema>;
 export type BurnNftResponse = z.infer<typeof burnNftResponseSchema>;

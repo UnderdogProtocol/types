@@ -13,8 +13,14 @@ import {
 extendZodWithOpenApi(z);
 
 export const paginatedQuerySchema = z.object({
-  page: z.coerce.number().optional().default(1),
-  limit: z.coerce.number().lte(100).optional().default(10),
+  page: z.coerce.number().optional().default(1).openapi({
+    description: "Page number",
+    default: 1,
+  }),
+  limit: z.coerce.number().lte(100).optional().default(10).openapi({
+    description: "Items per page", 
+    default: 10,
+  }),
 });
 
 export type PaginatedQuery = z.infer<typeof paginatedQuerySchema>;
