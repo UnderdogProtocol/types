@@ -28,6 +28,7 @@ export const createProjectRequestSchema = registry.register(
       image: true,
       transferable: true,
       compressed: true,
+      semifungible: true,
       animationUrl: true,
     }),
   })

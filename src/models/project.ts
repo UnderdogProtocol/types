@@ -5,21 +5,22 @@ import { metadataSchema, publicKeyValueSchema } from "./metadata";
 
 extendZodWithOpenApi(z);
 
-export const projectSchema = metadataSchema.omit({ attributes: true }).merge(
-  z.object({
+export const projectSchema = z
+  .object({
     id: z.number().openapi({ description: "Unique ID for a Project" }),
     mintAddress: publicKeyValueSchema,
-    merkleTreeAddress: publicKeyValueSchema.optional().openapi({
-      description: "Merkle tree address for a compressed Project",
-    }),
     transferable: z
       .boolean()
       .openapi({ description: "Whether or not the NFTs in this project can be transferred" }),
+    semifungible: z
+      .boolean()
+      .optional()
+      .openapi({ description: "Whether or not the NFTs in this project are semifungible" }),
     compressed: z
       .boolean()
       .openapi({ description: "Whether or not the NFTs in this project are compressed" }),
     status: z.string(),
   })
-);
+  .merge(metadataSchema.omit({ attributes: true }));
 
 export type Project = z.infer<typeof projectSchema>;
