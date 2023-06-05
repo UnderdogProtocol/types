@@ -2,6 +2,7 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import { publicKeySchema, idSchema, metadataSchema } from "../models";
+import { createSftInputSchema } from "../validations";
 
 extendZodWithOpenApi(z);
 
@@ -58,6 +59,11 @@ export const batchCompressedNftPayloadSchema = projectPayloadSchema
     z.object({ batch: z.array(z.object({ metadata: metadataSchema, receiverAddress: publicKeySchema })) })
   );
 export type BatchCompressedNftPayload = z.infer<typeof batchCompressedNftPayloadSchema>;
+
+export const batchCompressedSftPayloadSchema = projectPayloadSchema
+  .omit({ mintAddress: true })
+  .merge(z.object({ batch: z.array(z.object({ receiverAddress: publicKeySchema })) }));
+export type BatchCompressedSftPayload = z.infer<typeof batchCompressedSftPayloadSchema>;
 
 export const burnNftPayloadSchema = nftPayloadSchema.omit({ receiverAddress: true });
 export type BurnNftPayload = z.infer<typeof burnNftPayloadSchema>;
