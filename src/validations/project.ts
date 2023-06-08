@@ -29,7 +29,7 @@ export const createProjectRequestSchema = registry.register(
       transferable: true,
       compressed: true,
       semifungible: true,
-      public: true,
+      isPublic: true,
       animationUrl: true,
     }),
   })

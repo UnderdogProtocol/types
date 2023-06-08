@@ -16,7 +16,7 @@ export const projectSchema = z
       .boolean()
       .optional()
       .openapi({ description: "Whether or not the NFTs in this project are semifungible" }),
-    public: z
+    isPublic: z
       .boolean()
       .optional()
       .openapi({ description: "Allows public minting of NFTs through an API endpoint" }),
