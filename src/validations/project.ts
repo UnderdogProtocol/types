@@ -31,6 +31,7 @@ export const createProjectRequestSchema = registry.register(
       semifungible: true,
       isPublic: true,
       animationUrl: true,
+      attributes: true,
     }),
   })
 );

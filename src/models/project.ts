@@ -25,6 +25,6 @@ export const projectSchema = z
       .openapi({ description: "Whether or not the NFTs in this project are compressed" }),
     status: z.string(),
   })
-  .merge(metadataSchema.omit({ attributes: true }));
+  .merge(metadataSchema);
 
 export type Project = z.infer<typeof projectSchema>;
