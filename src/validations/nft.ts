@@ -93,6 +93,20 @@ export const getNftResponseSchema = registry.register("GetNftResponse", nftSchem
 export type GetNftRequest = z.infer<typeof getNftRequestSchema>;
 export type GetNftResponse = z.infer<typeof getNftResponseSchema>;
 
+export const getNftByMintAddressRequestSchema = registry.register(
+  "GetNftByMintAddressRequest",
+  z.object({
+    params: z.object({
+      mintAddress: publicKeyValueSchema,
+    }),
+  })
+);
+
+export const getNftByMintAddressResponseSchema = registry.register("GetNftByMintAddressResponse", nftSchema);
+
+export type GetNftByMintAddressRequest = z.infer<typeof getNftByMintAddressRequestSchema>;
+export type GetNftByMintAddressResponse = z.infer<typeof getNftByMintAddressResponseSchema>;
+
 export const getNftsRequestSchema = registry.register(
   "GetNftsRequest",
   z.object({
