@@ -8,7 +8,7 @@ import {
   paginatedQuerySchema,
   projectParamsSchema,
 } from "../api";
-import { nftSchema, metadataSchema, publicKeyValueSchema } from "../models";
+import { nftSchema, metadataSchema, publicKeyValueSchema, publicNftSchema } from "../models";
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
@@ -102,7 +102,10 @@ export const getNftByMintAddressRequestSchema = registry.register(
   })
 );
 
-export const getNftByMintAddressResponseSchema = registry.register("GetNftByMintAddressResponse", nftSchema);
+export const getNftByMintAddressResponseSchema = registry.register(
+  "GetNftByMintAddressResponse",
+  publicNftSchema
+);
 
 export type GetNftByMintAddressRequest = z.infer<typeof getNftByMintAddressRequestSchema>;
 export type GetNftByMintAddressResponse = z.infer<typeof getNftByMintAddressResponseSchema>;
