@@ -26,7 +26,7 @@ export const updateKeyRequestSchema = z.object({
     orgId: idSchema,
   }),
   body: z.object({
-    network: networkEnumSchema,
+    network: networkEnumSchema.nullable(),
   }),
 });
 export type UpdateKeyRequest = z.infer<typeof updateKeyRequestSchema>;
