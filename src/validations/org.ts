@@ -50,7 +50,7 @@ export type GetMembersRequest = z.infer<typeof getMembersRequestSchema>;
 export const getMembersResponseSchema = memberPaginatedResponseSchema;
 export type GetMembersResponse = z.infer<typeof getMembersResponseSchema>;
 
-export const addOrgMemberRequestSchema = z.object({
+export const addMemberRequestSchema = z.object({
   params: z.object({
     orgId: idSchema,
   }),
@@ -59,7 +59,7 @@ export const addOrgMemberRequestSchema = z.object({
     memberAddress: publicKeyValueSchema,
   }),
 });
-export type AddOrgMemberRequest = z.infer<typeof addOrgMemberRequestSchema>;
+export type AddMemberRequest = z.infer<typeof addMemberRequestSchema>;
 
-export const addOrgMemberResponseSchema = memberTransactionResponseSchema;
-export type AddOrgMemberResponse = z.infer<typeof addOrgMemberResponseSchema>;
+export const addMemberResponseSchema = memberTransactionResponseSchema;
+export type AddMemberResponse = z.infer<typeof addMemberResponseSchema>;
