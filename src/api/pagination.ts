@@ -6,9 +6,9 @@ import {
   nftSchema,
   projectSchema,
   requestSchema,
-  publicKeyValueSchema,
   memberSchema,
   orgSchema,
+  webhookSchema,
 } from "../models";
 
 extendZodWithOpenApi(z);
@@ -50,3 +50,5 @@ export const transactionPaginatedResponseSchema =
 export const memberPaginatedResponseSchema = createPaginatedResponseSchema<typeof memberSchema>(memberSchema);
 
 export const orgPaginatedResponseSchema = createPaginatedResponseSchema<typeof orgSchema>(orgSchema);
+
+export const webhookPaginatedResponseSchema = createPaginatedResponseSchema<typeof webhookSchema>(webhookSchema);
