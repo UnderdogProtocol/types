@@ -8,6 +8,7 @@ import {
   requestSchema,
   publicKeyValueSchema,
   memberSchema,
+  orgSchema,
 } from "../models";
 
 extendZodWithOpenApi(z);
@@ -37,15 +38,15 @@ export function createPaginatedResponseSchema<T extends ZodTypeAny>(schema: T) {
 
 export const projectPaginatedResponseSchema =
   createPaginatedResponseSchema<typeof projectSchema>(projectSchema);
+
 export const nftPaginatedResponseSchema = createPaginatedResponseSchema<typeof nftSchema>(nftSchema);
+
 export const requestPaginatedResponseSchema =
   createPaginatedResponseSchema<typeof requestSchema>(requestSchema);
 
-export const transactionResponseSchema = transactionSchema
-  .omit({ walletAddress: true })
-  .merge(z.object({ walletAddress: publicKeyValueSchema }));
-
 export const transactionPaginatedResponseSchema =
-  createPaginatedResponseSchema<typeof transactionResponseSchema>(transactionResponseSchema);
+  createPaginatedResponseSchema<typeof transactionSchema>(transactionSchema);
 
 export const memberPaginatedResponseSchema = createPaginatedResponseSchema<typeof memberSchema>(memberSchema);
+
+export const orgPaginatedResponseSchema = createPaginatedResponseSchema<typeof orgSchema>(orgSchema);

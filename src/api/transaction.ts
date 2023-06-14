@@ -1,7 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { AnyZodObject, z } from "zod";
 
-import { nftSchema, projectSchema } from "../models";
+import { memberSchema, nftSchema, projectSchema } from "../models";
 
 extendZodWithOpenApi(z);
 
@@ -50,3 +50,12 @@ export const projectTransactionResponseSchema =
   createTransactionResponseSchema<typeof projectTransactionSchema>(projectTransactionSchema);
 
 export type ProjectTransactionResponse = z.infer<typeof projectTransactionResponseSchema>;
+
+const memberTransactionSchema = memberSchema.pick({
+  walletAddress: true,
+  superAdminAddress: true,
+  orgId: true,
+});
+
+export const memberTransactionResponseSchema =
+  createTransactionResponseSchema<typeof memberTransactionSchema>(memberTransactionSchema);

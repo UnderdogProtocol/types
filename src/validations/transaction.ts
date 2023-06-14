@@ -2,7 +2,7 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import { paginatedQuerySchema, transactionPaginatedResponseSchema } from "../api";
-import { publicKeyValueSchema, transactionSchema } from "../models";
+import { transactionSchema } from "../models";
 
 extendZodWithOpenApi(z);
 
@@ -26,7 +26,5 @@ export const getTransactionRequestSchema = z.object({
 });
 export type GetTransactionRequest = z.infer<typeof getTransactionRequestSchema>;
 
-export const getTransactionResponseSchema = transactionSchema
-  .omit({ walletAddress: true })
-  .merge(z.object({ walletAddress: publicKeyValueSchema }));
+export const getTransactionResponseSchema = transactionSchema;
 export type GetTransactionResponse = z.infer<typeof getTransactionResponseSchema>;
