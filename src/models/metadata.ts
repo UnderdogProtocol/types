@@ -12,7 +12,7 @@ export enum NetworkEnum {
   Mainnet = "MAINNET",
 }
 
-export const NetworkEnumSchema = z.nativeEnum(NetworkEnum);
+export const networkEnumSchema = z.nativeEnum(NetworkEnum);
 
 export enum StatusEnum {
   Burned = "burned",

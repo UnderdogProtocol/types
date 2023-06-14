@@ -5,7 +5,7 @@ import { webhookSchema } from "../models";
 
 export const createWebhookRequestSchema = z.object({
   body: z.object({
-    url: z.string().openapi({ description: "Encoded URL for the callback endpoint." }),
+    url: z.string(),
     triggers: z.array(z.string()),
   }),
 });

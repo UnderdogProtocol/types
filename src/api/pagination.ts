@@ -10,6 +10,7 @@ import {
   orgSchema,
   webhookSchema,
 } from "../models";
+import { keySchema } from "../models/key";
 
 extendZodWithOpenApi(z);
 
@@ -19,7 +20,7 @@ export const paginatedQuerySchema = z.object({
     default: 1,
   }),
   limit: z.coerce.number().lte(100).optional().default(10).openapi({
-    description: "Items per page", 
+    description: "Items per page",
     default: 10,
   }),
 });
@@ -51,4 +52,7 @@ export const memberPaginatedResponseSchema = createPaginatedResponseSchema<typeo
 
 export const orgPaginatedResponseSchema = createPaginatedResponseSchema<typeof orgSchema>(orgSchema);
 
-export const webhookPaginatedResponseSchema = createPaginatedResponseSchema<typeof webhookSchema>(webhookSchema);
+export const webhookPaginatedResponseSchema =
+  createPaginatedResponseSchema<typeof webhookSchema>(webhookSchema);
+
+export const keyPaginatedResponseSchema = createPaginatedResponseSchema<typeof keySchema>(keySchema);
