@@ -3,6 +3,9 @@ import { z } from "zod";
 import { keyPaginatedResponseSchema, paginatedQuerySchema } from "../api";
 import { idSchema, keySchema, networkEnumSchema } from "../models";
 
+export const createKeyRequestSchema = z.object({ params: z.object({ orgId: idSchema }) });
+export type CreateKeyRequest = z.infer<typeof createKeyRequestSchema>;
+
 export const createKeyResponseSchema = z.string();
 export type CreateKeyResponse = z.infer<typeof createKeyResponseSchema>;
 
