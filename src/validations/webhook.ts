@@ -1,12 +1,12 @@
 import { z } from "zod";
 
 import { paginatedQuerySchema, webhookPaginatedResponseSchema } from "../api";
-import { webhookSchema } from "../models";
+import { transactionTypesEnumSchema, webhookSchema } from "../models";
 
 export const createWebhookRequestSchema = z.object({
   body: z.object({
     url: z.string(),
-    triggers: z.array(z.string()),
+    triggers: z.array(transactionTypesEnumSchema),
   }),
 });
 export type CreateWebhookRequest = z.infer<typeof createWebhookRequestSchema>;

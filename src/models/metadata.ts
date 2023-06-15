@@ -6,24 +6,6 @@ import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
 
-export enum NetworkEnum {
-  Devnet = "DEVNET",
-  Localnet = "LOCALNET",
-  Mainnet = "MAINNET",
-}
-
-export const networkEnumSchema = z.nativeEnum(NetworkEnum);
-
-export enum StatusEnum {
-  Burned = "burned",
-  Confirmed = "confirmed",
-  Failed = "failed",
-  Pending = "pending",
-  Processing = "processing",
-}
-
-export const StatusEnumSchema = z.nativeEnum(StatusEnum);
-
 export const idSchema = z.number().or(z.string()).pipe(z.coerce.number().int()).openapi({ type: "integer" });
 
 export const publicKeyValueSchema = z

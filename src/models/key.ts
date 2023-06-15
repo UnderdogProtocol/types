@@ -1,6 +1,7 @@
 import { z } from "zod";
 
-import { networkEnumSchema, publicKeyValueSchema } from "./metadata";
+import { networkEnumSchema } from "./enum";
+import { publicKeyValueSchema } from "./metadata";
 
 export const keySchema = z.object({
   prefix: z.string(),
