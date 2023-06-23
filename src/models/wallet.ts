@@ -1,35 +1,22 @@
 import { z } from "zod";
 
+import { plansEnumSchema } from "./enum";
 import { publicKeyValueSchema } from "./metadata";
+import { orgSchema } from "./org";
+
+export const subscriptionSchema = z.object({
+  active: z.boolean(),
+  plan: plansEnumSchema,
+  creditsUsed: z.number().int(),
+  cycleStartDate: z.string().optional(),
+  cycleEndDate: z.string().optional(),
+});
 
 export const meSchema = z.object({
   address: publicKeyValueSchema,
   createdAt: z.string(),
-  org: z.object({
-    id: z.number(),
-    superAdminAddress: z.string(),
-    name: z.string().optional(),
-  }),
-  stats: z.object({
-    nfts: z.number(),
-    projectNfts: z.number(),
-    projects: z.number(),
-  }),
-  subscription: z
-    .object({
-      active: z.boolean(),
-      plan: z.string(),
-      createdAt: z.string(),
-    })
-    .optional(),
-  integrations: z.array(
-    z.object({
-      id: z.string(),
-      integrationId: z.string(),
-      externalId: z.string(),
-      createdAt: z.string(),
-    })
-  ),
+  org: orgSchema,
+  subscription: subscriptionSchema.optional(),
 });
 
 export type Me = z.infer<typeof meSchema>;
