@@ -1,8 +1,8 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-import { publicKeyValueSchema } from "./metadata";
 import { transactionTypesEnumSchema } from "./enum";
+import { publicKeyValueSchema } from "./metadata";
 
 extendZodWithOpenApi(z);
 

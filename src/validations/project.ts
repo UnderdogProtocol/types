@@ -14,10 +14,6 @@ import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
 
-export const sizeEnumSchema = z.enum(["xs", "sm", "md", "lg", "xl", "2xl"]);
-
-export type SizeEnum = z.infer<typeof sizeEnumSchema>;
-
 export const createProjectRequestSchema = registry.register(
   "CreateProjectRequest",
   z.object({

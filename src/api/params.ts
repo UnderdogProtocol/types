@@ -9,10 +9,15 @@ export const projectParamsSchema = z
   .object({
     type: z
       .string()
-      .refine((val) => val === "t" || val === "n" || val === "c", {
+      .optional()
+      .refine((val) => val === "t" || val === "n" || val === "c" || val === undefined, {
         message: "Value must be 't' for transferable, 'n' for non-transferable, or 'c' for compressed",
       })
-      .transform((val) => ({ transferable: val === "t", compressed: val === "c" }))
+      .transform((val) =>
+        val === undefined
+          ? { transferable: true, compressed: true }
+          : { transferable: val === "t", compressed: val === "c" }
+      )
       .openapi({
         type: "string",
         description: "Value must be 't' for transferable, 'n' for non-transferable, or 'c' for compressed",

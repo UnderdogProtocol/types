@@ -1,967 +1,967 @@
 /** unique or primary key constraints on table "apiKeys" */
 export enum ApiKeys_Constraint {
   /** unique or primary key constraint on columns "prefix" */
-  ApiKeyPkey = 'apiKey_pkey'
+  ApiKeyPkey = "apiKey_pkey",
 }
 
 /** select columns of table "apiKeys" */
 export enum ApiKeys_Select_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Key = 'key',
+  Key = "key",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  OrgId = 'orgId',
+  OrgId = "orgId",
   /** column name */
-  Prefix = 'prefix',
+  Prefix = "prefix",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** update columns of table "apiKeys" */
 export enum ApiKeys_Update_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Key = 'key',
+  Key = "key",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  OrgId = 'orgId',
+  OrgId = "orgId",
   /** column name */
-  Prefix = 'prefix',
+  Prefix = "prefix",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** unique or primary key constraints on table "authorities" */
 export enum Authorities_Constraint {
   /** unique or primary key constraint on columns "id" */
-  AuthoritiesPkey = 'authorities_pkey'
+  AuthoritiesPkey = "authorities_pkey",
 }
 
 /** select columns of table "authorities" */
 export enum Authorities_Select_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** update columns of table "authorities" */
 export enum Authorities_Update_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** ordering argument of a cursor */
 export enum Cursor_Ordering {
   /** ascending ordering of the cursor */
-  Asc = 'ASC',
+  Asc = "ASC",
   /** descending ordering of the cursor */
-  Desc = 'DESC'
+  Desc = "DESC",
 }
 
 /** unique or primary key constraints on table "integrations" */
 export enum Integrations_Constraint {
   /** unique or primary key constraint on columns "name" */
-  IntegrationsNameKey = 'integrations_name_key',
+  IntegrationsNameKey = "integrations_name_key",
   /** unique or primary key constraint on columns "id" */
-  IntegrationsPkey = 'integrations_pkey'
+  IntegrationsPkey = "integrations_pkey",
 }
 
 export enum Integrations_Enum {
   /** Square */
-  Square = 'square'
+  Square = "square",
 }
 
 /** select columns of table "integrations" */
 export enum Integrations_Select_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Name = 'name'
+  Name = "name",
 }
 
 /** update columns of table "integrations" */
 export enum Integrations_Update_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Name = 'name'
+  Name = "name",
 }
 
 /** unique or primary key constraints on table "members" */
 export enum Members_Constraint {
   /** unique or primary key constraint on columns "network", "walletAddress", "superAdminAddress", "orgId" */
-  MembersPkey = 'members_pkey'
+  MembersPkey = "members_pkey",
 }
 
 /** select columns of table "members" */
 export enum Members_Select_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  OrgId = 'orgId',
+  OrgId = "orgId",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  SuperAdminAddress = 'superAdminAddress',
+  SuperAdminAddress = "superAdminAddress",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** update columns of table "members" */
 export enum Members_Update_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  OrgId = 'orgId',
+  OrgId = "orgId",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  SuperAdminAddress = 'superAdminAddress',
+  SuperAdminAddress = "superAdminAddress",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** unique or primary key constraints on table "network" */
 export enum Network_Constraint {
   /** unique or primary key constraint on columns "name" */
-  NetworkPkey = 'network_pkey'
+  NetworkPkey = "network_pkey",
 }
 
 export enum Network_Enum {
-  Devnet = 'DEVNET',
-  Localnet = 'LOCALNET',
-  Mainnet = 'MAINNET'
+  Devnet = "DEVNET",
+  Localnet = "LOCALNET",
+  Mainnet = "MAINNET",
 }
 
 /** select columns of table "network" */
 export enum Network_Select_Column {
   /** column name */
-  Name = 'name'
+  Name = "name",
 }
 
 /** update columns of table "network" */
 export enum Network_Update_Column {
   /** column name */
-  Name = 'name'
+  Name = "name",
 }
 
 /** unique or primary key constraints on table "nfts" */
 export enum Nfts_Constraint {
   /** unique or primary key constraint on columns "mintAddress" */
-  NftsPkey = 'nfts_pkey'
+  NftsPkey = "nfts_pkey",
 }
 
 /** select columns of table "nfts" */
 export enum Nfts_Select_Column {
   /** column name */
-  CollectionAddress = 'collectionAddress',
+  CollectionAddress = "collectionAddress",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  OwnerAddress = 'ownerAddress',
+  OwnerAddress = "ownerAddress",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  Type = 'type',
+  Type = "type",
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = "updatedAt",
 }
 
 /** update columns of table "nfts" */
 export enum Nfts_Update_Column {
   /** column name */
-  CollectionAddress = 'collectionAddress',
+  CollectionAddress = "collectionAddress",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  OwnerAddress = 'ownerAddress',
+  OwnerAddress = "ownerAddress",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  Type = 'type',
+  Type = "type",
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = "updatedAt",
 }
 
 /** unique or primary key constraints on table "oauthTokens" */
 export enum OauthTokens_Constraint {
   /** unique or primary key constraint on columns "id" */
-  OauthTokensPkey = 'oauthTokens_pkey'
+  OauthTokensPkey = "oauthTokens_pkey",
 }
 
 /** select columns of table "oauthTokens" */
 export enum OauthTokens_Select_Column {
   /** column name */
-  AccessToken = 'accessToken',
+  AccessToken = "accessToken",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  ExpiresAt = 'expiresAt',
+  ExpiresAt = "expiresAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  RefreshToken = 'refreshToken',
+  RefreshToken = "refreshToken",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  WalletIntegrationId = 'walletIntegrationId'
+  WalletIntegrationId = "walletIntegrationId",
 }
 
 /** update columns of table "oauthTokens" */
 export enum OauthTokens_Update_Column {
   /** column name */
-  AccessToken = 'accessToken',
+  AccessToken = "accessToken",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  ExpiresAt = 'expiresAt',
+  ExpiresAt = "expiresAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  RefreshToken = 'refreshToken',
+  RefreshToken = "refreshToken",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  WalletIntegrationId = 'walletIntegrationId'
+  WalletIntegrationId = "walletIntegrationId",
 }
 
 /** column ordering options */
 export enum Order_By {
   /** in ascending order, nulls last */
-  Asc = 'asc',
+  Asc = "asc",
   /** in ascending order, nulls first */
-  AscNullsFirst = 'asc_nulls_first',
+  AscNullsFirst = "asc_nulls_first",
   /** in ascending order, nulls last */
-  AscNullsLast = 'asc_nulls_last',
+  AscNullsLast = "asc_nulls_last",
   /** in descending order, nulls first */
-  Desc = 'desc',
+  Desc = "desc",
   /** in descending order, nulls first */
-  DescNullsFirst = 'desc_nulls_first',
+  DescNullsFirst = "desc_nulls_first",
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
+  DescNullsLast = "desc_nulls_last",
 }
 
 /** unique or primary key constraints on table "orgs" */
 export enum Orgs_Constraint {
   /** unique or primary key constraint on columns "network", "superAdminAddress", "id" */
-  OrgPkey = 'org_pkey'
+  OrgPkey = "org_pkey",
 }
 
 /** select columns of table "orgs" */
 export enum Orgs_Select_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  EncryptedAuthorityKey = 'encryptedAuthorityKey',
+  EncryptedAuthorityKey = "encryptedAuthorityKey",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Iv = 'iv',
+  Iv = "iv",
   /** column name */
-  LookupTableAddress = 'lookupTableAddress',
+  LookupTableAddress = "lookupTableAddress",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  SuperAdminAddress = 'superAdminAddress'
+  SuperAdminAddress = "superAdminAddress",
 }
 
 /** update columns of table "orgs" */
 export enum Orgs_Update_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  EncryptedAuthorityKey = 'encryptedAuthorityKey',
+  EncryptedAuthorityKey = "encryptedAuthorityKey",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Iv = 'iv',
+  Iv = "iv",
   /** column name */
-  LookupTableAddress = 'lookupTableAddress',
+  LookupTableAddress = "lookupTableAddress",
   /** column name */
-  Name = 'name',
+  Name = "name",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  SuperAdminAddress = 'superAdminAddress'
+  SuperAdminAddress = "superAdminAddress",
 }
 
 /** unique or primary key constraints on table "plans" */
 export enum Plans_Constraint {
   /** unique or primary key constraint on columns "type" */
-  SubscriptionsPkey = 'subscriptions_pkey'
+  SubscriptionsPkey = "subscriptions_pkey",
 }
 
 export enum Plans_Enum {
-  Developer = 'DEVELOPER',
-  Enterprise = 'ENTERPRISE',
-  Free = 'FREE',
-  Starter = 'STARTER'
+  Developer = "DEVELOPER",
+  Enterprise = "ENTERPRISE",
+  Free = "FREE",
+  Starter = "STARTER",
 }
 
 /** select columns of table "plans" */
 export enum Plans_Select_Column {
   /** column name */
-  Type = 'type'
+  Type = "type",
 }
 
 /** update columns of table "plans" */
 export enum Plans_Update_Column {
   /** column name */
-  Type = 'type'
+  Type = "type",
 }
 
 /** unique or primary key constraints on table "projects" */
 export enum Projects_Constraint {
   /** unique or primary key constraint on columns "network", "mintAddress" */
-  ProjectsMintAddressNetworkKey = 'projects_mintAddress_network_key',
+  ProjectsMintAddressNetworkKey = "projects_mintAddress_network_key",
   /** unique or primary key constraint on columns "network", "superAdminAddress", "id", "transferable", "compressed", "orgId" */
-  ProjectsPkey = 'projects_pkey'
+  ProjectsPkey = "projects_pkey",
 }
 
 /** select columns of table "projects" */
 export enum Projects_Select_Column {
   /** column name */
-  Compressed = 'compressed',
+  Compressed = "compressed",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  IsPublic = 'isPublic',
+  IsPublic = "isPublic",
   /** column name */
-  LookupTableAddress = 'lookupTableAddress',
+  LookupTableAddress = "lookupTableAddress",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  OrgId = 'orgId',
+  OrgId = "orgId",
   /** column name */
-  Semifungible = 'semifungible',
+  Semifungible = "semifungible",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  SuperAdminAddress = 'superAdminAddress',
+  SuperAdminAddress = "superAdminAddress",
   /** column name */
-  Transferable = 'transferable',
+  Transferable = "transferable",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  Views = 'views'
+  Views = "views",
 }
 
 /** update columns of table "projects" */
 export enum Projects_Update_Column {
   /** column name */
-  Compressed = 'compressed',
+  Compressed = "compressed",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  IsPublic = 'isPublic',
+  IsPublic = "isPublic",
   /** column name */
-  LookupTableAddress = 'lookupTableAddress',
+  LookupTableAddress = "lookupTableAddress",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  OrgId = 'orgId',
+  OrgId = "orgId",
   /** column name */
-  Semifungible = 'semifungible',
+  Semifungible = "semifungible",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  SuperAdminAddress = 'superAdminAddress',
+  SuperAdminAddress = "superAdminAddress",
   /** column name */
-  Transferable = 'transferable',
+  Transferable = "transferable",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  Views = 'views'
+  Views = "views",
 }
 
 /** unique or primary key constraints on table "requests" */
 export enum Requests_Constraint {
   /** unique or primary key constraint on columns "id" */
-  RequestsPkey = 'requests_pkey'
+  RequestsPkey = "requests_pkey",
 }
 
 /** select columns of table "requests" */
 export enum Requests_Select_Column {
   /** column name */
-  Body = 'body',
+  Body = "body",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Endpoint = 'endpoint',
+  Endpoint = "endpoint",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Method = 'method',
+  Method = "method",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  Query = 'query',
+  Query = "query",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** update columns of table "requests" */
 export enum Requests_Update_Column {
   /** column name */
-  Body = 'body',
+  Body = "body",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Endpoint = 'endpoint',
+  Endpoint = "endpoint",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Method = 'method',
+  Method = "method",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  Query = 'query',
+  Query = "query",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** unique or primary key constraints on table "responses" */
 export enum Responses_Constraint {
   /** unique or primary key constraint on columns "id" */
-  ResponsesPkey = 'responses_pkey',
+  ResponsesPkey = "responses_pkey",
   /** unique or primary key constraint on columns "requestId" */
-  ResponsesRequestIdKey = 'responses_requestId_key'
+  ResponsesRequestIdKey = "responses_requestId_key",
 }
 
 /** select columns of table "responses" */
 export enum Responses_Select_Column {
   /** column name */
-  Body = 'body',
+  Body = "body",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  RequestId = 'requestId',
+  RequestId = "requestId",
   /** column name */
-  Status = 'status'
+  Status = "status",
 }
 
 /** update columns of table "responses" */
 export enum Responses_Update_Column {
   /** column name */
-  Body = 'body',
+  Body = "body",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  RequestId = 'requestId',
+  RequestId = "requestId",
   /** column name */
-  Status = 'status'
+  Status = "status",
 }
 
 /** unique or primary key constraints on table "status" */
 export enum Status_Constraint {
   /** unique or primary key constraint on columns "name" */
-  StatusPkey = 'status_pkey'
+  StatusPkey = "status_pkey",
 }
 
 export enum Status_Enum {
-  Burned = 'burned',
-  Confirmed = 'confirmed',
-  Failed = 'failed',
-  Pending = 'pending',
-  Processing = 'processing'
+  Burned = "burned",
+  Confirmed = "confirmed",
+  Failed = "failed",
+  Pending = "pending",
+  Processing = "processing",
 }
 
 /** select columns of table "status" */
 export enum Status_Select_Column {
   /** column name */
-  Name = 'name'
+  Name = "name",
 }
 
 /** update columns of table "status" */
 export enum Status_Update_Column {
   /** column name */
-  Name = 'name'
+  Name = "name",
 }
 
 /** unique or primary key constraints on table "subscriptions" */
 export enum Subscriptions_Constraint {
   /** unique or primary key constraint on columns "id" */
-  SubscriptionsPkey1 = 'subscriptions_pkey1',
+  SubscriptionsPkey1 = "subscriptions_pkey1",
   /** unique or primary key constraint on columns "walletAddress" */
-  SubscriptionsWalletAddressKey = 'subscriptions_walletAddress_key'
+  SubscriptionsWalletAddressKey = "subscriptions_walletAddress_key",
 }
 
 /** select columns of table "subscriptions" */
 export enum Subscriptions_Select_Column {
   /** column name */
-  Active = 'active',
+  Active = "active",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Plan = 'plan',
+  Plan = "plan",
   /** column name */
-  StripeSubscriptionId = 'stripeSubscriptionId',
+  StripeSubscriptionId = "stripeSubscriptionId",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** update columns of table "subscriptions" */
 export enum Subscriptions_Update_Column {
   /** column name */
-  Active = 'active',
+  Active = "active",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Plan = 'plan',
+  Plan = "plan",
   /** column name */
-  StripeSubscriptionId = 'stripeSubscriptionId',
+  StripeSubscriptionId = "stripeSubscriptionId",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** unique or primary key constraints on table "tokenManagers" */
 export enum TokenManagers_Constraint {
   /** unique or primary key constraint on columns "mintAddress" */
-  TokenManagersMintAddressKey = 'tokenManagers_mintAddress_key',
+  TokenManagersMintAddressKey = "tokenManagers_mintAddress_key",
   /** unique or primary key constraint on columns "address" */
-  TokenManagersPkey = 'tokenManagers_pkey'
+  TokenManagersPkey = "tokenManagers_pkey",
 }
 
 /** select columns of table "tokenManagers" */
 export enum TokenManagers_Select_Column {
   /** column name */
-  Address = 'address',
+  Address = "address",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Otp = 'otp',
+  Otp = "otp",
   /** column name */
-  RecipientAddress = 'recipientAddress',
+  RecipientAddress = "recipientAddress",
   /** column name */
-  State = 'state',
+  State = "state",
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = "updatedAt",
 }
 
 /** update columns of table "tokenManagers" */
 export enum TokenManagers_Update_Column {
   /** column name */
-  Address = 'address',
+  Address = "address",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Otp = 'otp',
+  Otp = "otp",
   /** column name */
-  RecipientAddress = 'recipientAddress',
+  RecipientAddress = "recipientAddress",
   /** column name */
-  State = 'state',
+  State = "state",
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = "updatedAt",
 }
 
 /** unique or primary key constraints on table "transactionTypes" */
 export enum TransactionTypes_Constraint {
   /** unique or primary key constraint on columns "type" */
-  JobTypesPkey = 'jobTypes_pkey'
+  JobTypesPkey = "jobTypes_pkey",
 }
 
 export enum TransactionTypes_Enum {
-  ClaimBadge = 'CLAIM_BADGE',
-  CollectionAdd = 'COLLECTION_ADD',
-  CollectionCreate = 'COLLECTION_CREATE',
-  CollectionCreateDeprecated = 'COLLECTION_CREATE_DEPRECATED',
-  CompressedProjectCreate = 'COMPRESSED_PROJECT_CREATE',
-  CompressedProjectNftBatch = 'COMPRESSED_PROJECT_NFT_BATCH',
-  CompressedProjectNftCreate = 'COMPRESSED_PROJECT_NFT_CREATE',
-  CompressedProjectSftBatch = 'COMPRESSED_PROJECT_SFT_BATCH',
-  CompressedProjectSftCreate = 'COMPRESSED_PROJECT_SFT_CREATE',
-  ConfirmTransaction = 'CONFIRM_TRANSACTION',
-  Initialize = 'INITIALIZE',
-  ManagedNftRevoke = 'MANAGED_NFT_REVOKE',
-  NftCreate = 'NFT_CREATE',
-  NftCreateV2 = 'NFT_CREATE_V2',
-  NftUpdate = 'NFT_UPDATE',
-  OrgCreate = 'ORG_CREATE',
-  OrgMemberAdd = 'ORG_MEMBER_ADD',
-  ProjectCreate = 'PROJECT_CREATE',
-  ProjectNftBurn = 'PROJECT_NFT_BURN',
-  ProjectNftCreate = 'PROJECT_NFT_CREATE',
-  ProjectNftRevoke = 'PROJECT_NFT_REVOKE',
-  ProjectNftUpdate = 'PROJECT_NFT_UPDATE',
-  ProjectUpdate = 'PROJECT_UPDATE'
+  ClaimBadge = "CLAIM_BADGE",
+  CollectionAdd = "COLLECTION_ADD",
+  CollectionCreate = "COLLECTION_CREATE",
+  CollectionCreateDeprecated = "COLLECTION_CREATE_DEPRECATED",
+  CompressedProjectCreate = "COMPRESSED_PROJECT_CREATE",
+  CompressedProjectNftBatch = "COMPRESSED_PROJECT_NFT_BATCH",
+  CompressedProjectNftCreate = "COMPRESSED_PROJECT_NFT_CREATE",
+  CompressedProjectSftBatch = "COMPRESSED_PROJECT_SFT_BATCH",
+  CompressedProjectSftCreate = "COMPRESSED_PROJECT_SFT_CREATE",
+  ConfirmTransaction = "CONFIRM_TRANSACTION",
+  Initialize = "INITIALIZE",
+  ManagedNftRevoke = "MANAGED_NFT_REVOKE",
+  NftCreate = "NFT_CREATE",
+  NftCreateV2 = "NFT_CREATE_V2",
+  NftUpdate = "NFT_UPDATE",
+  OrgCreate = "ORG_CREATE",
+  OrgMemberAdd = "ORG_MEMBER_ADD",
+  ProjectCreate = "PROJECT_CREATE",
+  ProjectNftBurn = "PROJECT_NFT_BURN",
+  ProjectNftCreate = "PROJECT_NFT_CREATE",
+  ProjectNftRevoke = "PROJECT_NFT_REVOKE",
+  ProjectNftUpdate = "PROJECT_NFT_UPDATE",
+  ProjectUpdate = "PROJECT_UPDATE",
 }
 
 /** select columns of table "transactionTypes" */
 export enum TransactionTypes_Select_Column {
   /** column name */
-  Type = 'type'
+  Type = "type",
 }
 
 /** update columns of table "transactionTypes" */
 export enum TransactionTypes_Update_Column {
   /** column name */
-  Type = 'type'
+  Type = "type",
 }
 
 /** unique or primary key constraints on table "transactions" */
 export enum Transactions_Constraint {
   /** unique or primary key constraint on columns "id" */
-  JobsPkey = 'jobs_pkey'
+  JobsPkey = "jobs_pkey",
 }
 
 /** select columns of table "transactions" */
 export enum Transactions_Select_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Data = 'data',
+  Data = "data",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  RequestId = 'requestId',
+  RequestId = "requestId",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  Type = 'type',
+  Type = "type",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** update columns of table "transactions" */
 export enum Transactions_Update_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Data = 'data',
+  Data = "data",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  RequestId = 'requestId',
+  RequestId = "requestId",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  Type = 'type',
+  Type = "type",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** unique or primary key constraints on table "trees" */
 export enum Trees_Constraint {
   /** unique or primary key constraint on columns "network", "address" */
-  TreesPkey = 'trees_pkey'
+  TreesPkey = "trees_pkey",
 }
 
 /** select columns of table "trees" */
 export enum Trees_Select_Column {
   /** column name */
-  Address = 'address',
+  Address = "address",
   /** column name */
-  Capacity = 'capacity',
+  Capacity = "capacity",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Index = 'index',
+  Index = "index",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  ProjectMintAddress = 'projectMintAddress'
+  ProjectMintAddress = "projectMintAddress",
 }
 
 /** update columns of table "trees" */
 export enum Trees_Update_Column {
   /** column name */
-  Address = 'address',
+  Address = "address",
   /** column name */
-  Capacity = 'capacity',
+  Capacity = "capacity",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Index = 'index',
+  Index = "index",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  ProjectMintAddress = 'projectMintAddress'
+  ProjectMintAddress = "projectMintAddress",
 }
 
 /** unique or primary key constraints on table "triggers" */
 export enum Triggers_Constraint {
   /** unique or primary key constraint on columns "id" */
-  TriggersPkey = 'triggers_pkey'
+  TriggersPkey = "triggers_pkey",
 }
 
 /** select columns of table "triggers" */
 export enum Triggers_Select_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  TransactionType = 'transactionType',
+  TransactionType = "transactionType",
   /** column name */
-  WebhookId = 'webhookId'
+  WebhookId = "webhookId",
 }
 
 /** update columns of table "triggers" */
 export enum Triggers_Update_Column {
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  TransactionType = 'transactionType',
+  TransactionType = "transactionType",
   /** column name */
-  WebhookId = 'webhookId'
+  WebhookId = "webhookId",
 }
 
 /** unique or primary key constraints on table "unfts" */
 export enum Unfts_Constraint {
   /** unique or primary key constraint on columns "network", "projectId", "superAdminAddress", "id", "transferable", "compressed", "orgId" */
-  UnftsPkey = 'unfts_pkey'
+  UnftsPkey = "unfts_pkey",
 }
 
 /** select columns of table "unfts" */
 export enum Unfts_Select_Column {
   /** column name */
-  ClaimerAddress = 'claimerAddress',
+  ClaimerAddress = "claimerAddress",
   /** column name */
-  Compressed = 'compressed',
+  Compressed = "compressed",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  LookupTableAddress = 'lookupTableAddress',
+  LookupTableAddress = "lookupTableAddress",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  NonceAddress = 'nonceAddress',
+  NonceAddress = "nonceAddress",
   /** column name */
-  OrgId = 'orgId',
+  OrgId = "orgId",
   /** column name */
-  Otp = 'otp',
+  Otp = "otp",
   /** column name */
-  OwnerAddress = 'ownerAddress',
+  OwnerAddress = "ownerAddress",
   /** column name */
-  ProjectId = 'projectId',
+  ProjectId = "projectId",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  SuperAdminAddress = 'superAdminAddress',
+  SuperAdminAddress = "superAdminAddress",
   /** column name */
-  Transferable = 'transferable',
+  Transferable = "transferable",
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = "updatedAt",
 }
 
 /** update columns of table "unfts" */
 export enum Unfts_Update_Column {
   /** column name */
-  ClaimerAddress = 'claimerAddress',
+  ClaimerAddress = "claimerAddress",
   /** column name */
-  Compressed = 'compressed',
+  Compressed = "compressed",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  LookupTableAddress = 'lookupTableAddress',
+  LookupTableAddress = "lookupTableAddress",
   /** column name */
-  MintAddress = 'mintAddress',
+  MintAddress = "mintAddress",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  NonceAddress = 'nonceAddress',
+  NonceAddress = "nonceAddress",
   /** column name */
-  OrgId = 'orgId',
+  OrgId = "orgId",
   /** column name */
-  Otp = 'otp',
+  Otp = "otp",
   /** column name */
-  OwnerAddress = 'ownerAddress',
+  OwnerAddress = "ownerAddress",
   /** column name */
-  ProjectId = 'projectId',
+  ProjectId = "projectId",
   /** column name */
-  Status = 'status',
+  Status = "status",
   /** column name */
-  SuperAdminAddress = 'superAdminAddress',
+  SuperAdminAddress = "superAdminAddress",
   /** column name */
-  Transferable = 'transferable',
+  Transferable = "transferable",
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = "updatedAt",
 }
 
 /** unique or primary key constraints on table "walletIntegrations" */
 export enum WalletIntegrations_Constraint {
   /** unique or primary key constraint on columns "externalId", "integrationId" */
-  WalletIntegrationsIntegrationIdExternalIdKey = 'walletIntegrations_integrationId_externalId_key',
+  WalletIntegrationsIntegrationIdExternalIdKey = "walletIntegrations_integrationId_externalId_key",
   /** unique or primary key constraint on columns "id" */
-  WalletIntegrationsPkey = 'walletIntegrations_pkey'
+  WalletIntegrationsPkey = "walletIntegrations_pkey",
 }
 
 /** select columns of table "walletIntegrations" */
 export enum WalletIntegrations_Select_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  ExternalId = 'externalId',
+  ExternalId = "externalId",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  IntegrationId = 'integrationId',
+  IntegrationId = "integrationId",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** update columns of table "walletIntegrations" */
 export enum WalletIntegrations_Update_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  ExternalId = 'externalId',
+  ExternalId = "externalId",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  IntegrationId = 'integrationId',
+  IntegrationId = "integrationId",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** unique or primary key constraints on table "wallets" */
 export enum Wallets_Constraint {
   /** unique or primary key constraint on columns "address" */
-  WalletsPkey = 'wallets_pkey',
+  WalletsPkey = "wallets_pkey",
   /** unique or primary key constraint on columns "stripeId" */
-  WalletsStripeIdKey = 'wallets_stripeId_key'
+  WalletsStripeIdKey = "wallets_stripeId_key",
 }
 
 /** select columns of table "wallets" */
 export enum Wallets_Select_Column {
   /** column name */
-  Address = 'address',
+  Address = "address",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  StripeId = 'stripeId',
+  StripeId = "stripeId",
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = "updatedAt",
 }
 
 /** update columns of table "wallets" */
 export enum Wallets_Update_Column {
   /** column name */
-  Address = 'address',
+  Address = "address",
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  StripeId = 'stripeId',
+  StripeId = "stripeId",
   /** column name */
-  UpdatedAt = 'updatedAt'
+  UpdatedAt = "updatedAt",
 }
 
 /** unique or primary key constraints on table "webhooks" */
 export enum Webhooks_Constraint {
   /** unique or primary key constraint on columns "id" */
-  WebhooksPkey = 'webhooks_pkey'
+  WebhooksPkey = "webhooks_pkey",
 }
 
 /** select columns of table "webhooks" */
 export enum Webhooks_Select_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  Url = 'url',
+  Url = "url",
   /** column name */
-  Valid = 'valid',
+  Valid = "valid",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }
 
 /** update columns of table "webhooks" */
 export enum Webhooks_Update_Column {
   /** column name */
-  CreatedAt = 'createdAt',
+  CreatedAt = "createdAt",
   /** column name */
-  Id = 'id',
+  Id = "id",
   /** column name */
-  Network = 'network',
+  Network = "network",
   /** column name */
-  UpdatedAt = 'updatedAt',
+  UpdatedAt = "updatedAt",
   /** column name */
-  Url = 'url',
+  Url = "url",
   /** column name */
-  Valid = 'valid',
+  Valid = "valid",
   /** column name */
-  WalletAddress = 'walletAddress'
+  WalletAddress = "walletAddress",
 }

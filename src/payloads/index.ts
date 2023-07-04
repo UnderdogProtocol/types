@@ -2,7 +2,6 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import { publicKeySchema, idSchema, metadataSchema } from "../models";
-import { createSftInputSchema } from "../validations";
 
 extendZodWithOpenApi(z);
 
@@ -25,8 +24,8 @@ export const projectPayloadSchema = orgPayloadSchema.merge(
   z.object({
     mintAddress: publicKeySchema,
     projectId: idSchema,
-    transferable: z.boolean(),
-    compressed: z.boolean(),
+    transferable: z.boolean().optional(),
+    compressed: z.boolean().optional(),
   })
 );
 

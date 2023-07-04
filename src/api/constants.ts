@@ -8,4 +8,4 @@ export const networkToUnderdogApiEndpoints = {
   [NetworkEnum.Localnet]: LOCALNET_API_URL,
   [NetworkEnum.Devnet]: DEVNET_API_URL,
   [NetworkEnum.Mainnet]: MAINNET_API_URL,
-}
+};

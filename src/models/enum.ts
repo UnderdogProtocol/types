@@ -12,6 +12,7 @@ export enum PlansEnum {
   Enterprise = "ENTERPRISE",
   Free = "FREE",
   Starter = "STARTER",
+  Hobby = "HOBBY",
 }
 
 export const plansEnumSchema = z.nativeEnum(PlansEnum);

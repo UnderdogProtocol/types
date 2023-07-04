@@ -11,6 +11,7 @@ export const projectSchema = z
     mintAddress: publicKeyValueSchema,
     transferable: z
       .boolean()
+      .optional()
       .openapi({ description: "Whether or not the NFTs in this project can be transferred" }),
     semifungible: z
       .boolean()
@@ -22,6 +23,7 @@ export const projectSchema = z
       .openapi({ description: "Allows public minting of NFTs through an API endpoint" }),
     compressed: z
       .boolean()
+      .optional()
       .openapi({ description: "Whether or not the NFTs in this project are compressed" }),
     status: z.string(),
   })
