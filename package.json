@@ -13,7 +13,6 @@
   },
   "scripts": {
     "build": "tsup",
-    "dx": "yarn build --watch",
     "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
     "lint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix"
   },
