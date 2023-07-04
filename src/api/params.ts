@@ -17,6 +17,7 @@ export const projectParamsSchema = z.object({
         ? { transferable: true, compressed: true }
         : { transferable: val === "t", compressed: val === "c" }
     )
+    .optional()
     .openapi({
       type: "string",
       description: "Value must be 't' for transferable, 'n' for non-transferable, or 'c' for compressed",
