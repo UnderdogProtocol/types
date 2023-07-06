@@ -7,7 +7,6 @@ import { orgSchema } from "./org";
 export const subscriptionSchema = z.object({
   active: z.boolean(),
   plan: plansEnumSchema,
-  creditsUsed: z.number().int(),
   cycleStartDate: z.string().optional(),
   cycleEndDate: z.string().optional(),
 });
