@@ -22,10 +22,10 @@ export type AddOrgMemberPayload = z.infer<typeof addOrgMemberPayloadSchema>;
 
 export const projectPayloadSchema = orgPayloadSchema.merge(
   z.object({
-    mintAddress: publicKeySchema,
     projectId: idSchema,
     transferable: z.boolean().optional(),
     compressed: z.boolean().optional(),
+    mintAddress: publicKeySchema,
   })
 );
 
@@ -41,6 +41,16 @@ export const nftPayloadSchema = projectPayloadSchema.merge(
 
 export const createNftPayloadSchema = nftPayloadSchema;
 export type CreateNftPayload = z.infer<typeof createNftPayloadSchema>;
+
+export const createProjectNftPayloadSchema = projectPayloadSchema.omit({ mintAddress: true }).merge(
+  z.object({
+    treeAddress: publicKeySchema,
+    nftId: idSchema,
+    receiverAddress: publicKeySchema,
+    metadata: metadataSchema,
+  })
+);
+export type CreateProjectNftPayload = z.infer<typeof createProjectNftPayloadSchema>;
 
 export const createCompressedNftPayloadSchema = projectPayloadSchema
   .omit({ mintAddress: true })
