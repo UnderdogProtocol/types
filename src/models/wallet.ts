@@ -13,6 +13,7 @@ export const subscriptionSchema = z.object({
 
 export const meSchema = z.object({
   address: publicKeyValueSchema,
+  paid: z.boolean(),
   createdAt: z.string(),
   org: orgSchema,
   subscription: subscriptionSchema.optional(),
