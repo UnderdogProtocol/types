@@ -170,7 +170,7 @@ export type PartialUpdateNftRequest = z.infer<typeof partialUpdateNftRequestSche
 export type PartialUpdateNftResponse = z.infer<typeof partialUpdateNftResponseSchema>;
 
 const nonTransferableNftSchema = z.object({
-  params: nftParamsSchema.omit({ type: true }),
+  params: nftParamsSchema,
 });
 
 export const getNftClaimLinkRequestSchema = registry.register(
@@ -186,15 +186,6 @@ export const getNftClaimLinkResponseSchema = registry.register(
     claimerAddress: publicKeyValueSchema.optional(),
     otp: z.string().uuid().optional(),
   })
-  // .refine(
-  //   (data) => {
-  //     return (data.claimerAddress && !data.otp) || (!data.claimerAddress && data.otp);
-  //   },
-  //   {
-  //     message: "The object must contain either 'claimerAddress' or 'otp', but not both.",
-  //   }
-  // )
-  // .openapi({ type: "object" })
 );
 
 export type GetNftClaimLinkRequest = z.infer<typeof getNftClaimLinkRequestSchema>;
