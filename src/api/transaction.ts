@@ -30,8 +30,13 @@ const compressedSftTransactionSchema = nftSchema.pick({
   semiFungible: true,
 });
 
+const sftTransactionSchema = nftSchema.pick({ projectId: true });
+
 export const nftTransactionResponseSchema =
   createTransactionResponseSchema<typeof nftTransactionSchema>(nftTransactionSchema);
+
+export const sftTransactionResponseSchema =
+  createTransactionResponseSchema<typeof sftTransactionSchema>(sftTransactionSchema);
 
 export const compressedSftTransactionResponseSchema = createTransactionResponseSchema<
   typeof compressedSftTransactionSchema

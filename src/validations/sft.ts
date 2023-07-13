@@ -1,7 +1,11 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-import { compressedSftTransactionResponseSchema, projectParamsSchema } from "../api";
+import {
+  compressedSftTransactionResponseSchema,
+  projectParamsSchema,
+  sftTransactionResponseSchema,
+} from "../api";
 import { publicKeyValueSchema } from "../models";
 import { registry } from "../openapi";
 
@@ -40,3 +44,9 @@ export const batchSftRequestSchema = registry.register(
 );
 
 export type BatchSftRequest = z.infer<typeof batchSftRequestSchema>;
+
+export const batchSftResponseSchema = registry.register(
+  "BatchSftResponse",
+  sftTransactionResponseSchema.array()
+);
+export type BatchSftResponse = z.infer<typeof batchSftResponseSchema>;

@@ -83,6 +83,11 @@ export const batchCompressedSftPayloadSchema = projectPayloadSchema
   .merge(z.object({ batch: z.array(z.object({ receiverAddress: publicKeySchema })) }));
 export type BatchCompressedSftPayload = z.infer<typeof batchCompressedSftPayloadSchema>;
 
+export const batchSftPayloadSchema = projectPayloadSchema
+  .omit({ mintAddress: true })
+  .merge(z.object({ receiverAddresses: publicKeySchema.array(), treeAddress: publicKeySchema }));
+export type BatchSftPayload = z.infer<typeof batchSftPayloadSchema>;
+
 export const burnNftPayloadSchema = nftPayloadSchema.omit({ receiverAddress: true });
 export type BurnNftPayload = z.infer<typeof burnNftPayloadSchema>;
 
