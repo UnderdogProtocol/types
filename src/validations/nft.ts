@@ -140,7 +140,13 @@ export const updateNftRequestSchema = registry.register(
   "UpdateNftRequest",
   z.object({
     params: nftParamsSchema,
-    body: metadataSchema.pick({ description: true, image: true, attributes: true, animationUrl: true }),
+    body: metadataSchema.pick({
+      description: true,
+      image: true,
+      attributes: true,
+      animationUrl: true,
+      externalUrl: true,
+    }),
   })
 );
 
@@ -159,6 +165,7 @@ export const partialUpdateNftRequestSchema = registry.register(
         image: true,
         attributes: true,
         animationUrl: true,
+        externalUrl: true,
       })
       .partial(),
   })

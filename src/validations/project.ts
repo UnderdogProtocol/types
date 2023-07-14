@@ -27,6 +27,7 @@ export const createProjectRequestSchema = registry.register(
       semifungible: true,
       isPublic: true,
       animationUrl: true,
+      externalUrl: true,
       attributes: true,
     }),
   })
@@ -108,7 +109,7 @@ export const updateProjectRequestSchema = registry.register(
   "UpdateProjectRequest",
   z.object({
     params: projectParamsSchema,
-    body: metadataSchema.pick({ description: true, image: true, animationUrl: true }),
+    body: metadataSchema.pick({ description: true, image: true, animationUrl: true, externalUrl: true }),
   })
 );
 
@@ -121,7 +122,9 @@ export const partialUpdateProjectRequestSchema = registry.register(
   "PartialUpdateProjectRequest",
   z.object({
     params: projectParamsSchema,
-    body: metadataSchema.pick({ description: true, image: true, animationUrl: true }).partial(),
+    body: metadataSchema
+      .pick({ description: true, image: true, animationUrl: true, externalUrl: true })
+      .partial(),
   })
 );
 
