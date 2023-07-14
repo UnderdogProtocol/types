@@ -40,13 +40,18 @@ export const metadataSchema = registry.register(
       description: "Description stored in the metadata",
       example: "I minted this NFT with the Underdog API",
     }),
-    image: z
-      .string()
-      .openapi({ description: "Image URL for your NFT", example: "https://example.com/image.png" }),
-    animationUrl: z
-      .string()
-      .optional()
-      .openapi({ description: "Animation URL for your NFT", example: "https://example.com/animation.mp4" }),
+    image: z.string().openapi({
+      description: "Image URL for your NFT",
+      example: "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
+    }),
+    animationUrl: z.string().optional().openapi({
+      description: "URL pointing to the asset's animation.",
+      example: "https://i.imgur.com/mGfz7Ig.mp4",
+    }),
+    externalUrl: z.string().optional().openapi({
+      description: "URL pointing to an external URL defining the asset",
+      example: "https://app.underdogprotocol.com",
+    }),
     attributes: z
       .record(z.string(), z.union([z.string(), z.number()]))
       .optional()
