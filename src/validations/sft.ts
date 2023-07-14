@@ -28,10 +28,7 @@ export const createSftRequestSchema = registry.register(
 
 export type CreateSftRequest = z.infer<typeof createSftRequestSchema>;
 
-export const createSftResponseSchema = registry.register(
-  "CreateSftResponse",
-  compressedSftTransactionResponseSchema
-);
+export const createSftResponseSchema = registry.register("CreateSftResponse", sftTransactionResponseSchema);
 
 export type CreateSftResponse = z.infer<typeof createSftResponseSchema>;
 

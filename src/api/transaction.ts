@@ -23,14 +23,17 @@ const nftTransactionSchema = nftSchema.extend({ nftId: nftSchema.shape.id }).pic
   mintAddress: true,
 });
 
+const sftTransactionSchema = nftSchema.extend({ nftId: nftSchema.shape.id }).pick({
+  nftId: true,
+  projectId: true,
+});
+
 const compressedSftTransactionSchema = nftSchema.pick({
   projectId: true,
   transferable: true,
   compressed: true,
   semiFungible: true,
 });
-
-const sftTransactionSchema = nftSchema.pick({ projectId: true });
 
 export const nftTransactionResponseSchema =
   createTransactionResponseSchema<typeof nftTransactionSchema>(nftTransactionSchema);

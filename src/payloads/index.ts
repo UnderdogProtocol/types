@@ -51,15 +51,19 @@ export const createSftPayloadSchema = orgPayloadSchema.merge(
 );
 export type CreateSftPayload = z.infer<typeof createSftPayloadSchema>;
 
-export const createProjectNftPayloadSchema = projectPayloadSchema.omit({ mintAddress: true }).merge(
+export const createProjectNftPayloadSchema = orgPayloadSchema.merge(
   z.object({
-    treeAddress: publicKeySchema,
+    projectId: idSchema,
     nftId: idSchema,
-    receiverAddress: publicKeySchema,
     metadata: metadataSchema,
+    treeAddress: publicKeySchema,
+    receiverAddress: publicKeySchema,
   })
 );
 export type CreateProjectNftPayload = z.infer<typeof createProjectNftPayloadSchema>;
+
+export const createProjectSftPayloadSchema = createProjectNftPayloadSchema.omit({ metadata: true });
+export type CreateProjectSftPayload = z.infer<typeof createProjectSftPayloadSchema>;
 
 export const createCompressedNftPayloadSchema = projectPayloadSchema
   .omit({ mintAddress: true })
@@ -83,9 +87,12 @@ export const batchCompressedSftPayloadSchema = projectPayloadSchema
   .merge(z.object({ batch: z.array(z.object({ receiverAddress: publicKeySchema })) }));
 export type BatchCompressedSftPayload = z.infer<typeof batchCompressedSftPayloadSchema>;
 
-export const batchSftPayloadSchema = projectPayloadSchema
-  .omit({ mintAddress: true })
-  .merge(z.object({ receiverAddresses: publicKeySchema.array(), treeAddress: publicKeySchema }));
+export const batchSftPayloadSchema = projectPayloadSchema.omit({ mintAddress: true }).merge(
+  z.object({
+    batch: z.object({ receiverAddress: publicKeySchema, nftId: idSchema }).array(),
+    treeAddress: publicKeySchema,
+  })
+);
 export type BatchSftPayload = z.infer<typeof batchSftPayloadSchema>;
 
 export const burnNftPayloadSchema = nftPayloadSchema.omit({ receiverAddress: true });
