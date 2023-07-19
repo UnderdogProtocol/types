@@ -22,7 +22,13 @@ export type GetOrgRequest = z.infer<typeof getOrgRequestSchema>;
 export const getOrgResponseSchema = orgSchema;
 export type GetOrgResponse = z.infer<typeof getOrgResponseSchema>;
 
-export const getOrgStatsRequestSchema = z.object({ params: z.object({ orgId: idSchema }) });
+export const getOrgStatsRequestSchema = z.object({
+  params: z.object({ orgId: idSchema }),
+  query: z.object({
+    startDate: z.string().datetime().optional(),
+    endDate: z.string().datetime().optional(),
+  }),
+});
 export type GetOrgStatsRequest = z.infer<typeof getOrgStatsRequestSchema>;
 
 export const getOrgStatsResponseSchema = z.object({
