@@ -127,7 +127,12 @@ export const searchNftsRequestSchema = registry.register(
   "SearchNftsRequest",
   z.object({
     params: projectParamsSchema,
-    query: paginatedQuerySchema.merge(z.object({ search: z.string().optional() })),
+    query: paginatedQuerySchema.merge(
+      z.object({
+        search: z.string().optional(),
+        query: z.string().optional(),
+      })
+    ),
   })
 );
 

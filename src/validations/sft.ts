@@ -1,11 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-import {
-  compressedSftTransactionResponseSchema,
-  projectParamsSchema,
-  sftTransactionResponseSchema,
-} from "../api";
+import { projectParamsSchema, sftTransactionResponseSchema } from "../api";
 import { publicKeyValueSchema } from "../models";
 import { registry } from "../openapi";
 

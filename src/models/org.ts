@@ -8,7 +8,7 @@ extendZodWithOpenApi(z);
 export const orgSchema = z.object({
   id: idSchema,
   superAdminAddress: publicKeyValueSchema,
-  name: z.string().optional(),
+  name: z.string(),
   status: z.string(),
 });
 
