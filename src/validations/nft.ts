@@ -71,15 +71,12 @@ export type CreateCompressedNftResponse = z.infer<typeof createCompressedNftResp
 export type UpsertNftResponse = z.infer<typeof upsertNftResponseSchema>;
 export type CreateNftResponse = z.infer<typeof createNftResponseSchema>;
 
-export const batchNftRequestSchema = registry.register(
-  "BatchNftRequest",
-  z.object({
-    params: projectParamsSchema,
-    body: z.array(createNftInputSchema),
-  })
-);
+export const batchCompressedNftRequestSchema = z.object({
+  params: projectParamsSchema,
+  body: metadataSchema.merge(z.object({ receiverAddresses: publicKeyValueSchema.array().optional() })),
+});
 
-export type BatchNftRequest = z.infer<typeof batchNftRequestSchema>;
+export type BatchCompressedNftRequest = z.infer<typeof batchCompressedNftRequestSchema>;
 
 export const getNftRequestSchema = registry.register(
   "GetNftRequest",
