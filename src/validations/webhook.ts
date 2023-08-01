@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { paginatedQuerySchema, webhookPaginatedResponseSchema } from "../api";
+import { paginatedQuerySchema, requestPaginatedResponseSchema, webhookPaginatedResponseSchema } from "../api";
 import { transactionTypesEnumSchema, webhookSchema } from "../models";
 
 export const createWebhookRequestSchema = z.object({
@@ -30,7 +30,9 @@ export const getWebhookRequestSchema = z.object({
 });
 export type GetWebhookRequest = z.infer<typeof getWebhookRequestSchema>;
 
-export const getWebhookResponseSchema = webhookSchema;
+export const getWebhookResponseSchema = webhookSchema.merge(
+  z.object({ requests: requestPaginatedResponseSchema })
+);
 export type GetWebhookResponse = z.infer<typeof getWebhookResponseSchema>;
 
 export const deleteWebhookRequestSchema = z.object({
