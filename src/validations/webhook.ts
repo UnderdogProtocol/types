@@ -23,6 +23,7 @@ export const getWebhooksResponseSchema = webhookPaginatedResponseSchema;
 export type GetWebhooksResponse = z.infer<typeof getWebhooksResponseSchema>;
 
 export const getWebhookRequestSchema = z.object({
+  query: paginatedQuerySchema,
   params: z.object({
     webhookId: z.string().uuid(),
   }),
