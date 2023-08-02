@@ -109,7 +109,7 @@ export const updateProjectRequestSchema = registry.register(
   "UpdateProjectRequest",
   z.object({
     params: projectParamsSchema,
-    body: metadataSchema.pick({ description: true, image: true, animationUrl: true, externalUrl: true }),
+    body: metadataSchema.omit({ name: true, symbol: true }),
   })
 );
 
@@ -122,9 +122,7 @@ export const partialUpdateProjectRequestSchema = registry.register(
   "PartialUpdateProjectRequest",
   z.object({
     params: projectParamsSchema,
-    body: metadataSchema
-      .pick({ description: true, image: true, animationUrl: true, externalUrl: true })
-      .partial(),
+    body: metadataSchema.omit({ name: true, symbol: true }).partial(),
   })
 );
 
