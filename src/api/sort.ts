@@ -5,7 +5,7 @@ extendZodWithOpenApi(z);
 
 export const sortQuerySchema = z.object({
   sortBy: z.string().optional(),
-  orderBy: z.enum(["asc", "desc"]).optional().default("asc"),
+  order: z.enum(["asc", "desc"]).optional(),
 });
 
 export type SortQuery = z.infer<typeof sortQuerySchema>;
