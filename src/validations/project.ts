@@ -67,6 +67,19 @@ export const getProjectsResponseSchema = registry.register(
 export type GetProjectsRequest = z.infer<typeof getProjectsRequestSchema>;
 export type GetProjectsResponse = z.infer<typeof getAllProjectsResponseSchema>;
 
+export const searchProjectsRequestSchema = registry.register(
+  "SearchProjectsRequest",
+  z.object({ query: paginatedQuerySchema.merge(z.object({ query: z.string() })) })
+);
+
+export const searchProjectsResponseSchema = registry.register(
+  "GetProjectsResponse",
+  projectPaginatedResponseSchema
+);
+
+export type SearchProjectsRequest = z.infer<typeof searchProjectsRequestSchema>;
+export type SearchProjectsResponse = z.infer<typeof searchProjectsResponseSchema>;
+
 export const getProjectRequestSchema = registry.register(
   "GetProjectRequest",
   z.object({
