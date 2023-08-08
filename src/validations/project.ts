@@ -73,7 +73,7 @@ export const searchProjectsRequestSchema = registry.register(
 );
 
 export const searchProjectsResponseSchema = registry.register(
-  "GetProjectsResponse",
+  "SearchProjectsResponse",
   projectPaginatedResponseSchema
 );
 
