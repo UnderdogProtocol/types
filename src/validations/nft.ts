@@ -18,6 +18,9 @@ export const createNftInputSchema = metadataSchema.merge(
     receiverAddress: publicKeyValueSchema.optional().openapi({
       description: "Wallet address that will receive the NFT",
     }),
+    delegated: z.boolean().optional().openapi({
+      description: "If true, your Project will have delegated authority over the NFT",
+    }),
   })
 );
 

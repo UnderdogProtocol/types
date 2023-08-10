@@ -58,11 +58,15 @@ export const createProjectNftPayloadSchema = orgPayloadSchema.merge(
     metadata: metadataSchema,
     treeAddress: publicKeySchema,
     receiverAddress: publicKeySchema,
+    delegated: z.boolean().optional().default(false),
   })
 );
 export type CreateProjectNftPayload = z.infer<typeof createProjectNftPayloadSchema>;
 
-export const createProjectSftPayloadSchema = createProjectNftPayloadSchema.omit({ metadata: true });
+export const createProjectSftPayloadSchema = createProjectNftPayloadSchema.omit({
+  metadata: true,
+  delegated: true,
+});
 export type CreateProjectSftPayload = z.infer<typeof createProjectSftPayloadSchema>;
 
 export const createCompressedNftPayloadSchema = projectPayloadSchema
