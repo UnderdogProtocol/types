@@ -32,7 +32,7 @@ export const createNftRequestSchema = registry.register(
     params: projectParamsSchema,
     body: createNftInputSchema.merge(
       z.object({
-        upsert: z.boolean().optional().default(false).openapi({
+        upsert: z.boolean().optional().openapi({
           description: "If true, will update the NFT if one with the same owner / claimer exists",
         }),
       })
@@ -180,6 +180,22 @@ export const partialUpdateNftResponseSchema = registry.register("PartialUpdateNf
 
 export type PartialUpdateNftRequest = z.infer<typeof partialUpdateNftRequestSchema>;
 export type PartialUpdateNftResponse = z.infer<typeof partialUpdateNftResponseSchema>;
+
+export const transferNftRequestSchema = registry.register(
+  "TransferNftRequest",
+  z.object({
+    params: nftParamsSchema,
+    body: z.object({ receiverAddress: publicKeyValueSchema }),
+  })
+);
+
+export const transferNftResponseSchema = registry.register(
+  "TransferNftResponse",
+  nftTransactionResponseSchema
+);
+
+export type TransferNftRequest = z.infer<typeof transferNftRequestSchema>;
+export type TransferNftResponse = z.infer<typeof transferNftResponseSchema>;
 
 const nonTransferableNftSchema = z.object({
   params: nftParamsSchema,

@@ -54,6 +54,7 @@ export enum TransactionTypesEnum {
   ProjectNftRevoke = "PROJECT_NFT_REVOKE",
   ProjectNftUpdate = "PROJECT_NFT_UPDATE",
   ProjectUpdate = "PROJECT_UPDATE",
+  ProjectNftTransfer = "PROJECT_NFT_TRANSFER",
   NonTransferableProjectCreate = "NON_TRANSFERABLE_PROJECT_CREATE",
   TransferableProjectCreate = "TRANSFERABLE_PROJECT_CREATE",
   TransferableProjectNftCreate = "TRANSFERABLE_PROJECT_NFT_CREATE",

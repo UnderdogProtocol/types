@@ -69,6 +69,9 @@ export const createProjectSftPayloadSchema = createProjectNftPayloadSchema.omit(
 });
 export type CreateProjectSftPayload = z.infer<typeof createProjectSftPayloadSchema>;
 
+export const transferProjectNftPayloadSchema = nftPayloadSchema;
+export type TransferProjectNftPayload = z.infer<typeof transferProjectNftPayloadSchema>;
+
 export const createCompressedNftPayloadSchema = projectPayloadSchema
   .omit({ mintAddress: true })
   .merge(z.object({ metadata: metadataSchema, receiverAddress: publicKeySchema }));
