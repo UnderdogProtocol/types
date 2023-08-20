@@ -22,8 +22,6 @@ export const createProjectRequestSchema = registry.register(
       symbol: true,
       description: true,
       image: true,
-      transferable: true,
-      compressed: true,
       semifungible: true,
       isPublic: true,
       animationUrl: true,
