@@ -11,6 +11,9 @@ export const createSftInputSchema = z.object({
   receiverAddress: publicKeyValueSchema.optional().openapi({
     description: "Wallet address that will receive the SFT",
   }),
+  delegated: z.boolean().optional().openapi({
+    description: "If true, your Project will have delegated authority over the NFT",
+  }),
 });
 export type CreateSftInput = z.infer<typeof createSftInputSchema>;
 
