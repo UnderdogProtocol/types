@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { idSchema, metadataSchema, publicKeySchema } from "../models";
+import { idSchema, metadataSchema, publicKeySchema, sellerFeeBasisPointsSchema } from "../models";
 import { orgPayloadSchema } from "./org";
 
 export const createProjectPayloadSchema = orgPayloadSchema.merge(
@@ -19,6 +19,7 @@ export const createProjectNftPayloadSchema = orgPayloadSchema.merge(
     treeAddress: publicKeySchema,
     receiverAddress: publicKeySchema,
     delegated: z.boolean().optional().default(false),
+    sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional().default(0),
   })
 );
 export type CreateProjectNftPayload = z.infer<typeof createProjectNftPayloadSchema>;

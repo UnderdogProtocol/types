@@ -8,6 +8,13 @@ extendZodWithOpenApi(z);
 
 export const idSchema = z.number().or(z.string()).pipe(z.coerce.number().int()).openapi({ type: "integer" });
 
+export const sellerFeeBasisPointsSchema = z.number().int().min(0).max(10000).openapi({
+  type: "integer",
+  description: "Creator royalties in basis points",
+  example: 100,
+  default: 0,
+});
+
 export const publicKeyValueSchema = z
   .union([z.string().regex(/^[A-HJ-NP-Za-km-z1-9]*$/), z.instanceof(PublicKey)])
   .transform((value) => value.toString())

@@ -8,7 +8,13 @@ import {
   paginatedQuerySchema,
   projectParamsSchema,
 } from "../api";
-import { nftSchema, metadataSchema, publicKeyValueSchema, publicNftSchema } from "../models";
+import {
+  nftSchema,
+  metadataSchema,
+  publicKeyValueSchema,
+  publicNftSchema,
+  sellerFeeBasisPointsSchema,
+} from "../models";
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
@@ -21,6 +27,7 @@ export const createNftInputSchema = metadataSchema.merge(
     delegated: z.boolean().optional().openapi({
       description: "If true, your Project will have delegated authority over the NFT",
     }),
+    sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
   })
 );
 
