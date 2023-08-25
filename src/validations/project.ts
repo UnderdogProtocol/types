@@ -9,7 +9,7 @@ import {
   projectTransactionResponseSchema,
   sortQuerySchema,
 } from "../api";
-import { metadataSchema, projectSchema } from "../models";
+import { metadataSchema, projectSchema, sellerFeeBasisPointsSchema } from "../models";
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
@@ -143,34 +143,39 @@ export const partialUpdateProjectResponseSchema = registry.register(
 export type PartialUpdateProjectRequest = z.infer<typeof partialUpdateProjectRequestSchema>;
 export type PartialUpdateProjectResponse = z.infer<typeof partialUpdateProjectResponseSchema>;
 
-export const updateProjectNameRequestSchema = registry.register(
-  "UpdateProjectNameRequest",
+export const updateProjectMetadataRequestSchema = registry.register(
+  "UpdateProjectMetadataRequest",
   z.object({
     params: projectParamsSchema,
-    body: metadataSchema.pick({ name: true }),
+    body: metadataSchema
+      .pick({ name: true, symbol: true })
+      .merge(z.object({ sellerFeeBasisPoints: sellerFeeBasisPointsSchema })),
   })
 );
 
-export const updateProjectNameResponseSchema = registry.register(
+export const updateProjectMetadataResponseSchema = registry.register(
   "UpdateProjectNameResponse",
-  projectTransactionResponseSchema
+  projectTransactionResponseSchema.omit({ transferable: true, compressed: true })
 );
 
-export type UpdateProjectNameRequest = z.infer<typeof updateProjectNameRequestSchema>;
-export type UpdateProjectNameResponse = z.infer<typeof updateProjectNameResponseSchema>;
+export type UpdateProjectMetadataRequest = z.infer<typeof updateProjectMetadataRequestSchema>;
+export type UpdateProjectMetadataResponse = z.infer<typeof updateProjectMetadataResponseSchema>;
 
-export const updateProjectSymbolRequestSchema = registry.register(
-  "UpdateProjectSymbolRequest",
+export const partialUpdateProjectMetadataRequestSchema = registry.register(
+  "PartialUpdateProjectMetadataRequest",
   z.object({
     params: projectParamsSchema,
-    body: metadataSchema.pick({ symbol: true }),
+    body: metadataSchema
+      .pick({ name: true, symbol: true })
+      .merge(z.object({ sellerFeeBasisPoints: sellerFeeBasisPointsSchema }))
+      .partial(),
   })
 );
 
-export const updateProjectSymbolResponseSchema = registry.register(
-  "UpdateProjectSymbolResponse",
-  projectTransactionResponseSchema
+export const partialUpdateProjectMetadataResponseSchema = registry.register(
+  "PartialUpdateProjectNameResponse",
+  projectTransactionResponseSchema.omit({ transferable: true, compressed: true })
 );
 
-export type UpdateProjectSymbolRequest = z.infer<typeof updateProjectSymbolRequestSchema>;
-export type UpdateProjectSymbolResponse = z.infer<typeof updateProjectSymbolResponseSchema>;
+export type PartialUpdateProjectMetadataRequest = z.infer<typeof partialUpdateProjectMetadataRequestSchema>;
+export type PartialUpdateProjectMetadataResponse = z.infer<typeof partialUpdateProjectMetadataResponseSchema>;

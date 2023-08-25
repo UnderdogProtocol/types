@@ -11,6 +11,16 @@ export const createProjectPayloadSchema = orgPayloadSchema.merge(
 );
 export type CreateProjectPayload = z.infer<typeof createProjectPayloadSchema>;
 
+export const updateProjectPayloadSchema = orgPayloadSchema.merge(
+  z.object({
+    projectId: idSchema,
+    name: z.string(),
+    symbol: z.string(),
+    sellerFeeBasisPoints: sellerFeeBasisPointsSchema,
+  })
+);
+export type UpdateProjectPayload = z.infer<typeof updateProjectPayloadSchema>;
+
 export const createProjectNftPayloadSchema = orgPayloadSchema.merge(
   z.object({
     projectId: idSchema,
@@ -19,7 +29,6 @@ export const createProjectNftPayloadSchema = orgPayloadSchema.merge(
     treeAddress: publicKeySchema,
     receiverAddress: publicKeySchema,
     delegated: z.boolean().optional().default(false),
-    sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional().default(0),
   })
 );
 export type CreateProjectNftPayload = z.infer<typeof createProjectNftPayloadSchema>;
