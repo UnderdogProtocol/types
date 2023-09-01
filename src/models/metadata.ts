@@ -12,7 +12,6 @@ export const sellerFeeBasisPointsSchema = z.number().int().min(0).max(10000).ope
   type: "integer",
   description: "Creator royalties in basis points",
   example: 100,
-  default: 0,
 });
 
 export const publicKeyValueSchema = z
