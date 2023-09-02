@@ -16,9 +16,9 @@ extendZodWithOpenApi(z);
 
 export const createProjectRequestSchema = registry.register(
   "CreateProjectRequest",
-  z
-    .object({
-      body: projectSchema.pick({
+  z.object({
+    body: projectSchema
+      .pick({
         name: true,
         symbol: true,
         description: true,
@@ -28,9 +28,9 @@ export const createProjectRequestSchema = registry.register(
         animationUrl: true,
         externalUrl: true,
         attributes: true,
-      }),
-    })
-    .merge(z.object({ sellerFeeBasisPoints: sellerFeeBasisPointsSchema }))
+      })
+      .merge(z.object({ sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional() })),
+  })
 );
 
 export const createProjectResponseSchema = registry.register(

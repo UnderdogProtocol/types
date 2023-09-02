@@ -7,7 +7,7 @@ export const createProjectPayloadSchema = orgPayloadSchema.merge(
   z.object({
     projectId: idSchema,
     mintAddress: publicKeySchema,
-    sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional().default(0),
+    sellerFeeBasisPoints: sellerFeeBasisPointsSchema,
   })
 );
 export type CreateProjectPayload = z.infer<typeof createProjectPayloadSchema>;
