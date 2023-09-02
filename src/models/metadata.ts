@@ -10,7 +10,7 @@ export const idSchema = z.number().or(z.string()).pipe(z.coerce.number().int()).
 
 export const sellerFeeBasisPointsSchema = z.number().int().min(0).max(10000).openapi({
   type: "integer",
-  description: "Creator royalties in basis points",
+  description: "Creator royalties in basis points - 100 basis points = 1%",
   example: 100,
 });
 
@@ -47,7 +47,8 @@ export const metadataSchema = registry.register(
       example: "I minted this NFT with the Underdog API",
     }),
     image: z.string().openapi({
-      description: "Image URL for your NFT",
+      description:
+        "Image for your NFT. When creating an NFT, this can be a base64 encoded string or a URL pointing to an image.",
       example: "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
     }),
     animationUrl: z.string().optional().openapi({
