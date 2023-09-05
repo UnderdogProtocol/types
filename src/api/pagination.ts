@@ -9,6 +9,7 @@ import {
   memberSchema,
   orgSchema,
   webhookSchema,
+  networkEnumSchema,
 } from "../models";
 import { keySchema } from "../models/key";
 
@@ -50,7 +51,9 @@ export const transactionPaginatedResponseSchema =
 
 export const memberPaginatedResponseSchema = createPaginatedResponseSchema<typeof memberSchema>(memberSchema);
 
-export const orgPaginatedResponseSchema = createPaginatedResponseSchema<typeof orgSchema>(orgSchema);
+export const orgPaginatedResponseSchema = createPaginatedResponseSchema<typeof orgSchema>(
+  orgSchema.merge(z.object({ network: networkEnumSchema }))
+);
 
 export const webhookPaginatedResponseSchema =
   createPaginatedResponseSchema<typeof webhookSchema>(webhookSchema);
