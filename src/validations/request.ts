@@ -8,10 +8,7 @@ extendZodWithOpenApi(z);
 
 export const getRequestsRequestSchema = z.object({
   query: paginatedQuerySchema.merge(
-    z.object({
-      method: z.string().optional().nullable(),
-      endpoint: z.string().optional().nullable(),
-    })
+    z.object({ method: z.string().optional(), endpoint: z.string().optional() })
   ),
 });
 export type GetRequestsRequest = z.infer<typeof getRequestsRequestSchema>;

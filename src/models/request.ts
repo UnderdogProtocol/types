@@ -10,7 +10,7 @@ export const requestSchema = z.object({
   method: z.string(),
   endpoint: z.string(),
   body: z.string().optional().nullable(),
-  createdAt: z.string(),
+  createdAt: z.date(),
   transaction: transactionSchema.pick({ id: true, type: true }).optional().nullable(),
   response: z
     .object({
