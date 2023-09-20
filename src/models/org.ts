@@ -10,6 +10,7 @@ export const orgSchema = z.object({
   superAdminAddress: publicKeyValueSchema,
   name: z.string(),
   status: z.string(),
+  balance: z.number(),
 });
 
 export type Org = z.infer<typeof orgSchema>;
