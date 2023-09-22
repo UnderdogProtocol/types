@@ -15,7 +15,7 @@ export const meSchema = z.object({
   address: publicKeyValueSchema,
   paid: z.boolean(),
   createdAt: z.string(),
-  org: orgSchema,
+  org: orgSchema.optional(),
   subscription: subscriptionSchema.optional(),
 });
 
