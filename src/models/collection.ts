@@ -14,6 +14,9 @@ export const collectionSchema = projectSchema.pick({
   symbol: true,
   description: true,
   image: true,
+  externalUrl: true,
+  animationUrl: true,
+  attributes: true,
 });
 
 export type Collection = z.infer<typeof collectionSchema>;
