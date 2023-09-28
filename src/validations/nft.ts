@@ -26,7 +26,9 @@ export const createNftInputSchema = metadataSchema.merge(
   })
 );
 
-export type CreateNftInputType = z.infer<typeof createNftInputSchema> & { receiver?: Receiver };
+export type CreateNftInput = Omit<z.infer<typeof createNftInputSchema>, "receiver"> & {
+  receiver?: Receiver;
+};
 
 export const createNftRequestSchema = registry.register(
   "CreateNftRequest",
@@ -41,6 +43,11 @@ export const createNftRequestSchema = registry.register(
     ),
   })
 );
+
+export type CreateNftRequest = {
+  params: z.infer<typeof projectParamsSchema>;
+  body: CreateNftInput & { upsert?: boolean };
+};
 
 export const createTransferableNftResponseSchema = registry.register(
   "CreateTransferableNftResponse",
@@ -69,19 +76,11 @@ export const createNftResponseSchema = z.union([
   upsertNftResponseSchema,
 ]);
 
-export type CreateNftRequest = z.infer<typeof createNftRequestSchema>;
 export type CreateTransferableNftResponse = z.infer<typeof createTransferableNftResponseSchema>;
 export type createNonTransferableNftResponse = z.infer<typeof createNonTransferableNftResponseSchema>;
 export type CreateCompressedNftResponse = z.infer<typeof createCompressedNftResponseSchema>;
 export type UpsertNftResponse = z.infer<typeof upsertNftResponseSchema>;
 export type CreateNftResponse = z.infer<typeof createNftResponseSchema>;
-
-export const batchCompressedNftRequestSchema = z.object({
-  params: projectParamsSchema,
-  body: metadataSchema.merge(z.object({ receiverAddresses: publicKeyValueSchema.array().optional() })),
-});
-
-export type BatchCompressedNftRequest = z.infer<typeof batchCompressedNftRequestSchema>;
 
 export const getNftRequestSchema = registry.register(
   "GetNftRequest",

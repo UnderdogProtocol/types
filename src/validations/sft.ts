@@ -27,7 +27,10 @@ export const createSftRequestSchema = registry.register(
   })
 );
 
-export type CreateSftRequest = z.infer<typeof createSftRequestSchema>;
+export type CreateSftRequest = {
+  params: z.infer<typeof projectParamsSchema>;
+  body: CreateSftInput;
+};
 
 export const createSftResponseSchema = registry.register("CreateSftResponse", sftTransactionResponseSchema);
 
@@ -41,7 +44,10 @@ export const batchSftRequestSchema = registry.register(
   })
 );
 
-export type BatchSftRequest = z.infer<typeof batchSftRequestSchema>;
+export type BatchSftRequest = {
+  params: z.infer<typeof projectParamsSchema>;
+  body: CreateSftInput[];
+};
 
 export const batchSftResponseSchema = registry.register(
   "BatchSftResponse",
