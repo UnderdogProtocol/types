@@ -3,11 +3,13 @@ import { z } from "zod";
 
 import { projectParamsSchema, sftTransactionResponseSchema } from "../api";
 import { publicKeyValueSchema } from "../models";
+import { Receiver, receiverSchema } from "../models/receiver";
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
 
 export const createSftInputSchema = z.object({
+  receiver: receiverSchema.optional(),
   receiverAddress: publicKeyValueSchema.optional().openapi({
     description: "Wallet address that will receive the SFT",
   }),
@@ -15,7 +17,7 @@ export const createSftInputSchema = z.object({
     description: "If true, your Project will have delegated authority over the NFT",
   }),
 });
-export type CreateSftInput = z.infer<typeof createSftInputSchema>;
+export type CreateSftInput = z.infer<typeof createSftInputSchema> & { receiver?: Receiver };
 
 export const createSftRequestSchema = registry.register(
   "CreateSftRequest",

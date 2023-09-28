@@ -9,12 +9,14 @@ import {
   projectParamsSchema,
 } from "../api";
 import { nftSchema, metadataSchema, publicKeyValueSchema, publicNftSchema } from "../models";
+import { Receiver, receiverSchema } from "../models/receiver";
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
 
 export const createNftInputSchema = metadataSchema.merge(
   z.object({
+    receiver: receiverSchema.optional(),
     receiverAddress: publicKeyValueSchema.optional().openapi({
       description: "Wallet address that will receive the NFT",
     }),
@@ -24,7 +26,7 @@ export const createNftInputSchema = metadataSchema.merge(
   })
 );
 
-export type CreateNftInput = z.infer<typeof createNftInputSchema>;
+export type CreateNftInputType = z.infer<typeof createNftInputSchema> & { receiver?: Receiver };
 
 export const createNftRequestSchema = registry.register(
   "CreateNftRequest",
