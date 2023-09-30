@@ -7,6 +7,7 @@ import {
   nftTransactionResponseSchema,
   paginatedQuerySchema,
   projectParamsSchema,
+  sortQuerySchema,
 } from "../api";
 import { nftSchema, metadataSchema, publicKeyValueSchema, publicNftSchema } from "../models";
 import { Receiver, receiverSchema } from "../models/receiver";
@@ -115,7 +116,9 @@ export const getNftsRequestSchema = registry.register(
   "GetNftsRequest",
   z.object({
     params: projectParamsSchema,
-    query: paginatedQuerySchema.merge(z.object({ ownerAddress: publicKeyValueSchema.optional() })),
+    query: paginatedQuerySchema
+      .merge(sortQuerySchema)
+      .merge(z.object({ ownerAddress: publicKeyValueSchema.optional() })),
   })
 );
 
