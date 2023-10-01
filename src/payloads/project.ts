@@ -37,6 +37,15 @@ export type CreateProjectNftPayload = z.infer<typeof createProjectNftPayloadSche
 export const createProjectSftPayloadSchema = createProjectNftPayloadSchema.omit({ metadata: true });
 export type CreateProjectSftPayload = z.infer<typeof createProjectSftPayloadSchema>;
 
+export const batchProjectNftPayloadSchema = orgPayloadSchema.merge(
+  z.object({
+    projectId: idSchema,
+    treeAddress: publicKeySchema,
+    batch: z.object({ receiverAddress: publicKeySchema, nftId: idSchema, metadata: metadataSchema }).array(),
+  })
+);
+export type BatchProjectNftPayload = z.infer<typeof batchProjectNftPayloadSchema>;
+
 export const batchProjectSftPayloadSchema = orgPayloadSchema.merge(
   z.object({
     projectId: idSchema,
