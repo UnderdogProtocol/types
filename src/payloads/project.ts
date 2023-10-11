@@ -63,3 +63,11 @@ export const transferProjectNftPayloadSchema = orgPayloadSchema.merge(
   })
 );
 export type TransferProjectNftPayload = z.infer<typeof transferProjectNftPayloadSchema>;
+
+export const burnProjectAssetPayloadSchema = orgPayloadSchema.merge(
+  z.object({
+    projectId: idSchema,
+    nftId: idSchema,
+  })
+);
+export type BurnProjectAssetPayload = z.infer<typeof burnProjectAssetPayloadSchema>;

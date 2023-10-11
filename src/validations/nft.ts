@@ -224,6 +224,16 @@ export const transferNftResponseSchema = registry.register(
 export type TransferNftRequest = z.infer<typeof transferNftRequestSchema>;
 export type TransferNftResponse = z.infer<typeof transferNftResponseSchema>;
 
+export const burnAssetRequestSchema = registry.register(
+  "BurnAssetRequest",
+  z.object({ params: nftParamsSchema })
+);
+
+export const burnAssetResponseSchema = registry.register("BurnAssetResponse", nftTransactionResponseSchema);
+
+export type BurnAssetRequest = z.infer<typeof burnAssetRequestSchema>;
+export type BurnAssetResponse = z.infer<typeof burnAssetResponseSchema>;
+
 const nonTransferableNftSchema = z.object({
   params: nftParamsSchema,
 });
