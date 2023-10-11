@@ -55,6 +55,7 @@ export enum TransactionTypesEnum {
   ProjectNftUpdate = "PROJECT_NFT_UPDATE",
   ProjectUpdate = "PROJECT_UPDATE",
   ProjectNftTransfer = "PROJECT_NFT_TRANSFER",
+  ProjectAssetBurn = "PROJECT_ASSET_BURN",
   ShopCreate = "SHOP_CREATE",
   DustCreate = "DUST_CREATE",
   NonTransferableProjectCreate = "NON_TRANSFERABLE_PROJECT_CREATE",
