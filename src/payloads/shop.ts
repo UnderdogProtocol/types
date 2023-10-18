@@ -8,7 +8,10 @@ export const createShopPayloadSchema = metadataSchema.merge(
     supply: z.number().min(0),
     namespace: z.string().optional(),
     treeAddress: z.string().optional(),
-    expiredAt: z.date().optional(),
+    expiredAt: z
+      .string()
+      .optional()
+      .transform((dateString) => (dateString ? new Date(dateString) : undefined)),
   })
 );
 
