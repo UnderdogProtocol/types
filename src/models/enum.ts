@@ -28,7 +28,6 @@ export enum StatusEnum {
 export const statusEnumSchema = z.nativeEnum(StatusEnum);
 
 export enum TransactionTypesEnum {
-  ClaimBadge = "CLAIM_BADGE",
   CollectionAdd = "COLLECTION_ADD",
   CollectionCreate = "COLLECTION_CREATE",
   CollectionCreateDeprecated = "COLLECTION_CREATE_DEPRECATED",
@@ -37,11 +36,8 @@ export enum TransactionTypesEnum {
   CompressedProjectNftCreate = "COMPRESSED_PROJECT_NFT_CREATE",
   CompressedProjectSftBatch = "COMPRESSED_PROJECT_SFT_BATCH",
   CompressedProjectSftCreate = "COMPRESSED_PROJECT_SFT_CREATE",
-  ConfirmTransaction = "CONFIRM_TRANSACTION",
-  Initialize = "INITIALIZE",
   ManagedNftRevoke = "MANAGED_NFT_REVOKE",
   NftCreate = "NFT_CREATE",
-  NftCreateV2 = "NFT_CREATE_V2",
   NftUpdate = "NFT_UPDATE",
   OrgCreate = "ORG_CREATE",
   OrgMemberAdd = "ORG_MEMBER_ADD",

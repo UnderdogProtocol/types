@@ -10,11 +10,11 @@ export const receiverSchema = z
       example: "7px1aXrdcySNHEF8aQ12iHBW5a2MVsqQU1ELkTdYAgjN",
     }),
     namespace: z.string().optional().openapi({
-      description: "Namespace of the application to determine the Passport address",
+      description: "Namespace of the application (e.g. solarplex, superteam)",
       example: "public",
     }),
     identifier: z.string().optional().openapi({
-      description: "Identifier of the user to determine the Passport address",
+      description: "Identifier for the user's Passport (i.e. email, wallet address, twitter handle)",
       example: "kevin@underdogprotocol.com",
     }),
   })
