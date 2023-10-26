@@ -16,7 +16,7 @@ export const transactionSchema = z.object({
   data: z.string().optional().openapi({
     description: "Transaction data in stringified JSON format",
   }),
-  signature: z.string().optional().openapi({
+  signature: z.string().nullable().optional().openapi({
     description: "Signature of the on-chain transaction",
     example: "2yVZcx5rMDLDcqe31Uua6a93qw3qrNMsjroYWXV3sytttnrPSxk2heGK7yUorW6KrfiEpkLNYNVPivhgoigdRnK6",
   }),
