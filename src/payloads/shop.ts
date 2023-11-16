@@ -1,11 +1,12 @@
 import { z } from "zod";
 
-import { metadataSchema } from "../models";
+import { metadataSchema, sellerFeeBasisPointsSchema } from "../models";
 
 export const createShopPayloadSchema = metadataSchema.merge(
   z.object({
     price: z.number().min(0),
     supply: z.number().min(0),
+    sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
     namespace: z.string().optional(),
     treeAddress: z.string().optional(),
     expiredAt: z
