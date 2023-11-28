@@ -10,3 +10,4 @@ export * from "./webhook";
 export * from "./key";
 export * from "./enum";
 export * from "./receiver";
+export * from "./domain";
