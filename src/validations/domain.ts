@@ -12,9 +12,13 @@ export const getDomainsRequestSchema = z.object({
     })
   ),
 });
-
 export type GetDomainsRequest = z.infer<typeof getDomainsRequestSchema>;
 
 export const getDomainsResponseSchema = createPaginatedResponseSchema(domainSchema);
-
 export type GetDomainsResponse = z.infer<typeof getDomainsResponseSchema>;
+
+export const getDomainRequestSchema = z.object({ params: z.object({ namespace: z.string() }) });
+export type GetDomainRequest = z.infer<typeof getDomainRequestSchema>;
+
+export const getDomainResponseSchema = domainSchema;
+export type GetDomainResponse = z.infer<typeof getDomainResponseSchema>;
