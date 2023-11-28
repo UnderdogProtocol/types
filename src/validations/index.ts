@@ -8,3 +8,4 @@ export * from "./org";
 export * from "./webhook";
 export * from "./key";
 export * from "./wallet";
+export * from "./domain";
