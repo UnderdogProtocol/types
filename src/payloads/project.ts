@@ -50,7 +50,13 @@ export const batchProjectSftPayloadSchema = orgPayloadSchema.merge(
   z.object({
     projectId: idSchema,
     treeAddress: publicKeySchema,
-    batch: z.object({ receiverAddress: publicKeySchema, nftId: idSchema }).array(),
+    batch: z
+      .object({
+        receiverAddress: publicKeySchema,
+        nftId: idSchema,
+        delegated: z.boolean().optional(),
+      })
+      .array(),
   })
 );
 export type BatchProjectSftPayload = z.infer<typeof batchProjectSftPayloadSchema>;
