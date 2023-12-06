@@ -41,8 +41,14 @@ export const batchProjectNftPayloadSchema = orgPayloadSchema.merge(
   z.object({
     projectId: idSchema,
     treeAddress: publicKeySchema,
-    batch: z.object({ receiverAddress: publicKeySchema, nftId: idSchema, metadata: metadataSchema }).array(),
-    delegated: z.boolean().optional(),
+    batch: z
+      .object({
+        receiverAddress: publicKeySchema,
+        nftId: idSchema,
+        metadata: metadataSchema,
+        delegated: z.boolean().optional(),
+      })
+      .array(),
   })
 );
 export type BatchProjectNftPayload = z.infer<typeof batchProjectNftPayloadSchema>;
