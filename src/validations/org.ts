@@ -2,6 +2,9 @@ import { z } from "zod";
 
 import { memberPaginatedResponseSchema, orgPaginatedResponseSchema, paginatedQuerySchema } from "../api";
 import { idSchema, memberSchema, orgSchema, publicKeyValueSchema } from "../models";
+import { rechargeSchema } from "../models/recharge";
+
+export const orgParams = z.object({ orgId: idSchema });
 
 export const getOrgsRequestSchema = z.object({
   query: paginatedQuerySchema,
@@ -33,9 +36,7 @@ export const getOrgStatsResponseSchema = z.object({
 export type GetOrgStatsResponse = z.infer<typeof getOrgStatsResponseSchema>;
 
 export const updateOrgRequestSchema = z.object({
-  params: z.object({
-    orgId: idSchema,
-  }),
+  params: orgParams,
   body: z.object({
     name: z.string(),
   }),
@@ -47,9 +48,7 @@ export type UpdateOrgResponse = z.infer<typeof updateOrgResponseSchema>;
 
 export const getMembersRequestSchema = z.object({
   query: paginatedQuerySchema,
-  params: z.object({
-    orgId: idSchema,
-  }),
+  params: orgParams,
 });
 export type GetMembersRequest = z.infer<typeof getMembersRequestSchema>;
 
@@ -57,9 +56,7 @@ export const getMembersResponseSchema = memberPaginatedResponseSchema;
 export type GetMembersResponse = z.infer<typeof getMembersResponseSchema>;
 
 export const createMemberRequestSchema = z.object({
-  params: z.object({
-    orgId: idSchema,
-  }),
+  params: orgParams,
   body: z.object({
     name: z.string(),
     memberAddress: publicKeyValueSchema,
@@ -69,3 +66,13 @@ export type CreateMemberRequest = z.infer<typeof createMemberRequestSchema>;
 
 export const createMemberResponseSchema = memberSchema;
 export type CreateMemberResponse = z.infer<typeof createMemberResponseSchema>;
+
+export const createRechargeRequestSchema = z.object({
+  params: orgParams,
+  body: rechargeSchema.pick({ limit: true, amount: true }),
+});
+
+export type CreateRechargeRequest = z.infer<typeof createRechargeRequestSchema>;
+
+export const createRechargeResponseSchema = rechargeSchema;
+export type CreateRechargeResponse = z.infer<typeof createRechargeResponseSchema>;
