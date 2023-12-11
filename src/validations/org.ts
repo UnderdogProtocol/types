@@ -3,6 +3,8 @@ import { z } from "zod";
 import { memberPaginatedResponseSchema, orgPaginatedResponseSchema, paginatedQuerySchema } from "../api";
 import { idSchema, memberSchema, orgSchema, publicKeyValueSchema } from "../models";
 
+export const orgParams = z.object({ orgId: idSchema });
+
 export const getOrgsRequestSchema = z.object({
   query: paginatedQuerySchema,
 });
@@ -33,9 +35,7 @@ export const getOrgStatsResponseSchema = z.object({
 export type GetOrgStatsResponse = z.infer<typeof getOrgStatsResponseSchema>;
 
 export const updateOrgRequestSchema = z.object({
-  params: z.object({
-    orgId: idSchema,
-  }),
+  params: orgParams,
   body: z.object({
     name: z.string(),
     email: z.string().email().optional(),
@@ -48,9 +48,7 @@ export type UpdateOrgResponse = z.infer<typeof updateOrgResponseSchema>;
 
 export const getMembersRequestSchema = z.object({
   query: paginatedQuerySchema,
-  params: z.object({
-    orgId: idSchema,
-  }),
+  params: orgParams,
 });
 export type GetMembersRequest = z.infer<typeof getMembersRequestSchema>;
 
@@ -58,9 +56,7 @@ export const getMembersResponseSchema = memberPaginatedResponseSchema;
 export type GetMembersResponse = z.infer<typeof getMembersResponseSchema>;
 
 export const createMemberRequestSchema = z.object({
-  params: z.object({
-    orgId: idSchema,
-  }),
+  params: orgParams,
   body: z.object({
     name: z.string(),
     memberAddress: publicKeyValueSchema,

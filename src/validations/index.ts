@@ -9,3 +9,4 @@ export * from "./webhook";
 export * from "./key";
 export * from "./wallet";
 export * from "./domain";
+export * from "./recharge";

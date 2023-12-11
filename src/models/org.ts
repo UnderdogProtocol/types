@@ -2,6 +2,7 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import { idSchema, publicKeyValueSchema } from "./metadata";
+import { rechargeSchema } from "./recharge";
 
 extendZodWithOpenApi(z);
 
@@ -12,6 +13,7 @@ export const orgSchema = z.object({
   status: z.string(),
   balance: z.number(),
   email: z.string().email().optional(),
+  recharge: rechargeSchema.pick({ limit: true, amount: true, enabled: true }).optional(),
 });
 
 export type Org = z.infer<typeof orgSchema>;
