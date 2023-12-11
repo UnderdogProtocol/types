@@ -12,6 +12,7 @@ export const orgSchema = z.object({
   name: z.string(),
   status: z.string(),
   balance: z.number(),
+  email: z.string().email().optional(),
   recharge: rechargeSchema.pick({ limit: true, amount: true, enabled: true }).optional(),
 });
 
