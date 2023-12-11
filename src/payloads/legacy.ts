@@ -21,10 +21,18 @@ export const nonTransferableNftPayloadSchema = orgPayloadSchema.merge(
   z.object({ projectId: idSchema, nftId: idSchema })
 );
 
-export const burnNftPayloadSchema = nonTransferableNftPayloadSchema;
+export const burnNftPayloadSchema = nonTransferableNftPayloadSchema.merge(
+  z.object({
+    mintAddress: publicKeySchema,
+  })
+);
 export type BurnNftPayload = z.infer<typeof burnNftPayloadSchema>;
 
-export const revokeNftPayloadSchema = nonTransferableNftPayloadSchema;
+export const revokeNftPayloadSchema = nonTransferableNftPayloadSchema.merge(
+  z.object({
+    mintAddress: publicKeySchema,
+  })
+);
 export type RevokeNftPayload = z.infer<typeof revokeNftPayloadSchema>;
 
 export const createCompressedNftPayloadSchema = orgPayloadSchema.merge(
