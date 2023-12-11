@@ -38,6 +38,7 @@ export const updateOrgRequestSchema = z.object({
   }),
   body: z.object({
     name: z.string(),
+    email: z.string().email().optional(),
   }),
 });
 export type UpdateOrgRequest = z.infer<typeof updateOrgRequestSchema>;
