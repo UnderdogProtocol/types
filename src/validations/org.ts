@@ -2,7 +2,6 @@ import { z } from "zod";
 
 import { memberPaginatedResponseSchema, orgPaginatedResponseSchema, paginatedQuerySchema } from "../api";
 import { idSchema, memberSchema, orgSchema, publicKeyValueSchema } from "../models";
-import { rechargeSchema } from "../models/recharge";
 
 export const orgParams = z.object({ orgId: idSchema });
 
@@ -66,13 +65,3 @@ export type CreateMemberRequest = z.infer<typeof createMemberRequestSchema>;
 
 export const createMemberResponseSchema = memberSchema;
 export type CreateMemberResponse = z.infer<typeof createMemberResponseSchema>;
-
-export const createRechargeRequestSchema = z.object({
-  params: orgParams,
-  body: rechargeSchema.pick({ limit: true, amount: true }),
-});
-
-export type CreateRechargeRequest = z.infer<typeof createRechargeRequestSchema>;
-
-export const createRechargeResponseSchema = rechargeSchema;
-export type CreateRechargeResponse = z.infer<typeof createRechargeResponseSchema>;
