@@ -12,7 +12,7 @@ export const orgSchema = z.object({
   name: z.string(),
   status: z.string(),
   balance: z.number(),
-  recharge: rechargeSchema.pick({ limit: true, amount: true }).optional(),
+  recharge: rechargeSchema.pick({ limit: true, amount: true, enabled: true }).optional(),
 });
 
 export type Org = z.infer<typeof orgSchema>;
