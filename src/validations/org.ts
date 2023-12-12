@@ -37,7 +37,7 @@ export type GetOrgStatsResponse = z.infer<typeof getOrgStatsResponseSchema>;
 export const updateOrgRequestSchema = z.object({
   params: orgParams,
   body: z.object({
-    name: z.string(),
+    name: z.string().min(3, { message: "Organization name must be at least 3 characters" }),
     email: z.string().email().optional(),
   }),
 });
