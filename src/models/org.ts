@@ -9,7 +9,7 @@ extendZodWithOpenApi(z);
 export const orgSchema = z.object({
   id: idSchema,
   superAdminAddress: publicKeyValueSchema,
-  name: z.string(),
+  name: z.string().min(3, { message: "Organization name must be at least 3 characters" }),
   status: z.string(),
   balance: z.number(),
   email: z.string().email().optional(),
