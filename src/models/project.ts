@@ -1,7 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-import { metadataSchema, publicKeyValueSchema } from "./metadata";
+import { metadataSchema, publicKeyValueSchema, sellerFeeBasisPointsSchema } from "./metadata";
 
 extendZodWithOpenApi(z);
 
@@ -26,6 +26,7 @@ export const projectSchema = z
       .optional()
       .openapi({ description: "Whether or not the NFTs in this project are compressed" }),
     status: z.string(),
+    sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
   })
   .merge(metadataSchema);
 
