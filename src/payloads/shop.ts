@@ -4,7 +4,7 @@ import { metadataSchema, sellerFeeBasisPointsSchema } from "../models";
 
 export const createShopPayloadSchema = metadataSchema.merge(
   z.object({
-    price: z.number().min(0),
+    price: z.number().min(0).nullable().default(0),
     supply: z.number().min(0),
     sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
     namespace: z.string().optional(),
