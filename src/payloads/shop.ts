@@ -9,6 +9,7 @@ export const createShopPayloadSchema = metadataSchema.merge(
     sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
     namespace: z.string().optional(),
     treeAddress: z.string().optional(),
+    whitelist: z.string().optional(),
     expiredAt: z
       .string()
       .optional()
