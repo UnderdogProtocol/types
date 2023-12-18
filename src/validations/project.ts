@@ -9,7 +9,7 @@ import {
   projectTransactionResponseSchema,
   sortQuerySchema,
 } from "../api";
-import { metadataSchema, projectSchema, sellerFeeBasisPointsSchema } from "../models";
+import { metadataSchema, projectSchema, publicKeyValueSchema, sellerFeeBasisPointsSchema } from "../models";
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
@@ -168,3 +168,19 @@ export const partialUpdateProjectMetadataResponseSchema = registry.register(
 
 export type PartialUpdateProjectMetadataRequest = z.infer<typeof partialUpdateProjectMetadataRequestSchema>;
 export type PartialUpdateProjectMetadataResponse = z.infer<typeof partialUpdateProjectMetadataResponseSchema>;
+
+export const withdrawProjectRoyaltiesRequestSchema = registry.register(
+  "WithdrawProjectRoyaltiesRequest",
+  z.object({
+    params: projectParamsSchema,
+    body: z.object({ receiverAddress: publicKeyValueSchema }),
+  })
+);
+
+export const withdrawProjectRoyaltiesResponseSchema = registry.register(
+  "WithdrawProjectRoyaltiesResponse",
+  projectTransactionResponseSchema.omit({ transferable: true, compressed: true })
+);
+
+export type WithdrawProjectRoyaltiesRequest = z.infer<typeof withdrawProjectRoyaltiesRequestSchema>;
+export type WithdrawProjectRoyaltiesResponse = z.infer<typeof withdrawProjectRoyaltiesResponseSchema>;

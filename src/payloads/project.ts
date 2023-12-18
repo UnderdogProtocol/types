@@ -22,6 +22,15 @@ export const updateProjectPayloadSchema = orgPayloadSchema.merge(
 );
 export type UpdateProjectPayload = z.infer<typeof updateProjectPayloadSchema>;
 
+export const withdrawProjectRoyaltiesPayloadSchema = orgPayloadSchema.merge(
+  z.object({
+    projectId: idSchema,
+    receiverAddress: publicKeySchema,
+  })
+);
+
+export type WithdrawProjectRoyaltiesPayload = z.infer<typeof withdrawProjectRoyaltiesPayloadSchema>;
+
 export const createProjectNftPayloadSchema = orgPayloadSchema.merge(
   z.object({
     projectId: idSchema,

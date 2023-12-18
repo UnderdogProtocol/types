@@ -42,6 +42,7 @@ export enum TransactionTypesEnum {
   OrgCreate = "ORG_CREATE",
   OrgMemberAdd = "ORG_MEMBER_ADD",
   ProjectCreate = "PROJECT_CREATE",
+  ProjectRoyaltiesWithdraw = "PROJECT_ROYALTIES_WITHDRAW",
   ProjectNftCreate = "PROJECT_NFT_CREATE",
   ProjectSftCreate = "PROJECT_SFT_CREATE",
   ProjectNftBatch = "PROJECT_NFT_BATCH",
