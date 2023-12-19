@@ -139,9 +139,13 @@ export const getNftsRequestSchema = registry.register(
   "GetNftsRequest",
   z.object({
     params: projectParamsSchema,
-    query: paginatedQuerySchema
-      .merge(sortQuerySchema)
-      .merge(z.object({ ownerAddress: publicKeyValueSchema.optional() })),
+    query: paginatedQuerySchema.merge(sortQuerySchema).merge(
+      z.object({
+        ownerAddress: publicKeyValueSchema.optional(),
+        identifier: z.string().optional(),
+        namespace: z.string().optional(),
+      })
+    ),
   })
 );
 
