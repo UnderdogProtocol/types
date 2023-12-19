@@ -26,7 +26,7 @@ export const projectSchema = z
       .optional()
       .openapi({ description: "Whether or not the NFTs in this project are compressed" }),
     status: z.string(),
-    sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
+    sellerFeeBasisPoints: sellerFeeBasisPointsSchema,
   })
   .merge(metadataSchema);
 
