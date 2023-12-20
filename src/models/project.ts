@@ -9,18 +9,14 @@ export const projectSchema = z
   .object({
     id: z.number().openapi({ description: "Unique ID for a Project" }),
     mintAddress: publicKeyValueSchema,
-    transferable: z
-      .boolean()
-      .optional()
-      .openapi({ description: "Whether or not the NFTs in this project can be transferred" }),
     semifungible: z
       .boolean()
       .optional()
       .openapi({ description: "Whether or not the NFTs in this project are semifungible" }),
-    isPublic: z
+    transferable: z
       .boolean()
       .optional()
-      .openapi({ description: "Allows public minting of NFTs through an API endpoint" }),
+      .openapi({ description: "Whether or not the NFTs in this project can be transferred" }),
     compressed: z
       .boolean()
       .optional()

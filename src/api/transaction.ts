@@ -1,7 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { AnyZodObject, z } from "zod";
 
-import { memberSchema, nftSchema, projectSchema } from "../models";
+import { nftSchema, projectSchema } from "../models";
 
 extendZodWithOpenApi(z);
 
