@@ -34,23 +34,3 @@ export const revokeNftPayloadSchema = nonTransferableNftPayloadSchema.merge(
   })
 );
 export type RevokeNftPayload = z.infer<typeof revokeNftPayloadSchema>;
-
-export const createCompressedNftPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    projectId: idSchema,
-    metadata: metadataSchema,
-    receiverAddress: publicKeySchema,
-    nftId: idSchema,
-    treeAddress: publicKeySchema,
-  })
-);
-export type CreateCompressedNftPayload = z.infer<typeof createCompressedNftPayloadSchema>;
-
-export const batchCompressedNftPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    projectId: idSchema,
-    metdata: metadataSchema,
-    batch: z.array(z.object({ receiverAddress: publicKeySchema, nftId: idSchema })),
-  })
-);
-export type BatchCompressedNftPayload = z.infer<typeof batchCompressedNftPayloadSchema>;

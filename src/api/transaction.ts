@@ -28,22 +28,19 @@ const sftTransactionSchema = nftSchema.extend({ nftId: nftSchema.shape.id }).pic
   projectId: true,
 });
 
-const compressedSftTransactionSchema = nftSchema.pick({
+const assetTransactionSchema = nftSchema.extend({ nftId: nftSchema.shape.id }).pick({
+  nftId: true,
   projectId: true,
-  transferable: true,
-  compressed: true,
-  semiFungible: true,
 });
+
+export const assetTransactionResponseSchema =
+  createTransactionResponseSchema<typeof assetTransactionSchema>(assetTransactionSchema);
 
 export const nftTransactionResponseSchema =
   createTransactionResponseSchema<typeof nftTransactionSchema>(nftTransactionSchema);
 
 export const sftTransactionResponseSchema =
   createTransactionResponseSchema<typeof sftTransactionSchema>(sftTransactionSchema);
-
-export const compressedSftTransactionResponseSchema = createTransactionResponseSchema<
-  typeof compressedSftTransactionSchema
->(compressedSftTransactionSchema);
 
 export type NftTransactionResponse = z.infer<typeof nftTransactionResponseSchema>;
 

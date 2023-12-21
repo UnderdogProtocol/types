@@ -2,6 +2,7 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import {
+  assetTransactionResponseSchema,
   nftPaginatedResponseSchema,
   nftParamsSchema,
   nftTransactionResponseSchema,
@@ -55,14 +56,6 @@ export const createTransferableNftResponseSchema = registry.register(
   nftTransactionResponseSchema
 );
 
-export const createCompressedNftResponseSchema = registry.register(
-  "CreateCompressedNftResponse",
-  nftTransactionResponseSchema.omit({
-    nftId: true,
-    mintAddress: true,
-  })
-);
-
 export const createNonTransferableNftResponseSchema = registry.register(
   "CreateNonTransferableNftResponse",
   nftSchema
@@ -70,16 +63,10 @@ export const createNonTransferableNftResponseSchema = registry.register(
 
 export const upsertNftResponseSchema = registry.register("UpsertNftResponse", z.array(nftSchema));
 
-export const createNftResponseSchema = z.union([
-  createTransferableNftResponseSchema,
-  createCompressedNftResponseSchema,
-  createNonTransferableNftResponseSchema,
-  upsertNftResponseSchema,
-]);
+export const createNftResponseSchema = assetTransactionResponseSchema;
 
 export type CreateTransferableNftResponse = z.infer<typeof createTransferableNftResponseSchema>;
-export type createNonTransferableNftResponse = z.infer<typeof createNonTransferableNftResponseSchema>;
-export type CreateCompressedNftResponse = z.infer<typeof createCompressedNftResponseSchema>;
+export type CreateNonTransferableNftResponse = z.infer<typeof createNonTransferableNftResponseSchema>;
 export type UpsertNftResponse = z.infer<typeof upsertNftResponseSchema>;
 export type CreateNftResponse = z.infer<typeof createNftResponseSchema>;
 
