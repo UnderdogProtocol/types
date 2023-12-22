@@ -5,7 +5,7 @@ import { nftSchema, projectSchema } from "../models";
 
 extendZodWithOpenApi(z);
 
-function createTransactionResponseSchema<T extends AnyZodObject>(schema: T) {
+export function createTransactionResponseSchema<T extends AnyZodObject>(schema: T) {
   return z
     .object({
       transactionId: z.string().openapi({

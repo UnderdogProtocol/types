@@ -48,6 +48,8 @@ export enum TransactionTypesEnum {
   NonTransferableProjectCreate = "NON_TRANSFERABLE_PROJECT_CREATE",
   TransferableProjectCreate = "TRANSFERABLE_PROJECT_CREATE",
   TransferableProjectNftCreate = "TRANSFERABLE_PROJECT_NFT_CREATE",
+
+  InscriptionCreate = "INSCRIPTION_CREATE",
 }
 
 export const transactionTypesEnumSchema = z.nativeEnum(TransactionTypesEnum);

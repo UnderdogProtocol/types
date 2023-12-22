@@ -12,3 +12,4 @@ export * from "./enum";
 export * from "./receiver";
 export * from "./domain";
 export * from "./recharge";
+export * from "./inscription";
