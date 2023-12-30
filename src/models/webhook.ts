@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import { transactionTypesEnumSchema } from "./enum";
 import { idSchema, publicKeyValueSchema } from "./metadata";
+import { dateStringSchema } from "./primitive";
 
 export const triggerSchema = z.object({
   transactionType: transactionTypesEnumSchema,
@@ -14,9 +15,9 @@ export const webhookSchema = z.object({
   orgId: idSchema,
   walletAddress: publicKeyValueSchema,
   valid: z.boolean(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
   triggers: z.array(triggerSchema),
+  createdAt: dateStringSchema,
+  updatedAt: dateStringSchema,
 });
 
 export type Webhook = z.infer<typeof webhookSchema>;

@@ -1,6 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
+import { dateStringSchema } from "./primitive";
 import { transactionSchema } from "./transaction";
 
 extendZodWithOpenApi(z);
@@ -10,7 +11,7 @@ export const requestSchema = z.object({
   method: z.string(),
   endpoint: z.string(),
   body: z.string().optional().nullable(),
-  createdAt: z.date(),
+  createdAt: dateStringSchema,
   transaction: transactionSchema.pick({ id: true, type: true }).optional().nullable(),
   response: z
     .object({

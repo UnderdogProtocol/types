@@ -3,6 +3,7 @@ import { z } from "zod";
 
 import { statusEnumSchema, transactionTypesEnumSchema } from "./enum";
 import { publicKeyValueSchema } from "./metadata";
+import { dateStringSchema } from "./primitive";
 
 extendZodWithOpenApi(z);
 
@@ -20,7 +21,7 @@ export const transactionSchema = z.object({
     description: "Signature of the on-chain transaction",
     example: "2yVZcx5rMDLDcqe31Uua6a93qw3qrNMsjroYWXV3sytttnrPSxk2heGK7yUorW6KrfiEpkLNYNVPivhgoigdRnK6",
   }),
-  createdAt: z.string(),
+  createdAt: dateStringSchema,
 });
 
 export type Transaction = z.infer<typeof transactionSchema>;
