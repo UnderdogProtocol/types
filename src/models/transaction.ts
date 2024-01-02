@@ -14,10 +14,14 @@ export const transactionSchema = z.object({
   status: statusEnumSchema,
   type: transactionTypesEnumSchema,
   walletAddress: publicKeyValueSchema,
-  data: z.string().nullable().optional().openapi({
-    description: "Transaction data in stringified JSON format",
-  }),
-  signature: z.string().nullable().optional().openapi({
+  data: z
+    .string()
+    .nullish()
+    .transform((x) => x ?? undefined)
+    .openapi({
+      description: "Transaction data in stringified JSON format",
+    }),
+  signature: z.string().nullish().openapi({
     description: "Signature of the on-chain transaction",
     example: "2yVZcx5rMDLDcqe31Uua6a93qw3qrNMsjroYWXV3sytttnrPSxk2heGK7yUorW6KrfiEpkLNYNVPivhgoigdRnK6",
   }),
