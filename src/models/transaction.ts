@@ -14,7 +14,7 @@ export const transactionSchema = z.object({
   status: statusEnumSchema,
   type: transactionTypesEnumSchema,
   walletAddress: publicKeyValueSchema,
-  data: z.string().optional().openapi({
+  data: z.string().nullable().optional().openapi({
     description: "Transaction data in stringified JSON format",
   }),
   signature: z.string().nullable().optional().openapi({
