@@ -49,7 +49,7 @@ export type CreateProjectSftPayload = z.infer<typeof createProjectSftPayloadSche
 export const batchProjectNftPayloadSchema = orgPayloadSchema.merge(
   z.object({
     projectId: idSchema,
-    treeAddress: publicKeySchema,
+    treeAddress: publicKeySchema.optional(),
     batch: z
       .object({
         receiverAddress: publicKeySchema,
@@ -66,7 +66,7 @@ export type BatchProjectNftPayload = z.infer<typeof batchProjectNftPayloadSchema
 export const batchProjectSftPayloadSchema = orgPayloadSchema.merge(
   z.object({
     projectId: idSchema,
-    treeAddress: publicKeySchema,
+    treeAddress: publicKeySchema.optional(),
     batch: z
       .object({
         receiverAddress: publicKeySchema,
