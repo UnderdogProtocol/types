@@ -5,7 +5,7 @@ import { metadataSchema, sellerFeeBasisPointsSchema } from "../models";
 export const createDustPayloadSchema = metadataSchema.merge(
   z.object({
     csvUrl: z.string(),
-    treeAddress: z.string().optional(),
+    treeAddress: z.string(),
     sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
   })
 );
