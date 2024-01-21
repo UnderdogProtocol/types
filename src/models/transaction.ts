@@ -2,7 +2,7 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import { statusEnumSchema, transactionTypesEnumSchema } from "./enum";
-import { publicKeyValueSchema } from "./metadata";
+import { base58PublicKeySchema } from "./metadata";
 import { dateStringSchema } from "./primitive";
 
 extendZodWithOpenApi(z);
@@ -13,7 +13,7 @@ export const transactionSchema = z.object({
   }),
   status: statusEnumSchema,
   type: transactionTypesEnumSchema,
-  walletAddress: publicKeyValueSchema,
+  walletAddress: base58PublicKeySchema,
   data: z
     .string()
     .nullish()

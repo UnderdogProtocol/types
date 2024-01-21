@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import { memberPaginatedResponseSchema, orgPaginatedResponseSchema, paginatedQuerySchema } from "../api";
-import { idSchema, memberSchema, orgSchema, publicKeyValueSchema } from "../models";
+import { base58PublicKeySchema, idSchema, memberSchema, orgSchema } from "../models";
 
 export const orgParams = z.object({ orgId: idSchema });
 
@@ -54,10 +54,7 @@ export type GetMembersResponse = z.infer<typeof getMembersResponseSchema>;
 
 export const createMemberRequestSchema = z.object({
   params: orgParams,
-  body: z.object({
-    name: z.string(),
-    memberAddress: publicKeyValueSchema,
-  }),
+  body: z.object({ name: z.string(), memberAddress: base58PublicKeySchema }),
 });
 export type CreateMemberRequest = z.infer<typeof createMemberRequestSchema>;
 

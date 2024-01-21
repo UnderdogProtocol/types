@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import { createPaginatedResponseSchema, createTransactionResponseSchema, paginatedQuerySchema } from "../api";
-import { inscriptionSchema, publicKeyValueSchema } from "../models";
+import { base58PublicKeySchema, inscriptionSchema } from "../models";
 
 export const createInscriptionRequestSchema = z.object({
   body: inscriptionSchema.pick({ value: true }),
@@ -24,7 +24,7 @@ export type GetInscriptionsRequest = z.infer<typeof getInscriptionsRequestSchema
 export const getInscriptionsResponseSchema = createPaginatedResponseSchema(inscriptionSchema);
 export type GetInscriptionsResponse = z.infer<typeof getInscriptionsResponseSchema>;
 
-export const getInscriptionRequestSchema = z.object({ params: z.object({ address: publicKeyValueSchema }) });
+export const getInscriptionRequestSchema = z.object({ params: z.object({ address: base58PublicKeySchema }) });
 export type GetInscriptionRequest = z.infer<typeof getInscriptionRequestSchema>;
 
 export const getInscriptionResponseSchema = inscriptionSchema;

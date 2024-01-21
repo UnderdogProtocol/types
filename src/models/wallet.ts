@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import { plansEnumSchema } from "./enum";
-import { publicKeyValueSchema } from "./metadata";
+import { base58PublicKeySchema } from "./metadata";
 import { orgSchema } from "./org";
 
 export const subscriptionSchema = z.object({
@@ -12,7 +12,7 @@ export const subscriptionSchema = z.object({
 });
 
 export const meSchema = z.object({
-  address: publicKeyValueSchema,
+  address: base58PublicKeySchema,
   email: z.string().email().optional(),
   paid: z.boolean(),
   createdAt: z.string(),

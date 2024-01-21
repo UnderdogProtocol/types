@@ -1,12 +1,27 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
-import { PublicKey } from "@solana/web3.js";
+import { isPublicKey } from "@metaplex-foundation/umi";
 import { z } from "zod";
 
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
 
+export const base58PublicKeySchema = z
+  .string()
+  .refine((value) => isPublicKey(value))
+  .openapi({
+    description: "Base-58 encoded string representing an on-chain address",
+    example: "dustFPTV7dujoJjgkKtf6is3bYaFEy1nswS23vxHfvt",
+  });
+export type Base58PublicKey = z.infer<typeof base58PublicKeySchema>;
+
+export const delegatedSchema = z.boolean().openapi({
+  description: "If true, your Project will have delegated authority to transfer or burn the asset",
+});
+
 export const idSchema = z.number().or(z.string()).pipe(z.coerce.number().int()).openapi({ type: "integer" });
+
+export type Id = z.infer<typeof idSchema>;
 
 export const sellerFeeBasisPointsSchema = z.number().int().min(0).max(10000).openapi({
   type: "integer",
@@ -14,18 +29,7 @@ export const sellerFeeBasisPointsSchema = z.number().int().min(0).max(10000).ope
   example: 100,
 });
 
-export const publicKeyValueSchema = z
-  .union([z.string().regex(/^[A-HJ-NP-Za-km-z1-9]*$/), z.instanceof(PublicKey)])
-  .transform((value) => value.toString())
-  .openapi({
-    type: "string",
-    description: "Base-58 encoded string representing an on-chain address",
-    example: "EBeLw5jEdrEgDe17BdKGW2MizzGxtxigEuAGvYC7VzDp",
-  });
-
-export const publicKeySchema = publicKeyValueSchema
-  .transform((value) => new PublicKey(value))
-  .openapi({ type: "string" });
+export type SellerFeeBasisPoints = z.infer<typeof sellerFeeBasisPointsSchema>;
 
 export const MAX_NAME_LENGTH = 32;
 export const MAX_SYMBOL_LENGTH = 10;
@@ -64,7 +68,7 @@ export const metadataSchema = registry.register(
       .optional()
       .openapi({
         description: "Key-value pairs of your NFT attributes",
-        example: { Points: "40000", Nickname: "LeGoat" },
+        example: { points: 10, name: "LeBron" },
       }),
   })
 );

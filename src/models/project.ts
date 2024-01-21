@@ -1,14 +1,14 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-import { metadataSchema, publicKeyValueSchema, sellerFeeBasisPointsSchema } from "./metadata";
+import { base58PublicKeySchema, idSchema, metadataSchema, sellerFeeBasisPointsSchema } from "./metadata";
 
 extendZodWithOpenApi(z);
 
 export const projectSchema = z
   .object({
-    id: z.number().openapi({ description: "Unique ID for a Project" }),
-    mintAddress: publicKeyValueSchema,
+    id: idSchema,
+    mintAddress: base58PublicKeySchema,
     semifungible: z
       .boolean()
       .optional()

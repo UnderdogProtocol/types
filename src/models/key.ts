@@ -1,11 +1,11 @@
 import { z } from "zod";
 
 import { networkEnumSchema } from "./enum";
-import { publicKeyValueSchema } from "./metadata";
+import { base58PublicKeySchema } from "./metadata";
 
 export const keySchema = z.object({
   prefix: z.string(),
-  walletAddress: publicKeyValueSchema,
+  walletAddress: base58PublicKeySchema,
   network: networkEnumSchema.optional(),
 });
 

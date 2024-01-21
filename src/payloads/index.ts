@@ -1,5 +1,7 @@
 export * from "./org";
 export * from "./project";
+export * from "./asset";
+export * from "./batch";
 export * from "./legacy";
 export * from "./shop";
 export * from "./dust";

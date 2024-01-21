@@ -2,7 +2,7 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import { projectParamsSchema, sftTransactionResponseSchema } from "../api";
-import { publicKeyValueSchema } from "../models";
+import { base58PublicKeySchema, delegatedSchema } from "../models";
 import { Receiver, receiverSchema } from "../models/receiver";
 import { registry } from "../openapi";
 
@@ -10,12 +10,8 @@ extendZodWithOpenApi(z);
 
 export const createSftInputSchema = z.object({
   receiver: receiverSchema.optional(),
-  receiverAddress: publicKeyValueSchema.optional().openapi({
-    description: "Wallet address that will receive the SFT",
-  }),
-  delegated: z.boolean().optional().openapi({
-    description: "If true, your Project will have delegated authority over the NFT",
-  }),
+  receiverAddress: base58PublicKeySchema.optional(),
+  delegated: delegatedSchema.optional(),
 });
 export type CreateSftInput = z.infer<typeof createSftInputSchema> & { receiver?: Receiver };
 

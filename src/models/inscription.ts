@@ -1,12 +1,12 @@
 import { z } from "zod";
 
-import { idSchema, publicKeyValueSchema } from "./metadata";
+import { base58PublicKeySchema, idSchema } from "./metadata";
 import { dateStringSchema } from "./primitive";
 
 export const inscriptionSchema = z.object({
-  address: publicKeyValueSchema,
-  authority: publicKeyValueSchema,
-  superAdminAddress: publicKeyValueSchema,
+  address: base58PublicKeySchema,
+  authority: base58PublicKeySchema,
+  superAdminAddress: base58PublicKeySchema,
   orgId: idSchema,
   value: z.string(),
   createdAt: dateStringSchema,

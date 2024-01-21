@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-import { idSchema, publicKeySchema } from "../models";
+import { base58PublicKeySchema, idSchema } from "../models";
 
 export const orgPayloadSchema = z.object({
-  superAdminAddress: publicKeySchema,
+  superAdminAddress: base58PublicKeySchema,
   orgId: idSchema,
 });
 
@@ -11,8 +11,6 @@ export const createOrgPayloadSchema = orgPayloadSchema;
 export type CreateOrgPayload = z.infer<typeof createOrgPayloadSchema>;
 
 export const addOrgMemberPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    memberAddress: publicKeySchema,
-  })
+  z.object({ memberAddress: base58PublicKeySchema })
 );
 export type AddOrgMemberPayload = z.infer<typeof addOrgMemberPayloadSchema>;

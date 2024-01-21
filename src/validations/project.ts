@@ -9,7 +9,7 @@ import {
   projectTransactionResponseSchema,
   sortQuerySchema,
 } from "../api";
-import { metadataSchema, projectSchema, publicKeyValueSchema, sellerFeeBasisPointsSchema } from "../models";
+import { base58PublicKeySchema, metadataSchema, projectSchema, sellerFeeBasisPointsSchema } from "../models";
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
@@ -172,7 +172,7 @@ export const withdrawProjectRoyaltiesRequestSchema = registry.register(
   "WithdrawProjectRoyaltiesRequest",
   z.object({
     params: projectParamsSchema,
-    body: z.object({ receiverAddress: publicKeyValueSchema }),
+    body: z.object({ receiverAddress: base58PublicKeySchema }),
   })
 );
 

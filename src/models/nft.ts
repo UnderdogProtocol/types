@@ -1,7 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-import { metadataSchema, publicKeyValueSchema } from "./metadata";
+import { base58PublicKeySchema, metadataSchema } from "./metadata";
 
 extendZodWithOpenApi(z);
 
@@ -15,11 +15,11 @@ export const nftSchema = metadataSchema.merge(
     compressed: z.boolean().optional().openapi({
       description: "Whether or not the NFTs in the Project are compressed",
     }),
-    mintAddress: publicKeyValueSchema,
-    ownerAddress: publicKeyValueSchema
+    mintAddress: base58PublicKeySchema,
+    ownerAddress: base58PublicKeySchema
       .optional()
       .openapi({ description: "Wallet address for the NFT's owner" }),
-    claimerAddress: publicKeyValueSchema.optional().openapi({
+    claimerAddress: base58PublicKeySchema.optional().openapi({
       description: "Wallet address allowed to claim the NFT",
     }),
     status: z.string(),

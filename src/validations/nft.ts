@@ -10,7 +10,7 @@ import {
   projectParamsSchema,
   sortQuerySchema,
 } from "../api";
-import { nftSchema, metadataSchema, publicKeyValueSchema, publicNftSchema } from "../models";
+import { nftSchema, metadataSchema, publicNftSchema, base58PublicKeySchema } from "../models";
 import { Receiver, receiverSchema } from "../models/receiver";
 import { registry } from "../openapi";
 
@@ -19,9 +19,7 @@ extendZodWithOpenApi(z);
 export const createNftInputSchema = metadataSchema.merge(
   z.object({
     receiver: receiverSchema.optional(),
-    receiverAddress: publicKeyValueSchema.optional().openapi({
-      description: "Wallet address that will receive the NFT",
-    }),
+    receiverAddress: base58PublicKeySchema.optional(),
     delegated: z.boolean().optional().openapi({
       description: "If true, your Project will have delegated authority over the NFT",
     }),
@@ -107,11 +105,7 @@ export type GetNftResponse = z.infer<typeof getNftResponseSchema>;
 
 export const getNftByMintAddressRequestSchema = registry.register(
   "GetNftByMintAddressRequest",
-  z.object({
-    params: z.object({
-      mintAddress: publicKeyValueSchema,
-    }),
-  })
+  z.object({ params: z.object({ mintAddress: base58PublicKeySchema }) })
 );
 
 export const getNftByMintAddressResponseSchema = registry.register(
@@ -128,7 +122,7 @@ export const getNftsRequestSchema = registry.register(
     params: projectParamsSchema,
     query: paginatedQuerySchema.merge(sortQuerySchema).merge(
       z.object({
-        ownerAddress: publicKeyValueSchema.optional(),
+        ownerAddress: base58PublicKeySchema.optional(),
         identifier: z.string().optional(),
         namespace: z.string().optional(),
       })
@@ -203,7 +197,7 @@ export const transferNftRequestSchema = registry.register(
   "TransferNftRequest",
   z.object({
     params: nftParamsSchema,
-    body: z.object({ receiverAddress: publicKeyValueSchema }),
+    body: z.object({ receiverAddress: base58PublicKeySchema }),
   })
 );
 
@@ -239,7 +233,7 @@ export const getNftClaimLinkResponseSchema = registry.register(
   z.object({
     link: z.string(),
     mintAddress: z.string(),
-    claimerAddress: publicKeyValueSchema.optional(),
+    claimerAddress: base58PublicKeySchema.optional(),
     otp: z.string().uuid().optional(),
   })
 );

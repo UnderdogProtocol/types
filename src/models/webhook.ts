@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import { transactionTypesEnumSchema } from "./enum";
-import { idSchema, publicKeyValueSchema } from "./metadata";
+import { base58PublicKeySchema, idSchema } from "./metadata";
 import { dateStringSchema } from "./primitive";
 
 export const triggerSchema = z.object({
@@ -11,9 +11,9 @@ export const triggerSchema = z.object({
 export const webhookSchema = z.object({
   id: z.string(),
   url: z.string(),
-  superAdminAddress: publicKeyValueSchema,
+  superAdminAddress: base58PublicKeySchema,
   orgId: idSchema,
-  walletAddress: publicKeyValueSchema,
+  walletAddress: base58PublicKeySchema,
   valid: z.boolean(),
   triggers: z.array(triggerSchema),
   createdAt: dateStringSchema,

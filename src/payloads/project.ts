@@ -1,20 +1,20 @@
 import { z } from "zod";
 
-import { idSchema, metadataSchema, publicKeySchema, sellerFeeBasisPointsSchema } from "../models";
+import { base58PublicKeySchema, idSchema, sellerFeeBasisPointsSchema } from "../models";
 import { orgPayloadSchema } from "./org";
 
-export const createProjectPayloadSchema = orgPayloadSchema.merge(
+export const projectPayloadSchema = orgPayloadSchema.merge(z.object({ projectId: idSchema }));
+
+export const createProjectPayloadSchema = projectPayloadSchema.merge(
   z.object({
-    projectId: idSchema,
-    mintAddress: publicKeySchema,
+    mintAddress: base58PublicKeySchema,
     sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
   })
 );
 export type CreateProjectPayload = z.infer<typeof createProjectPayloadSchema>;
 
-export const updateProjectPayloadSchema = orgPayloadSchema.merge(
+export const updateProjectPayloadSchema = projectPayloadSchema.merge(
   z.object({
-    projectId: idSchema,
     name: z.string(),
     symbol: z.string(),
     sellerFeeBasisPoints: sellerFeeBasisPointsSchema,
@@ -22,73 +22,7 @@ export const updateProjectPayloadSchema = orgPayloadSchema.merge(
 );
 export type UpdateProjectPayload = z.infer<typeof updateProjectPayloadSchema>;
 
-export const withdrawProjectRoyaltiesPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    projectId: idSchema,
-    receiverAddress: publicKeySchema,
-  })
+export const withdrawProjectRoyaltiesPayloadSchema = projectPayloadSchema.merge(
+  z.object({ receiverAddress: base58PublicKeySchema })
 );
-
 export type WithdrawProjectRoyaltiesPayload = z.infer<typeof withdrawProjectRoyaltiesPayloadSchema>;
-
-export const createProjectNftPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    projectId: idSchema,
-    nftId: idSchema,
-    receiverAddress: publicKeySchema,
-    delegated: z.boolean().optional().default(false),
-  })
-);
-export type CreateProjectNftPayload = z.infer<typeof createProjectNftPayloadSchema>;
-
-export const createProjectSftPayloadSchema = createProjectNftPayloadSchema;
-export type CreateProjectSftPayload = z.infer<typeof createProjectSftPayloadSchema>;
-
-export const batchProjectNftPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    projectId: idSchema,
-    treeAddress: publicKeySchema.optional(),
-    batch: z
-      .object({
-        receiverAddress: publicKeySchema,
-        nftId: idSchema,
-        metadata: metadataSchema,
-        delegated: z.boolean().optional(),
-        uri: z.string(),
-      })
-      .array(),
-  })
-);
-export type BatchProjectNftPayload = z.infer<typeof batchProjectNftPayloadSchema>;
-
-export const batchProjectSftPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    projectId: idSchema,
-    treeAddress: publicKeySchema.optional(),
-    batch: z
-      .object({
-        receiverAddress: publicKeySchema,
-        nftId: idSchema,
-        delegated: z.boolean().optional(),
-      })
-      .array(),
-  })
-);
-export type BatchProjectSftPayload = z.infer<typeof batchProjectSftPayloadSchema>;
-
-export const transferProjectNftPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    projectId: idSchema,
-    nftId: idSchema,
-    receiverAddress: publicKeySchema,
-  })
-);
-export type TransferProjectNftPayload = z.infer<typeof transferProjectNftPayloadSchema>;
-
-export const burnProjectAssetPayloadSchema = orgPayloadSchema.merge(
-  z.object({
-    projectId: idSchema,
-    nftId: idSchema,
-  })
-);
-export type BurnProjectAssetPayload = z.infer<typeof burnProjectAssetPayloadSchema>;

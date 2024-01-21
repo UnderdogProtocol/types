@@ -1,14 +1,14 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-import { idSchema, publicKeyValueSchema } from "./metadata";
+import { base58PublicKeySchema, idSchema } from "./metadata";
 import { rechargeSchema } from "./recharge";
 
 extendZodWithOpenApi(z);
 
 export const orgSchema = z.object({
   id: idSchema,
-  superAdminAddress: publicKeyValueSchema,
+  superAdminAddress: base58PublicKeySchema,
   name: z.string().min(3, { message: "Organization name must be at least 3 characters" }),
   status: z.string(),
   balance: z.number(),
@@ -19,9 +19,9 @@ export const orgSchema = z.object({
 export type Org = z.infer<typeof orgSchema>;
 
 export const memberSchema = z.object({
-  walletAddress: publicKeyValueSchema,
+  walletAddress: base58PublicKeySchema,
   name: z.string().optional(),
-  superAdminAddress: publicKeyValueSchema,
+  superAdminAddress: base58PublicKeySchema,
   orgId: idSchema,
   status: z.string(),
 });
