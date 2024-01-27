@@ -10,7 +10,13 @@ import {
   projectParamsSchema,
   sortQuerySchema,
 } from "../api";
-import { nftSchema, metadataSchema, publicNftSchema, base58PublicKeySchema } from "../models";
+import {
+  nftSchema,
+  metadataSchema,
+  publicNftSchema,
+  base58PublicKeySchema,
+  delegatedSchema,
+} from "../models";
 import { Receiver, receiverSchema } from "../models/receiver";
 import { registry } from "../openapi";
 
@@ -20,9 +26,7 @@ export const createNftInputSchema = metadataSchema.merge(
   z.object({
     receiver: receiverSchema.optional(),
     receiverAddress: base58PublicKeySchema.optional(),
-    delegated: z.boolean().optional().openapi({
-      description: "If true, your Project will have delegated authority over the NFT",
-    }),
+    delegated: delegatedSchema.optional(),
   })
 );
 
@@ -166,10 +170,9 @@ export const updateNftRequestSchema = registry.register(
     }),
   })
 );
+export type UpdateNftRequest = z.infer<typeof updateNftRequestSchema>;
 
 export const updateNftResponseSchema = registry.register("UpdateNftResponse", nftSchema);
-
-export type UpdateNftRequest = z.infer<typeof updateNftRequestSchema>;
 export type UpdateNftResponse = z.infer<typeof updateNftResponseSchema>;
 
 export const partialUpdateNftRequestSchema = registry.register(
@@ -187,37 +190,10 @@ export const partialUpdateNftRequestSchema = registry.register(
       .partial(),
   })
 );
+export type PartialUpdateNftRequest = z.infer<typeof partialUpdateNftRequestSchema>;
 
 export const partialUpdateNftResponseSchema = registry.register("PartialUpdateNftResponse", nftSchema);
-
-export type PartialUpdateNftRequest = z.infer<typeof partialUpdateNftRequestSchema>;
 export type PartialUpdateNftResponse = z.infer<typeof partialUpdateNftResponseSchema>;
-
-export const transferNftRequestSchema = registry.register(
-  "TransferNftRequest",
-  z.object({
-    params: nftParamsSchema,
-    body: z.object({ receiverAddress: base58PublicKeySchema }),
-  })
-);
-
-export const transferNftResponseSchema = registry.register(
-  "TransferNftResponse",
-  nftTransactionResponseSchema
-);
-
-export type TransferNftRequest = z.infer<typeof transferNftRequestSchema>;
-export type TransferNftResponse = z.infer<typeof transferNftResponseSchema>;
-
-export const burnAssetRequestSchema = registry.register(
-  "BurnAssetRequest",
-  z.object({ params: nftParamsSchema })
-);
-
-export const burnAssetResponseSchema = registry.register("BurnAssetResponse", nftTransactionResponseSchema);
-
-export type BurnAssetRequest = z.infer<typeof burnAssetRequestSchema>;
-export type BurnAssetResponse = z.infer<typeof burnAssetResponseSchema>;
 
 const nonTransferableNftSchema = z.object({
   params: nftParamsSchema,

@@ -29,11 +29,8 @@ export const statusEnumSchema = z.nativeEnum(StatusEnum);
 
 export enum TransactionTypesEnum {
   OrgCreate = "ORG_CREATE",
-  OrgMemberAdd = "ORG_MEMBER_ADD",
 
   ProjectCreate = "PROJECT_CREATE",
-  ProjectNftCreate = "PROJECT_NFT_CREATE",
-  ProjectSftCreate = "PROJECT_SFT_CREATE",
   ProjectNftBatch = "PROJECT_NFT_BATCH",
   ProjectSftBatch = "PROJECT_SFT_BATCH",
   ProjectNftBurn = "PROJECT_NFT_BURN",
@@ -41,10 +38,16 @@ export enum TransactionTypesEnum {
   ProjectNftUpdate = "PROJECT_NFT_UPDATE",
   ProjectRoyaltiesWithdraw = "PROJECT_ROYALTIES_WITHDRAW",
   ProjectUpdate = "PROJECT_UPDATE",
+
+  ProjectNftCreate = "PROJECT_NFT_CREATE",
+  ProjectSftCreate = "PROJECT_SFT_CREATE",
   ProjectNftTransfer = "PROJECT_NFT_TRANSFER",
   ProjectAssetBurn = "PROJECT_ASSET_BURN",
+  ProjectAssetUpdate = "PROJECT_ASSET_UPDATE",
+
   ShopCreate = "SHOP_CREATE",
   DustCreate = "DUST_CREATE",
+
   NonTransferableProjectCreate = "NON_TRANSFERABLE_PROJECT_CREATE",
   TransferableProjectCreate = "TRANSFERABLE_PROJECT_CREATE",
   TransferableProjectNftCreate = "TRANSFERABLE_PROJECT_NFT_CREATE",

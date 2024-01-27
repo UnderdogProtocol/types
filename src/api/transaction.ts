@@ -28,13 +28,14 @@ const sftTransactionSchema = nftSchema.extend({ nftId: nftSchema.shape.id }).pic
   projectId: true,
 });
 
-const assetTransactionSchema = nftSchema.extend({ nftId: nftSchema.shape.id }).pick({
-  nftId: true,
-  projectId: true,
-});
+const assetTransactionSchema = nftSchema
+  .extend({ nftId: nftSchema.shape.id })
+  .pick({ nftId: true, projectId: true, mintAddress: true });
 
 export const assetTransactionResponseSchema =
   createTransactionResponseSchema<typeof assetTransactionSchema>(assetTransactionSchema);
+
+export type AssetTransactionResponse = z.infer<typeof assetTransactionResponseSchema>;
 
 export const nftTransactionResponseSchema =
   createTransactionResponseSchema<typeof nftTransactionSchema>(nftTransactionSchema);

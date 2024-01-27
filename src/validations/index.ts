@@ -11,3 +11,4 @@ export * from "./wallet";
 export * from "./domain";
 export * from "./recharge";
 export * from "./inscription";
+export * from "./asset";
