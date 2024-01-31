@@ -84,18 +84,18 @@ export type GetProjectResponse = z.infer<typeof getProjectResponseSchema>;
 
 export const getProjectStatsRequestSchema = registry.register(
   "GetProjectStatsRequest",
-  z.object({
-    params: projectParamsSchema,
-  })
+  z.object({ params: projectParamsSchema })
 );
 
 export const getProjectStatsResponseSchema = registry.register(
   "GetProjectStatsResponse",
   z.object({
-    total: z.number().openapi({ description: "Total number of NFTs in the Project" }),
-    confirmed: z.number().openapi({ description: "Number NFTs confirmed on-chain" }),
-    processing: z.number().openapi({ description: "Number of NFTs currently minting" }),
-    pending: z.number().openapi({ description: "Number of NFTs lazily minted" }),
+    total: z.number().openapi({ description: "Total number of assets in the Project" }),
+    confirmed: z.number().openapi({ description: "Number of confirmed assets" }),
+    processing: z.number().openapi({ description: "Number of assets being processed" }),
+    pending: z.number().openapi({ description: "Number of assets waiting to be processed" }),
+    burned: z.number().openapi({ description: "Number of burned assets" }),
+    failed: z.number().openapi({ description: "Number of assets failed" }),
   })
 );
 
