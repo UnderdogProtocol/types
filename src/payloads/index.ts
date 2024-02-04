@@ -7,3 +7,4 @@ export * from "./shop";
 export * from "./dust";
 export * from "./inscription";
 export * from "./domain";
+export * from "./token";

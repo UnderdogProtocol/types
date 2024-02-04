@@ -53,6 +53,9 @@ export enum TransactionTypesEnum {
   TransferableProjectNftCreate = "TRANSFERABLE_PROJECT_NFT_CREATE",
 
   InscriptionCreate = "INSCRIPTION_CREATE",
+
+  TokenCreate = "TOKEN_CREATE",
+  TokenMint = "TOKEN_MINT",
 }
 
 export const transactionTypesEnumSchema = z.nativeEnum(TransactionTypesEnum);
