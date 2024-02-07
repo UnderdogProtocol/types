@@ -13,6 +13,12 @@ export const createTokenPayloadSchema = z.object({
 
 export type CreateTokenPayload = z.infer<typeof createTokenPayloadSchema>;
 
+export const renounceTokenPayloadSchema = z.object({
+  mintAddress: base58PublicKeySchema,
+});
+
+export type RenounceTokenPayload = z.infer<typeof renounceTokenPayloadSchema>;
+
 export const mintTokensPayloadSchema = z.object({
   mintAddress: base58PublicKeySchema,
   receiverAddresses: z.array(base58PublicKeySchema),
