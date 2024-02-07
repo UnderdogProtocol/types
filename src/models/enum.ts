@@ -54,6 +54,8 @@ export enum TransactionTypesEnum {
 
   InscriptionCreate = "INSCRIPTION_CREATE",
 
+  SnapshotCreate = "SNAPSHOT_CREATE",
+
   TokenCreate = "TOKEN_CREATE",
   TokenRenounce = "TOKEN_RENOUNCE",
   TokenMint = "TOKEN_MINT",
