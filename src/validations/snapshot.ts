@@ -10,6 +10,8 @@ export const createSnapshotRequest = registry.register(
   z.object({
     body: z.object({
       mintAddress: base58PublicKeySchema,
+      hashlist: z.boolean().optional(),
+      unique: z.boolean().optional(),
     }),
   })
 );
