@@ -12,7 +12,6 @@ export const batchProjectNftPayloadSchema = projectPayloadSchema.merge(
         nftId: idSchema,
         metadata: metadataSchema,
         delegated: z.boolean().optional(),
-        uri: z.string(),
       })
       .array(),
   })
