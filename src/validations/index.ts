@@ -13,3 +13,4 @@ export * from "./recharge";
 export * from "./inscription";
 export * from "./asset";
 export * from "./snapshot";
+export * from "./member";

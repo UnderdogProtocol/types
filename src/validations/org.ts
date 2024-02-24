@@ -42,21 +42,3 @@ export type UpdateOrgRequest = z.infer<typeof updateOrgRequestSchema>;
 
 export const updateOrgResponseSchema = orgSchema;
 export type UpdateOrgResponse = z.infer<typeof updateOrgResponseSchema>;
-
-export const getMembersRequestSchema = z.object({
-  query: paginatedQuerySchema,
-  params: orgParams,
-});
-export type GetMembersRequest = z.infer<typeof getMembersRequestSchema>;
-
-export const getMembersResponseSchema = memberPaginatedResponseSchema;
-export type GetMembersResponse = z.infer<typeof getMembersResponseSchema>;
-
-export const createMemberRequestSchema = z.object({
-  params: orgParams,
-  body: z.object({ name: z.string(), memberAddress: base58PublicKeySchema }),
-});
-export type CreateMemberRequest = z.infer<typeof createMemberRequestSchema>;
-
-export const createMemberResponseSchema = memberSchema;
-export type CreateMemberResponse = z.infer<typeof createMemberResponseSchema>;
