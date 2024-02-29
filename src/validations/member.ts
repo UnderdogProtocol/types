@@ -22,7 +22,16 @@ export type GetMembersRequest = z.infer<typeof getMembersRequestSchema>;
 export const getMembersResponseSchema = memberPaginatedResponseSchema;
 export type GetMembersResponse = z.infer<typeof getMembersResponseSchema>;
 
-export const deleteMemberRequestSchema = z.object({
-  params: orgParams.merge(z.object({ walletAddress: base58PublicKeySchema })),
+export const memberParams = orgParams.merge(z.object({ walletAddress: base58PublicKeySchema }));
+
+export const updateMemberRequestSchema = z.object({
+  params: memberParams,
+  body: z.object({ name: z.string() }),
 });
+export type UpdateMemberRequest = z.infer<typeof updateMemberRequestSchema>;
+
+export const updateMemberResponseSchema = memberSchema;
+export type UpdateMemberResponse = z.infer<typeof updateMemberResponseSchema>;
+
+export const deleteMemberRequestSchema = z.object({ params: memberParams });
 export type DeleteMemberRequest = z.infer<typeof deleteMemberRequestSchema>;
