@@ -19,11 +19,10 @@ export const orgSchema = z.object({
 export type Org = z.infer<typeof orgSchema>;
 
 export const memberSchema = z.object({
-  walletAddress: base58PublicKeySchema,
-  name: z.string().nullable().optional(),
   superAdminAddress: base58PublicKeySchema,
   orgId: idSchema,
-  status: z.string(),
+  walletAddress: base58PublicKeySchema,
+  name: z.string().nullable().optional(),
 });
 
 export type Member = z.infer<typeof memberSchema>;
