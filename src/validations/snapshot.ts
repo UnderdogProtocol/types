@@ -9,6 +9,7 @@ export const createSnapshotRequest = registry.register(
   "CreateSnapshotRequest",
   z.object({
     body: z.object({
+      description: z.string(),
       mintAddress: base58PublicKeySchema,
       hashlist: z.boolean().optional(),
       unique: z.boolean().optional(),
