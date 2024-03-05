@@ -6,10 +6,10 @@ import { dateStringSchema } from "./primitive";
 
 export const snapshotSchema = z.object({
   id: z.string(),
-  description: z.string(),
+  description: z.string().nullish(),
   count: z.number(),
-  mintAddress: base58PublicKeySchema,
-  url: z.string(),
+  mintAddress: base58PublicKeySchema.nullish(),
+  url: z.string().nullish(),
   network: networkEnumSchema,
   createdAt: dateStringSchema,
 });
