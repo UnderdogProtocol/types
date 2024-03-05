@@ -45,3 +45,14 @@ export const getSnapshotsResponse = registry.register(
 );
 
 export type GetSnapshotsResponse = z.infer<typeof getSnapshotsResponse>;
+
+export const getSnapshotRequest = registry.register(
+  "GetSnapshotRequest",
+  z.object({ params: z.object({ snapshotId: z.string().uuid() }) })
+);
+
+export type GetSnapshotRequest = z.infer<typeof getSnapshotRequest>;
+
+export const getSnapshotResponse = registry.register("GetSnapshotResponse", snapshotSchema);
+
+export type GetSnapshotResponse = z.infer<typeof getSnapshotResponse>;
