@@ -6,7 +6,7 @@ import { dateStringSchema } from "./primitive";
 
 export const snapshotSchema = z.object({
   id: z.string(),
-  description: z.string().nullish(),
+  description: z.string(),
   count: z.number(),
   mintAddress: base58PublicKeySchema.nullish(),
   url: z.string().nullish(),
