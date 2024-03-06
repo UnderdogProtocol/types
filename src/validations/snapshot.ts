@@ -21,7 +21,7 @@ export type CreateSnapshotRequest = z.infer<typeof createSnapshotRequest>;
 
 export const createSnapshotResponse = registry.register(
   "CreateSnapshotResponse",
-  z.object({ transactionId: z.string() })
+  z.object({ transactionId: z.string(), snapshotId: z.string().uuid() })
 );
 
 export type CreateSnapshotResponse = z.infer<typeof createSnapshotResponse>;
