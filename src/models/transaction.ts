@@ -1,7 +1,7 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
-import { statusEnumSchema, transactionTypesEnumSchema } from "./enum";
+import { networkEnumSchema, statusEnumSchema, transactionTypesEnumSchema } from "./enum";
 import { base58PublicKeySchema } from "./metadata";
 import { dateStringSchema } from "./primitive";
 
@@ -26,6 +26,7 @@ export const transactionSchema = z.object({
     example: "2yVZcx5rMDLDcqe31Uua6a93qw3qrNMsjroYWXV3sytttnrPSxk2heGK7yUorW6KrfiEpkLNYNVPivhgoigdRnK6",
   }),
   createdAt: dateStringSchema,
+  network: networkEnumSchema,
 });
 
 export type Transaction = z.infer<typeof transactionSchema>;
