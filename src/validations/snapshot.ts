@@ -56,3 +56,10 @@ export type GetSnapshotRequest = z.infer<typeof getSnapshotRequest>;
 export const getSnapshotResponse = registry.register("GetSnapshotResponse", snapshotSchema);
 
 export type GetSnapshotResponse = z.infer<typeof getSnapshotResponse>;
+
+export const deleteSnapshotRequest = registry.register(
+  "DeleteSnapshotRequest",
+  z.object({ params: z.object({ snapshotId: z.string().uuid() }) })
+);
+
+export type DeleteSnapshotRequest = z.infer<typeof deleteSnapshotRequest>;
