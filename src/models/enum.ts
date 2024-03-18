@@ -17,6 +17,11 @@ export enum PlansEnum {
 
 export const plansEnumSchema = z.nativeEnum(PlansEnum);
 
+export enum PriorityEnum {
+  Normal = "normal",
+  Fast = "fast",
+}
+
 export enum StatusEnum {
   Burned = "burned",
   Confirmed = "confirmed",
