@@ -36,7 +36,8 @@ export type GetOrgStatsResponse = z.infer<typeof getOrgStatsResponseSchema>;
 
 export const updateOrgRequestSchema = z.object({
   params: orgParams,
-  body: orgSchema.pick({ name: true, email: true }),
+  body: orgSchema.pick({ name: true }),
+  // body: orgSchema.pick({ name: true, priority: true }),
 });
 export type UpdateOrgRequest = z.infer<typeof updateOrgRequestSchema>;
 
