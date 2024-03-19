@@ -18,8 +18,9 @@ export enum PlansEnum {
 export const plansEnumSchema = z.nativeEnum(PlansEnum);
 
 export enum PriorityEnum {
-  Normal = "normal",
-  Fast = "fast",
+  Fast,
+  Turbo,
+  Ultra,
 }
 
 export enum StatusEnum {
