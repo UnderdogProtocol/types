@@ -13,9 +13,8 @@ export const orgSchema = z.object({
   name: z.string().min(3, { message: "Organization name must be at least 3 characters" }),
   status: z.string(),
   balance: z.number(),
-  email: z.string().email().optional(),
   priority: priorityEnumSchema,
-  recharge: rechargeSchema.pick({ limit: true, amount: true, enabled: true }).optional(),
+  recharge: rechargeSchema.pick({ limit: true, amount: true, enabled: true }).nullish(),
 });
 
 export type Org = z.infer<typeof orgSchema>;
