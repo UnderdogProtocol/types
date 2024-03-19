@@ -23,6 +23,8 @@ export enum PriorityEnum {
   Ultra,
 }
 
+export const priorityEnumSchema = z.nativeEnum(PriorityEnum);
+
 export enum StatusEnum {
   Burned = "burned",
   Confirmed = "confirmed",

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-import { memberPaginatedResponseSchema, orgPaginatedResponseSchema, paginatedQuerySchema } from "../api";
-import { base58PublicKeySchema, idSchema, memberSchema, orgSchema } from "../models";
+import { orgPaginatedResponseSchema, paginatedQuerySchema } from "../api";
+import { idSchema, orgSchema } from "../models";
 
 export const orgParams = z.object({ orgId: idSchema });
 
