@@ -37,9 +37,14 @@ export type GetOrgStatsResponse = z.infer<typeof getOrgStatsResponseSchema>;
 export const updateOrgRequestSchema = z.object({
   params: orgParams,
   body: orgSchema.pick({ name: true }),
-  // body: orgSchema.pick({ name: true, priority: true }),
 });
 export type UpdateOrgRequest = z.infer<typeof updateOrgRequestSchema>;
+
+export const partialUpdateOrgRequestSchema = z.object({
+  params: orgParams,
+  body: orgSchema.pick({ name: true }).partial(),
+});
+export type PartialUpdateOrgRequest = z.infer<typeof partialUpdateOrgRequestSchema>;
 
 export const updateOrgResponseSchema = orgSchema;
 export type UpdateOrgResponse = z.infer<typeof updateOrgResponseSchema>;
