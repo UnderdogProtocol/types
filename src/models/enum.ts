@@ -47,6 +47,8 @@ export enum TransactionTypesEnum {
   ProjectRoyaltiesWithdraw = "PROJECT_ROYALTIES_WITHDRAW",
   ProjectUpdate = "PROJECT_UPDATE",
 
+  CoreProjectCreate = "CORE_PROJECT_CREATE",
+
   ProjectNftCreate = "PROJECT_NFT_CREATE",
   ProjectSftCreate = "PROJECT_SFT_CREATE",
   ProjectNftTransfer = "PROJECT_NFT_TRANSFER",

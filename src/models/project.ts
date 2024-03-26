@@ -21,6 +21,10 @@ export const projectSchema = z
       .boolean()
       .optional()
       .openapi({ description: "Whether or not the NFTs in this project are compressed" }),
+    core: z
+      .boolean()
+      .optional()
+      .openapi({ description: "Whether or not the NFTs in this project use mpl-core standard" }),
     status: z.string(),
     sellerFeeBasisPoints: sellerFeeBasisPointsSchema,
   })

@@ -2,6 +2,7 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import {
+  createTransactionResponseSchema,
   nftPaginatedResponseSchema,
   paginatedQuerySchema,
   projectPaginatedResponseSchema,
@@ -9,7 +10,13 @@ import {
   projectTransactionResponseSchema,
   sortQuerySchema,
 } from "../api";
-import { base58PublicKeySchema, metadataSchema, projectSchema, sellerFeeBasisPointsSchema } from "../models";
+import {
+  base58PublicKeySchema,
+  idSchema,
+  metadataSchema,
+  projectSchema,
+  sellerFeeBasisPointsSchema,
+} from "../models";
 import { registry } from "../openapi";
 
 extendZodWithOpenApi(z);
@@ -27,6 +34,7 @@ export const createProjectRequestSchema = registry.register(
         animationUrl: true,
         externalUrl: true,
         attributes: true,
+        core: true,
       })
       .merge(z.object({ sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional() })),
   })
@@ -34,7 +42,11 @@ export const createProjectRequestSchema = registry.register(
 
 export const createProjectResponseSchema = registry.register(
   "CreateProjectResponse",
-  projectTransactionResponseSchema
+  z.object({
+    projectId: idSchema,
+    transactionId: z.string().uuid(),
+    mintAddress: base58PublicKeySchema.optional(),
+  })
 );
 
 export type CreateProjectRequest = z.infer<typeof createProjectRequestSchema>;
