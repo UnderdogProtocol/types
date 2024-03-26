@@ -72,6 +72,8 @@ export enum TransactionTypesEnum {
   TokenCreate = "TOKEN_CREATE",
   TokenRenounce = "TOKEN_RENOUNCE",
   TokenMint = "TOKEN_MINT",
+
+  TreeCreate = "TREE_CREATE",
 }
 
 export const transactionTypesEnumSchema = z.nativeEnum(TransactionTypesEnum);

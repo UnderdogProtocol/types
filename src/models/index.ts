@@ -14,3 +14,4 @@ export * from "./domain";
 export * from "./recharge";
 export * from "./inscription";
 export * from "./snapshot";
+export * from "./tree";
