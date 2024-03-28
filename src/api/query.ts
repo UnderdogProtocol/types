@@ -48,6 +48,10 @@ export interface LogicalQuery {
 
 export type SearchQuery = Comparison | LogicalQuery;
 
-export const searchQuerySchema = z.string().transform<SearchQuery>((data) => {
-  return parser.parse(data);
+export const searchQuerySchema = z.string().transform<SearchQuery>((data, ctx) => {
+  try {
+    return parser.parse(data);
+  } catch (e) {
+    ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Failed to parse the search query" });
+  }
 });
