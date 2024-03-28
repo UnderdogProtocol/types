@@ -2,7 +2,6 @@ import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
 import {
-  createTransactionResponseSchema,
   nftPaginatedResponseSchema,
   paginatedQuerySchema,
   projectPaginatedResponseSchema,
@@ -78,9 +77,9 @@ export const searchProjectsResponseSchema = registry.register(
   projectPaginatedResponseSchema
 );
 
-export type ParsedSearchProjectsRawRequest = z.infer<typeof searchProjectsRequestSchema>;
+export type ParsedSearchProjectsRequest = z.infer<typeof searchProjectsRequestSchema>;
 export type SearchProjectsRequest = {
-  query: Omit<ParsedSearchProjectsRawRequest, "query"> & { query: string };
+  query: Omit<ParsedSearchProjectsRequest["query"], "query"> & { query: string };
 };
 export type SearchProjectsResponse = z.infer<typeof searchProjectsResponseSchema>;
 
