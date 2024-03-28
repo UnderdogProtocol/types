@@ -8,6 +8,7 @@ import {
   nftTransactionResponseSchema,
   paginatedQuerySchema,
   projectParamsSchema,
+  searchQuerySchema,
   sortQuerySchema,
 } from "../api";
 import {
@@ -146,7 +147,7 @@ export const searchNftsRequestSchema = registry.register(
     query: paginatedQuerySchema.merge(sortQuerySchema).merge(
       z.object({
         search: z.string().optional(),
-        query: z.string().optional(),
+        query: searchQuerySchema.optional(),
       })
     ),
   })
@@ -154,7 +155,10 @@ export const searchNftsRequestSchema = registry.register(
 
 export const searchNftsResponseSchema = registry.register("SearchNftsResponse", nftPaginatedResponseSchema);
 
-export type SearchNftsRequest = z.infer<typeof searchNftsRequestSchema>;
+export type ParsedSearchNftsRequest = z.infer<typeof searchNftsRequestSchema>;
+export type SearchNftsRequest = Omit<ParsedSearchNftsRequest, "query"> & {
+  query: Omit<ParsedSearchNftsRequest["query"], "query"> & { query: string };
+};
 export type SearchNftsResponse = z.infer<typeof searchNftsResponseSchema>;
 
 export const updateNftRequestSchema = registry.register(

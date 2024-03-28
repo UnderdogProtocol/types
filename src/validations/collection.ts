@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { createPaginatedResponseSchema, paginatedQuerySchema } from "../api";
+import { createPaginatedResponseSchema, paginatedQuerySchema, searchQuerySchema } from "../api";
 import { base58PublicKeySchema, collectionSchema, publicNftSchema } from "../models";
 
 export const getCollectionsRequestSchema = z.object({
@@ -36,9 +36,5 @@ export type SearchCollectionRequest = z.infer<typeof searchCollectionRequestSche
 
 export const searchCollectionRequestSchema = z.object({
   params: z.object({ mintAddress: base58PublicKeySchema }),
-  query: paginatedQuerySchema.merge(
-    z.object({
-      query: z.string(),
-    })
-  ),
+  query: paginatedQuerySchema.merge(z.object({ query: searchQuerySchema })),
 });

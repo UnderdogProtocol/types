@@ -18,3 +18,13 @@ export const createShopPayloadSchema = metadataSchema.merge(
 );
 
 export type CreateShopPayload = z.infer<typeof createShopPayloadSchema>;
+
+export const shopAttributesSchema = z.object({
+  supply: z.coerce.number().optional(),
+  price: z.coerce.number().optional(),
+  whitelist: base58PublicKeySchema.optional(),
+  namespace: z.string().optional(),
+  creator: base58PublicKeySchema.optional(),
+  token: base58PublicKeySchema.optional(),
+  expiredAt: z.string().optional(),
+});

@@ -8,6 +8,7 @@ import {
   projectPaginatedResponseSchema,
   projectParamsSchema,
   projectTransactionResponseSchema,
+  searchQuerySchema,
   sortQuerySchema,
 } from "../api";
 import {
@@ -67,7 +68,9 @@ export type GetProjectsResponse = z.infer<typeof getProjectsResponseSchema>;
 
 export const searchProjectsRequestSchema = registry.register(
   "SearchProjectsRequest",
-  z.object({ query: paginatedQuerySchema.merge(sortQuerySchema).merge(z.object({ query: z.string() })) })
+  z.object({
+    query: paginatedQuerySchema.merge(sortQuerySchema).merge(z.object({ query: searchQuerySchema })),
+  })
 );
 
 export const searchProjectsResponseSchema = registry.register(
@@ -75,7 +78,10 @@ export const searchProjectsResponseSchema = registry.register(
   projectPaginatedResponseSchema
 );
 
-export type SearchProjectsRequest = z.infer<typeof searchProjectsRequestSchema>;
+export type ParsedSearchProjectsRawRequest = z.infer<typeof searchProjectsRequestSchema>;
+export type SearchProjectsRequest = {
+  query: Omit<ParsedSearchProjectsRawRequest, "query"> & { query: string };
+};
 export type SearchProjectsResponse = z.infer<typeof searchProjectsResponseSchema>;
 
 export const getProjectRequestSchema = registry.register(
