@@ -11,3 +11,12 @@ export const createCoreAssetPayloadSchema = createCoreProjectPayloadSchema.merge
 );
 
 export type CreateCoreAssetPayload = z.infer<typeof createCoreAssetPayloadSchema>;
+
+export const batchCoreProjectAssetPayloadSchema = z.object({
+  projectId: idSchema,
+  batch: z
+    .object({ receiverAddress: base58PublicKeySchema, nftId: idSchema, metadata: metadataSchema })
+    .array(),
+});
+
+export type BatchCoreProjectAssetPayload = z.infer<typeof batchCoreProjectAssetPayloadSchema>;

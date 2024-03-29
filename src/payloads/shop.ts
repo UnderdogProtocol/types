@@ -6,7 +6,7 @@ export const createShopPayloadSchema = metadataSchema.merge(
   z.object({
     price: z.number().min(0).nullable().default(0),
     token: base58PublicKeySchema.optional(),
-    whitelist: base58PublicKeySchema.optional(),
+    whitelist: z.string().optional(),
     supply: z.number().min(0),
     sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
     namespace: z.string().optional(),
