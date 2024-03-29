@@ -39,13 +39,7 @@ export const createNftRequestSchema = registry.register(
   "CreateNftRequest",
   z.object({
     params: projectParamsSchema,
-    body: createNftInputSchema.merge(
-      z.object({
-        upsert: z.boolean().optional().openapi({
-          description: "If true, will update the NFT if one with the same owner / claimer exists",
-        }),
-      })
-    ),
+    body: createNftInputSchema,
   })
 );
 
