@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { base58PublicKeySchema, idSchema, sellerFeeBasisPointsSchema } from "../models";
+import { base58PublicKeySchema, idSchema, metadataSchema, sellerFeeBasisPointsSchema } from "../models";
 import { orgPayloadSchema } from "./org";
 
 export const projectPayloadSchema = orgPayloadSchema.merge(z.object({ projectId: idSchema }));
@@ -14,11 +14,7 @@ export const createProjectPayloadSchema = projectPayloadSchema.merge(
 export type CreateProjectPayload = z.infer<typeof createProjectPayloadSchema>;
 
 export const updateProjectPayloadSchema = projectPayloadSchema.merge(
-  z.object({
-    name: z.string(),
-    symbol: z.string(),
-    sellerFeeBasisPoints: sellerFeeBasisPointsSchema,
-  })
+  z.object({ metadata: metadataSchema, sellerFeeBasisPoints: sellerFeeBasisPointsSchema })
 );
 export type UpdateProjectPayload = z.infer<typeof updateProjectPayloadSchema>;
 
