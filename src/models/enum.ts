@@ -48,7 +48,9 @@ export enum TransactionTypesEnum {
   ProjectUpdate = "PROJECT_UPDATE",
 
   CoreProjectCreate = "CORE_PROJECT_CREATE",
+  CoreProjectUpdate = "CORE_PROJECT_UPDATE",
   CoreProjectAssetCreate = "CORE_PROJECT_ASSET_CREATE",
+  CoreProjectAssetUpdate = "CORE_PROJECT_ASSET_UPDATE",
   CoreProjectAssetBatch = "CORE_PROJECT_ASSET_BATCH",
 
   ProjectNftCreate = "PROJECT_NFT_CREATE",
