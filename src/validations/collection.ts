@@ -44,6 +44,7 @@ export type CreateCollectionClaimTransactionRequest = z.infer<
 export const createCollectionClaimTransactionResponseSchema = z.object({
   transaction: z.string(),
   mintAddress: base58PublicKeySchema,
+  lastValidBlockHeight: z.number(),
 });
 
 export type CreateCollectionClaimTransactionResponse = z.infer<
