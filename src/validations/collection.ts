@@ -32,9 +32,11 @@ export const getCollectionResponseSchema = collectionSchema.merge(
 
 export type GetCollectionResponse = z.infer<typeof getCollectionResponseSchema>;
 
-export type SearchCollectionRequest = z.infer<typeof searchCollectionRequestSchema>;
-
-export const searchCollectionRequestSchema = z.object({
+export const createCollectionClaimTransactionRequestSchema = z.object({
   params: z.object({ mintAddress: base58PublicKeySchema }),
-  query: paginatedQuerySchema.merge(z.object({ query: searchQuerySchema })),
+  body: z.object({ account: base58PublicKeySchema }),
 });
+
+export type CreateCollectionClaimTransactionRequest = z.infer<
+  typeof createCollectionClaimTransactionRequestSchema
+>;
