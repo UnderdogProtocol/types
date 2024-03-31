@@ -40,3 +40,12 @@ export const createCollectionClaimTransactionRequestSchema = z.object({
 export type CreateCollectionClaimTransactionRequest = z.infer<
   typeof createCollectionClaimTransactionRequestSchema
 >;
+
+export const createCollectionClaimTransactionResponseSchema = z.object({
+  transaction: z.string(),
+  mintAddress: base58PublicKeySchema,
+});
+
+export type CreateCollectionClaimTransactionResponse = z.infer<
+  typeof createCollectionClaimTransactionResponseSchema
+>;
