@@ -7,6 +7,7 @@ export const createDustPayloadSchema = metadataSchema.merge(
     csvUrl: z.string(),
     treeAddress: z.string().optional(),
     sellerFeeBasisPoints: sellerFeeBasisPointsSchema.optional(),
+    core: z.boolean().optional(),
   })
 );
 
