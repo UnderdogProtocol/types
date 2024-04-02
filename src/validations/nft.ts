@@ -45,7 +45,7 @@ export const createNftRequestSchema = registry.register(
 
 export type CreateNftRequest = {
   params: z.infer<typeof projectParamsSchema>;
-  body: CreateNftInput & { upsert?: boolean };
+  body: CreateNftInput;
 };
 
 export const createTransferableNftResponseSchema = registry.register(

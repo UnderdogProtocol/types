@@ -10,9 +10,7 @@ export const updateCoreProjectPayloadSchema = createCoreProjectPayloadSchema.mer
 );
 export type UpdateCoreProjectPayload = z.infer<typeof updateCoreProjectPayloadSchema>;
 
-export const createCoreAssetPayloadSchema = createCoreProjectPayloadSchema.merge(
-  z.object({ nftId: idSchema, receiverAddress: base58PublicKeySchema })
-);
+export const createCoreAssetPayloadSchema = z.object({ projectId: idSchema, nftId: idSchema });
 export type CreateCoreAssetPayload = z.infer<typeof createCoreAssetPayloadSchema>;
 
 export const batchCoreProjectAssetPayloadSchema = z.object({
