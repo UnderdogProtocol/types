@@ -16,7 +16,12 @@ export type CreateCoreAssetPayload = z.infer<typeof createCoreAssetPayloadSchema
 export const batchCoreProjectAssetPayloadSchema = z.object({
   projectId: idSchema,
   batch: z
-    .object({ receiverAddress: base58PublicKeySchema, nftId: idSchema, metadata: metadataSchema })
+    .object({
+      receiverAddress: base58PublicKeySchema,
+      nftId: idSchema,
+      metadata: metadataSchema,
+      delegated: z.boolean().optional(),
+    })
     .array(),
 });
 export type BatchCoreProjectAssetPayload = z.infer<typeof batchCoreProjectAssetPayloadSchema>;
