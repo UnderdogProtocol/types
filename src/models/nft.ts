@@ -5,7 +5,7 @@ import { base58PublicKeySchema, metadataSchema } from "./metadata";
 
 extendZodWithOpenApi(z);
 
-export const nftSchema = metadataSchema.merge(
+export const nftSchema = metadataSchema.partial().merge(
   z.object({
     id: z.number().openapi({ description: "Unique ID for an NFT in a Project" }),
     projectId: z.number().optional().openapi({ description: "The ID of the Project the NFT is part of" }),
@@ -16,7 +16,7 @@ export const nftSchema = metadataSchema.merge(
       description: "Whether or not the NFTs in the Project are compressed",
     }),
     delegated: z.boolean().optional(),
-    mintAddress: base58PublicKeySchema,
+    mintAddress: z.string(),
     ownerAddress: base58PublicKeySchema
       .nullish()
       .openapi({ description: "Wallet address for the NFT's owner" }),
