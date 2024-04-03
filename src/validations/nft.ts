@@ -90,12 +90,7 @@ export const batchNftResponseSchema = registry.register(
 );
 export type BatchNftResponse = z.infer<typeof batchNftResponseSchema>;
 
-export const getNftRequestSchema = registry.register(
-  "GetNftRequest",
-  z.object({
-    params: nftParamsSchema,
-  })
-);
+export const getNftRequestSchema = registry.register("GetNftRequest", z.object({ params: nftParamsSchema }));
 
 export const getNftResponseSchema = registry.register("GetNftResponse", nftSchema);
 

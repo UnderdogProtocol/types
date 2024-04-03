@@ -15,11 +15,12 @@ export const nftSchema = metadataSchema.merge(
     compressed: z.boolean().optional().openapi({
       description: "Whether or not the NFTs in the Project are compressed",
     }),
+    delegated: z.boolean().optional(),
     mintAddress: base58PublicKeySchema,
     ownerAddress: base58PublicKeySchema
-      .optional()
+      .nullish()
       .openapi({ description: "Wallet address for the NFT's owner" }),
-    claimerAddress: base58PublicKeySchema.optional().openapi({
+    claimerAddress: base58PublicKeySchema.nullish().openapi({
       description: "Wallet address allowed to claim the NFT",
     }),
     status: z.string(),
