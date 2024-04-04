@@ -30,3 +30,11 @@ export const updateCoreAssetPayloadSchema = createCoreProjectPayloadSchema.merge
   z.object({ nftId: idSchema, metadata: metadataSchema })
 );
 export type UpdateCoreAssetPayload = z.infer<typeof updateCoreAssetPayloadSchema>;
+
+export const transferCoreProjectAssetPayloadSchema = createCoreAssetPayloadSchema.merge(
+  z.object({ receiverAddress: base58PublicKeySchema })
+);
+export type TransferCoreProjectAssetPayload = z.infer<typeof transferCoreProjectAssetPayloadSchema>;
+
+export const burnCoreProjectAssetPayloadSchema = createCoreAssetPayloadSchema;
+export type BurnCoreProjectAssetPayload = z.infer<typeof burnCoreProjectAssetPayloadSchema>;
