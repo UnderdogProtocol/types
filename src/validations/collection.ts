@@ -1,4 +1,4 @@
-omport { z } from "zod";
+import { z } from "zod";
 
 import { createPaginatedResponseSchema, paginatedQuerySchema } from "../api";
 import { base58PublicKeySchema, collectionSchema, publicNftSchema } from "../models";
