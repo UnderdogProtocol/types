@@ -223,3 +223,16 @@ export const burnNftResponseSchema = registry.register("BurnNftResponse", nftTra
 
 export type BurnNftRequest = z.infer<typeof burnNftRequestSchema>;
 export type BurnNftResponse = z.infer<typeof burnNftResponseSchema>;
+
+export const createNftClaimTransactionRequestSchema = z.object({
+  params: z.object({ mintAddress: base58PublicKeySchema }),
+  body: z.object({ claimerAddress: base58PublicKeySchema }),
+});
+export type CreateNftClaimTransactionRequest = z.infer<typeof createNftClaimTransactionRequestSchema>;
+
+export const createNftClaimTransactionResponseSchema = z.object({
+  transaction: z.string(),
+  lastValidBlockHeight: z.number(),
+  mintAddress: base58PublicKeySchema,
+});
+export type CreateNftClaimTransactionResponse = z.infer<typeof createNftClaimTransactionResponseSchema>;
