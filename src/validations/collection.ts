@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-import { createPaginatedResponseSchema, paginatedQuerySchema } from "../api";
-import { base58PublicKeySchema, collectionSchema, publicNftSchema } from "../models";
+import { createPaginatedResponseSchema, paginatedQuerySchema, sortQuerySchema } from "../api";
+import { base58PublicKeySchema, collectionSchema, publicNftSchema, statusEnumSchema } from "../models";
 
 export const getCollectionsRequestSchema = z.object({
   query: paginatedQuerySchema.merge(z.object({ ownerAddress: base58PublicKeySchema })),
@@ -21,8 +21,9 @@ export type GetCollectionResponse = z.infer<typeof getCollectionResponseSchema>;
 
 export const getCollectionNftsRequestSchema = getCollectionRequestSchema.merge(
   z.object({
-    query: paginatedQuerySchema.merge(
+    query: paginatedQuerySchema.merge(sortQuerySchema).merge(
       z.object({
+        status: statusEnumSchema.optional(),
         ownerAddress: base58PublicKeySchema.optional(),
         identifier: z.string().optional(),
         namespace: z.string().optional(),
