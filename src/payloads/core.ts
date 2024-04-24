@@ -15,6 +15,7 @@ export type CreateCoreAssetPayload = z.infer<typeof createCoreAssetPayloadSchema
 
 export const batchCoreProjectAssetPayloadSchema = z.object({
   projectId: idSchema,
+  lazy: z.boolean().optional(),
   batch: z
     .object({
       receiverAddress: base58PublicKeySchema,
