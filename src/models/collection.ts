@@ -10,6 +10,7 @@ export const collectionSchema = projectSchema.pick({
   status: true,
   transferable: true,
   compressed: true,
+  core: true,
   name: true,
   symbol: true,
   description: true,
