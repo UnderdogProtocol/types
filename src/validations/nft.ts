@@ -236,3 +236,17 @@ export const createNftClaimTransactionResponseSchema = z.object({
   mintAddress: base58PublicKeySchema,
 });
 export type CreateNftClaimTransactionResponse = z.infer<typeof createNftClaimTransactionResponseSchema>;
+
+export const createNftPayTransactionRequestSchema = z.object({
+  params: z.object({ mintAddress: base58PublicKeySchema }),
+  body: z.object({ account: base58PublicKeySchema }),
+});
+
+export type CreateNftPayTransactionRequest = z.infer<typeof createNftPayTransactionRequestSchema>;
+
+export const createNftPayTransactionResponseSchema = z.object({
+  transaction: z.string(),
+  lastValidBlockHeight: z.number(),
+  mintAddress: base58PublicKeySchema,
+});
+export type CreateNftPayTransactionResponse = z.infer<typeof createNftPayTransactionResponseSchema>;
