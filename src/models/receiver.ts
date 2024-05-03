@@ -1,11 +1,13 @@
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
 import { z } from "zod";
 
+import { base58PublicKeySchema } from "./metadata";
+
 extendZodWithOpenApi(z);
 
 export const receiverSchema = z
   .object({
-    address: z.string().optional().openapi({
+    address: base58PublicKeySchema.optional().openapi({
       description: "Address that will receive the NFT",
       example: "7px1aXrdcySNHEF8aQ12iHBW5a2MVsqQU1ELkTdYAgjN",
     }),
