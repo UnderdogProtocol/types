@@ -18,6 +18,7 @@ import {
   sellerFeeBasisPointsSchema,
 } from "../models";
 import { registry } from "../openapi";
+import { nftsQuerySchema } from "./nft";
 
 extendZodWithOpenApi(z);
 
@@ -85,10 +86,7 @@ export type SearchProjectsResponse = z.infer<typeof searchProjectsResponseSchema
 
 export const getProjectRequestSchema = registry.register(
   "GetProjectRequest",
-  z.object({
-    params: projectParamsSchema,
-    query: paginatedQuerySchema.merge(sortQuerySchema),
-  })
+  z.object({ params: projectParamsSchema, query: nftsQuerySchema })
 );
 
 export const getProjectResponseSchema = registry.register(

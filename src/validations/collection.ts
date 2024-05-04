@@ -2,6 +2,7 @@ import { z } from "zod";
 
 import { createPaginatedResponseSchema, paginatedQuerySchema, sortQuerySchema } from "../api";
 import { base58PublicKeySchema, collectionSchema, publicNftSchema, statusEnumSchema } from "../models";
+import { nftsQuerySchema } from "./nft";
 
 export const getCollectionsRequestSchema = z.object({
   query: paginatedQuerySchema.merge(z.object({ ownerAddress: base58PublicKeySchema })),
@@ -20,16 +21,7 @@ export const getCollectionResponseSchema = collectionSchema;
 export type GetCollectionResponse = z.infer<typeof getCollectionResponseSchema>;
 
 export const getCollectionNftsRequestSchema = getCollectionRequestSchema.merge(
-  z.object({
-    query: paginatedQuerySchema.merge(sortQuerySchema).merge(
-      z.object({
-        status: statusEnumSchema.optional(),
-        ownerAddress: base58PublicKeySchema.optional(),
-        identifier: z.string().optional(),
-        namespace: z.string().optional(),
-      })
-    ),
-  })
+  z.object({ query: nftsQuerySchema })
 );
 export type GetCollectionNftsRequest = z.infer<typeof getCollectionNftsRequestSchema>;
 

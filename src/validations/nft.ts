@@ -17,6 +17,7 @@ import {
   publicNftSchema,
   base58PublicKeySchema,
   delegatedSchema,
+  statusEnumSchema,
 } from "../models";
 import { Receiver, receiverSchema } from "../models/receiver";
 import { registry } from "../openapi";
@@ -31,22 +32,14 @@ export const createNftInputSchema = metadataSchema.merge(
   })
 );
 
-export type CreateNftInput = Omit<z.infer<typeof createNftInputSchema>, "receiver"> & {
-  receiver?: Receiver;
-};
+export type CreateNftInput = Omit<z.infer<typeof createNftInputSchema>, "receiver"> & { receiver?: Receiver };
 
 export const createNftRequestSchema = registry.register(
   "CreateNftRequest",
-  z.object({
-    params: projectParamsSchema,
-    body: createNftInputSchema,
-  })
+  z.object({ params: projectParamsSchema, body: createNftInputSchema })
 );
 
-export type CreateNftRequest = {
-  params: z.infer<typeof projectParamsSchema>;
-  body: CreateNftInput;
-};
+export type CreateNftRequest = { params: z.infer<typeof projectParamsSchema>; body: CreateNftInput };
 
 export const createTransferableNftResponseSchema = registry.register(
   "CreateTransferableNftResponse",
@@ -110,18 +103,20 @@ export const getNftByMintAddressResponseSchema = registry.register(
 export type GetNftByMintAddressRequest = z.infer<typeof getNftByMintAddressRequestSchema>;
 export type GetNftByMintAddressResponse = z.infer<typeof getNftByMintAddressResponseSchema>;
 
+export const nftsQuerySchema = paginatedQuerySchema.merge(sortQuerySchema).merge(
+  paginatedQuerySchema.merge(sortQuerySchema).merge(
+    z.object({
+      ownerAddress: base58PublicKeySchema.optional(),
+      identifier: z.string().optional(),
+      namespace: z.string().optional(),
+      status: statusEnumSchema.optional(),
+    })
+  )
+);
+
 export const getNftsRequestSchema = registry.register(
   "GetNftsRequest",
-  z.object({
-    params: projectParamsSchema,
-    query: paginatedQuerySchema.merge(sortQuerySchema).merge(
-      z.object({
-        ownerAddress: base58PublicKeySchema.optional(),
-        identifier: z.string().optional(),
-        namespace: z.string().optional(),
-      })
-    ),
-  })
+  z.object({ params: projectParamsSchema, query: nftsQuerySchema })
 );
 
 export const getNftsResponseSchema = registry.register("GetNftsResponse", nftPaginatedResponseSchema);
