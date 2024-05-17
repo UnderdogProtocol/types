@@ -5,7 +5,6 @@ import { base58PublicKeySchema } from "../models";
 export const createTokenPayloadSchema = z.object({
   name: z.string(),
   symbol: z.string(),
-  uri: z.string(),
   image: z.string(),
   transferable: z.boolean(),
   decimals: z.number().min(0).max(9),
