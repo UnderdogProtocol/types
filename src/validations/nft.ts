@@ -79,7 +79,7 @@ export type BatchNftRequest = {
 
 export const batchNftResponseSchema = registry.register(
   "BatchNftResponse",
-  nftTransactionResponseSchema.omit({ mintAddress: true }).array()
+  assetTransactionResponseSchema.partial({ mintAddress: true }).array()
 );
 export type BatchNftResponse = z.infer<typeof batchNftResponseSchema>;
 
