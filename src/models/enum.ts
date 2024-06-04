@@ -78,6 +78,7 @@ export enum TransactionTypesEnum {
   TokenCreate = "TOKEN_CREATE",
   TokenRenounce = "TOKEN_RENOUNCE",
   TokenMint = "TOKEN_MINT",
+  TokenTransfer = "TOKEN_TRANSFER",
 
   TreeCreate = "TREE_CREATE",
 }
