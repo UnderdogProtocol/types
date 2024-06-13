@@ -14,7 +14,6 @@ export const subscriptionSchema = z.object({
 export const meSchema = z.object({
   address: base58PublicKeySchema,
   email: z.string().email().optional(),
-  paid: z.boolean(),
   createdAt: z.string(),
   org: orgSchema.optional(),
   subscription: subscriptionSchema.optional(),

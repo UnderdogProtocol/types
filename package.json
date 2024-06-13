@@ -17,7 +17,7 @@
     "lint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix"
   },
   "dependencies": {
-    "@asteasolutions/zod-to-openapi": "^4.6.0",
+    "@asteasolutions/zod-to-openapi": "4.6.0",
     "@metaplex-foundation/umi": "^0.8.10",
     "@solana/web3.js": "^1.87.0",
     "pegjs": "^0.10.0",
