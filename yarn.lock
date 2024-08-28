@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-"@asteasolutions/zod-to-openapi@^4.6.0":
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/@asteasolutions/zod-to-openapi/-/zod-to-openapi-4.8.0.tgz#34c29228c5cd0098a534b3536c9f486fafca2cc1"
-  integrity sha512-FQlBeHIhSoEhjddAWD1v2zbeBESfTdaAVQuUr0RY9t0rN8ogoEaGirv2Ne8kQQTAVGydJzUMAOIlPULEOQDoeA==
+"@asteasolutions/zod-to-openapi@4.6.0":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@asteasolutions/zod-to-openapi/-/zod-to-openapi-4.6.0.tgz#cf458fef603917a8d137e7a0d231119c2bb2253a"
+  integrity sha512-23tcf85OI7ESnZPvBO8Ob39eJbFvfex13HDrrrpIXVytHcqKiiiJMNrYUwDJrVPYm6Wl12vdpYwSYDGi1quk/Q==
   dependencies:
-    openapi3-ts "^4.1.2"
+    openapi3-ts "^3.1.1"
 
 "@babel/runtime@^7.17.2", "@babel/runtime@^7.23.2":
   version "7.23.5"
@@ -916,12 +916,12 @@ onetime@^5.1.2:
   dependencies:
     mimic-fn "^2.1.0"
 
-openapi3-ts@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/openapi3-ts/-/openapi3-ts-4.1.2.tgz#f15cd4794e3a7c9b388fd45dfbefc78501f7043e"
-  integrity sha512-B7gOkwsYMZO7BZXwJzXCuVagym2xhqsrilVvV0dnq2Di4+iLUXKVX9gOK23ZqaAHZOwABXN0QTdW8QnkUTX6DA==
+openapi3-ts@^3.1.1:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/openapi3-ts/-/openapi3-ts-3.2.0.tgz#7e30d33c480e938e67e809ab16f419bc9beae3f8"
+  integrity sha512-/ykNWRV5Qs0Nwq7Pc0nJ78fgILvOT/60OxEmB3v7yQ8a8Bwcm43D4diaYazG/KBn6czA+52XYy931WFLMCUeSg==
   dependencies:
-    yaml "^2.2.2"
+    yaml "^2.2.1"
 
 path-is-absolute@^1.0.0:
   version "1.0.1"
@@ -1233,7 +1233,12 @@ ws@^8.5.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.14.2.tgz#6c249a806eb2db7a20d26d51e7709eab7b2e6c7f"
   integrity sha512-wEBG1ftX4jcglPxgFCMJmZ2PLtSbJ2Peg6TmpJFTbe9GZYOQCDPdMYu/Tm0/bGZkw8paZnJY45J4K2PZrLYq8g==
 
-yaml@^2.2.2, yaml@^2.3.4:
+yaml@^2.2.1:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.5.0.tgz#c6165a721cf8000e91c36490a41d7be25176cf5d"
+  integrity sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==
+
+yaml@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.4.tgz#53fc1d514be80aabf386dc6001eb29bf3b7523b2"
   integrity sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==
