@@ -25,6 +25,13 @@ export enum PriorityEnum {
 
 export const priorityEnumSchema = z.nativeEnum(PriorityEnum);
 
+export enum StorageEnum {
+  Underdog,
+  Arweave,
+}
+
+export const storageEnumSchema = z.nativeEnum(StorageEnum);
+
 export enum StatusEnum {
   Burned = "burned",
   Confirmed = "confirmed",

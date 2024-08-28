@@ -8,7 +8,7 @@ extendZodWithOpenApi(z);
 
 export const base58PublicKeySchema = z
   .string()
-  .refine((value) => isPublicKey(value))
+  // .refine((value) => isPublicKey(value))
   .openapi({
     description: "Base-58 encoded string representing an on-chain address",
     example: "dustFPTV7dujoJjgkKtf6is3bYaFEy1nswS23vxHfvt",

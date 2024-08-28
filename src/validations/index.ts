@@ -15,3 +15,4 @@ export * from "./asset";
 export * from "./snapshot";
 export * from "./member";
 export * from "./tree";
+export * from "./file";
