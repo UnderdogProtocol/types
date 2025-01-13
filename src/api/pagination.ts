@@ -5,7 +5,6 @@ import {
   transactionSchema,
   nftSchema,
   projectSchema,
-  requestSchema,
   memberSchema,
   orgSchema,
   webhookSchema,
@@ -42,9 +41,6 @@ export const projectPaginatedResponseSchema =
   createPaginatedResponseSchema<typeof projectSchema>(projectSchema);
 
 export const nftPaginatedResponseSchema = createPaginatedResponseSchema<typeof nftSchema>(nftSchema);
-
-export const requestPaginatedResponseSchema =
-  createPaginatedResponseSchema<typeof requestSchema>(requestSchema);
 
 export const transactionPaginatedResponseSchema =
   createPaginatedResponseSchema<typeof transactionSchema>(transactionSchema);
